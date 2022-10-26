@@ -41,6 +41,7 @@ dropzone.addEventListener('drop',e=>{
     const draggable_id =e.dataTransfer.getData('text/plain');
     e.target.appendChild(document.getElementById(draggable_id))
     // css needed
+    w_a_d.style.display="none";
 });
 
 // similar to fiering dragenter sith set interval of 50ms
