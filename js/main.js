@@ -1,6 +1,10 @@
 const draggable = document.querySelector("#test");
 const dropzone = document.querySelector("#workspace");
-const w_a_d =document.querySelector("#dragon_deezenuts_all_over_your_face")
+
+const w_a_d = document.createElement("img")
+w_a_d.src = "images/what_a_drag.jpeg"
+
+
 /////////////////////////////////////////////////////////////////////////
 // drag and drop -test
 
@@ -41,7 +45,6 @@ dropzone.addEventListener('drop',e=>{
     const draggable_id =e.dataTransfer.getData('text/plain');
     e.target.appendChild(document.getElementById(draggable_id))
     // css needed
-    w_a_d.style.display="none";
 });
 
 // similar to fiering dragenter sith set interval of 50ms
