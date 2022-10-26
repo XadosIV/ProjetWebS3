@@ -5,13 +5,14 @@ const dropzone = document.querySelector("#workspace");
 const w_a_d = document.createElement("img")
 w_a_d.src = "images/what_a_drag.jpeg"
 
-
-draggable.clone = function (deep){
+function clone(deep=true){
     clone = this.cloneNode(deep)
     clone.id = this.id + "-" + this.cpt
     this.cpt++
-    return clone 
+    return clone
 }
+
+draggable.clone = clone
 
 /////////////////////////////////////////////////////////////////////////
 // drag and drop -test
@@ -51,7 +52,7 @@ dropzone.addEventListener('dragleave',e=>{
 dropzone.addEventListener('drop',e=>{
     e.preventDefault();
     const draggable_id =e.dataTransfer.getData('text/plain');
-    e.target.appendChild(document.getElementById(draggable_id).clone(true))
+    e.target.appendChild(document.getElementById(draggable_id).clone())
     // css needed
 });
 
