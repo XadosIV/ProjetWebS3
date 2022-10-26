@@ -1,0 +1,63 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#God{
+    height:100vh;
+    width: 100%;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+}
+#nav{
+    display: flex;
+    background-color: blueviolet;
+    flex-direction: row;
+    height: 5vh;
+}
+#main{
+    display: flex;
+    background-color:yellow;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 90vh;
+}
+#foot{
+    display: flex;
+    background-color: green;
+    flex-direction: row;
+    height: 5vh;
+}
+#leftbar{
+    display: flex;
+    background-color: pink;
+    flex-direction: column;
+    width: 5vw;
+}
+#rightbar{
+    display: flex;
+    background-color: blue;
+    flex-direction: column;
+    width: 5vw;
+}
+#workspace{
+    margin: 1em;
+    width: 90vw;
+    background-color: white;
+    border: 5px solid black;
+}
+header{
+    height: 10vh;
+    background-color: gray; 
+}
+footer{
+    height: 10vh;
+    background-color: gray;
+}
+/* test*/
+#dragon_deezenuts_all_over_your_face{
+    display: none;
+    height: 175px;
+    width: 150px;
+
+}
