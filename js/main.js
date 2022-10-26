@@ -9,7 +9,7 @@ const w_a_d =document.querySelector("#dragon_deezenuts_all_over_your_face")
 draggable.addEventListener('dragstart', e=>{
     e.dataTransfer.setData('text/plain',e.target.id);
     e.target.style.opacity =0.3;// css needed
-    e.dataTransfer.setDragImage(w_a_d,0,0);
+    e.dataTransfer.setDragImage(w_a_d,w_a_d.width/2,w_a_d.height/2);
     w_a_d.style.display="block";
     dropzone.style.border="5px dashed grey";// css needed
 });
@@ -41,6 +41,7 @@ dropzone.addEventListener('drop',e=>{
     const draggable_id =e.dataTransfer.getData('text/plain');
     e.target.appendChild(document.getElementById(draggable_id))
     // css needed
+    w_a_d.style.display="none";
 });
 
 // similar to fiering dragenter sith set interval of 50ms
