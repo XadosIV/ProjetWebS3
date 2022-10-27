@@ -24,8 +24,6 @@ function location_drag(location){
         e.preventDefault();
         const tool_id =e.dataTransfer.getData('text/plain');
         elem=document.getElementById(tool_id)
-        elem.cpt = 0
-        elem.clone = clone
         console.log(elem.clone)
         e.target.appendChild(elem.clone())
         
