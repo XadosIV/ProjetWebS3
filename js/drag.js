@@ -1,7 +1,6 @@
 // function that drags elements from toolbar to workspace
 
-function drag(id_el,location){
-    let element =document.querySelector("#"+id_el)
+function drag(element,location){
     element.addEventListener('dragstart', e=>{
         e.dataTransfer.setData('text/plain',e.target.id);
         e.dataTransfer.setDragImage(w_a_d,w_a_d.width/2,w_a_d.height/2)// css
