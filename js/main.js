@@ -1,17 +1,12 @@
 const draggable = document.querySelector("#test");
-draggable.cpt = 0
 const dropzone = document.querySelector("#workspace");
 
+//* css needed
 const w_a_d = document.createElement("img")
 w_a_d.src = "images/what_a_drag.jpeg"
+//*
 
-function clone(deep=true){
-    clone = this.cloneNode(deep)
-    clone.id = this.id + "-" + this.cpt
-    this.cpt++
-    return clone
-}
-
+draggable.cpt = 0
 draggable.clone = clone
 
 /////////////////////////////////////////////////////////////////////////
@@ -21,10 +16,10 @@ draggable.clone = clone
 // activates on mouse hold
 draggable.addEventListener('dragstart', e=>{
     e.dataTransfer.setData('text/plain',e.target.id);
-    e.target.style.opacity =0.3;// css needed
-    e.dataTransfer.setDragImage(w_a_d,w_a_d.width/2,w_a_d.height/2);
-    w_a_d.style.display="block";
-    dropzone.style.border="5px dashed grey";// css needed
+    e.dataTransfer.setDragImage(w_a_d,w_a_d.width/2,w_a_d.height/2)// css
+    e.target.style.opacity =0.3;// css 
+    w_a_d.style.display="block";// css 
+    dropzone.style.border="5px dashed grey";// css
 });
 
 // the user stoped dragging the object
@@ -44,7 +39,6 @@ dropzone.addEventListener('dragenter',e=>{
 // activates when hover leaving the dropzone with draggable
 dropzone.addEventListener('dragleave',e=>{
     // css needed 
-    
 });
 
 // works when object has successfully been dragged 
