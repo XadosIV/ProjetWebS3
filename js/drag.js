@@ -12,6 +12,9 @@ function drag(element,location){
         e.target.style.opacity =1;// css needed
         location.style.border="5px solid black";// css needed
     });
+}
+
+function location_drag(location){
     location.addEventListener('dragenter',e=>{
     });
     location.addEventListener('dragleave',e=>{
@@ -20,7 +23,11 @@ function drag(element,location){
     location.addEventListener('drop',e=>{
         e.preventDefault();
         const tool_id =e.dataTransfer.getData('text/plain');
-        e.target.appendChild(document.getElementById(tool_id).clone())
+        elem=document.getElementById(tool_id)
+        elem.cpt = 0
+        elem.clone = clone
+        console.log(elem.clone)
+        e.target.appendChild(elem.clone())
         
     });
     location.addEventListener('dragover',e=>{
