@@ -1,0 +1,20 @@
+welcome to the instuction you need to follow while coding:
+this file can be modified by any member of the group.
+
+HTML:
+- make sure to put the least html in html
+
+CSS:
+- use " /* begin element css */ element/* end element css */ " when you add css class or id
+- make sure to insert the class or id in the same location it is placed in html (header,body,footer,global)
+- when you want to try something , put it in the test area
+
+JS:
+- every time you creat a function , put it in a new js file
+- if your code need to be added in main.js make sure to start and end your code with 
+ "/////////////////////////////////////////////////////////////////////////"
+- in each part of code make sure to discribe its function
+- when css need to be added , put " // css needed "
+- add this symbole " //# " everytime you creat a variable
+
+PHP:
