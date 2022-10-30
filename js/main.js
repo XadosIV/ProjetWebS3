@@ -1,23 +1,38 @@
 /////////////////////////////////////////////////////////////////////////
+// difine global variables
+const body = document.querySelector("body"); //#
+const God = document.querySelector("#God"); //#
+const nav = document.querySelector("#nav"); //#
+const main = document.querySelector("#main"); //#
+const leftbar = document.querySelector("#leftbar"); //#
+const dropzone = document.querySelector("#dropzone"); //#
+const rightbar = document.querySelector("#rightbar"); //#
+const foot = document.querySelector("#foot"); //#
+/////////////////////////////////////////////////////////////////////////
+// Import tools from tools
+for (let tol of tools){
+    create(tol.item,rightbar,tol.text,tol.classs,tol.id,tol.draggable)
+}
+/////////////////////////////////////////////////////////////////////////
 // drag and drop tools from tool bar
 
-const dropzone = document.querySelector("#workspace"); //#
 //* css needed
 const w_a_d = document.createElement("img");//#
 w_a_d.src = "images/what_a_drag.jpeg";
 //*
 
-let tools = document.querySelectorAll(".tools");
+let tool = document.querySelectorAll(".tools");
 
-for(let tool of tools){
-	tool.cpt = 0;
-    tool.clone = clone;
-    drag(tool,dropzone);
+for(let tlo of tool){
+	tlo.cpt = 0;
+    tlo.clone = clone;
+    drag(tlo,dropzone);
 }
 location_drag(dropzone);
 
 /////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////
+
+
 /*let cloned = document.querySelectorAll(".cloned");
 
 for(let cln of cloned){

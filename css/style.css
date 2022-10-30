@@ -42,7 +42,7 @@ body{
 #leftbar{
     background-color: pink;
 }
-#workspace{
+#dropzone{
     margin: 1em;
     width: 90vw;
     background-color: white;
