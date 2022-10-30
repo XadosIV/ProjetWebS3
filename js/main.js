@@ -13,6 +13,7 @@ const foot = document.querySelector("#foot"); //#
 for (let tol of tools){
     create(tol.item,rightbar,tol.text,tol.classs,tol.id,tol.draggable)
 }
+
 /////////////////////////////////////////////////////////////////////////
 // drag and drop tools from tool bar
 
@@ -24,8 +25,6 @@ w_a_d.src = "images/what_a_drag.jpeg";
 let tool = document.querySelectorAll(".tools");
 
 for(let tlo of tool){
-	tlo.cpt = 0;
-    tlo.clone = clone;
     drag(tlo,dropzone);
 }
 location_drag(dropzone);

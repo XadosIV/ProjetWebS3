@@ -4,6 +4,7 @@ function drag(element,location){
     // the object is starting to get draged
     // activates on mouse hold
     element.addEventListener('dragstart', e=>{
+        console.log("fart")
         const H=w_a_d.height/2;
         const W=w_a_d.width/2;
         e.dataTransfer.setData('text/plain',e.target.id);
@@ -40,12 +41,24 @@ function location_drag(location){
     location.addEventListener('drop',e=>{
         e.preventDefault();
         const tool_id =e.dataTransfer.getData('text/plain');
-        elem=document.getElementById(tool_id);
-        e.target.appendChild(elem.clone());// modify this
-        
-        clone_elem.style.opacity =1;// css 
-        clone_elem.style.position="absolute";// convertion modification
-        clone_elem.style.top=`${Y}px`;// convertion modification
-        clone_elem.style.left=`${X}px`;// convertion modification  
+        el=document.getElementById(tool_id);
+        console.log(dropzone.contains(el))
+        if (!dropzone.contains(el)){
+            console.log("in")
+            let vz = document.querySelector("#"+clone_prime(el).id)
+            drag(vz,dropzone)
+            vz.style.opacity =1;// css 
+            vz.style.position="absolute";// convertion modification
+            vz.style.top=`${Y}px`;// convertion modification
+            vz.style.left=`${X}px`;// convertion modification  
+        }else{
+
+            console.log("out")
+            console.log(el)
+            el.style.opacity =1;// css 
+            el.style.position="absolute";// convertion modification
+            el.style.top=`${Y}px`;// convertion modification
+            el.style.left=`${X}px`;// convertion modification  
+        }  
     });
 }

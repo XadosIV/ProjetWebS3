@@ -11,4 +11,4 @@ function create(tagName, container, text=null, classs=null, id=null,draggable=fa
     if (draggable)
         element.setAttribute("draggable",draggable)
     return element
-}
+}   
