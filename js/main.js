@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////
-// drag and drop 
+// drag and drop tools from tool bar
 
 const dropzone = document.querySelector("#workspace"); //#
 //* css needed
@@ -17,3 +17,10 @@ for(let tool of tools){
 location_drag(dropzone);
 
 /////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+/*let cloned = document.querySelectorAll(".cloned");
+
+for(let cln of cloned){
+    console.log("yo");
+    moveAround(cln,dropzone);
+}*/

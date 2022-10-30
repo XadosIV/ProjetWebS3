@@ -6,8 +6,9 @@ It is used to duplicate the draged objects from the elementbar:
 */
 
 function clone(deep=true){
-    clone_elem = this.cloneNode(deep)
-    clone_elem.id = this.id + "-" + this.cpt
-    this.cpt++
-    return clone_elem
+  clone_elem = this.cloneNode(deep);
+  clone_elem.id = this.id + "-" + this.cpt;
+  this.cpt++;
+  clone_elem.classList.replace("tools","cloned")
+  return clone_elem
 }

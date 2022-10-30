@@ -18,3 +18,8 @@ JS:
 - add this symbole " //# " everytime you creat a variable
 
 PHP:
+
+General:
+-when you have a picture in mind of a function , put it in function to be done folder, and we will picture
+ what you want to do more easily.
+- always download github latest code when you start coding
