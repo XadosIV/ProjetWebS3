@@ -4,11 +4,10 @@ function drag(element,location){
     // the object is starting to get draged
     // activates on mouse hold
     element.addEventListener('dragstart', e=>{
-        console.log("fart")
         const H=w_a_d.height/2;
         const W=w_a_d.width/2;
         e.dataTransfer.setData('text/plain',e.target.id);
-        e.dataTransfer.setDragImage(w_a_d,W,H)// css
+        e.dataTransfer.setDragImage(w_a_d,H,W)// css
         e.target.style.opacity =0.3;// css 
         w_a_d.style.display="block";// css 
         location.style.border="5px dashed grey";// css
@@ -42,9 +41,7 @@ function location_drag(location){
         e.preventDefault();
         const tool_id =e.dataTransfer.getData('text/plain');
         el=document.getElementById(tool_id);
-        console.log(dropzone.contains(el))
         if (!dropzone.contains(el)){
-            console.log("in")
             let vz = document.querySelector("#"+clone_prime(el).id)
             drag(vz,dropzone)
             vz.style.opacity =1;// css 
@@ -52,9 +49,6 @@ function location_drag(location){
             vz.style.top=`${Y}px`;// convertion modification
             vz.style.left=`${X}px`;// convertion modification  
         }else{
-
-            console.log("out")
-            console.log(el)
             el.style.opacity =1;// css 
             el.style.position="absolute";// convertion modification
             el.style.top=`${Y}px`;// convertion modification

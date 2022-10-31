@@ -11,7 +11,8 @@ const foot = document.querySelector("#foot"); //#
 /////////////////////////////////////////////////////////////////////////
 // Import tools from tools
 for (let tol of tools){
-    create(tol.item,rightbar,tol.text,tol.classs,tol.id,tol.draggable)
+    //create(tol.item,rightbar,tol.text,tol.classs,tol.id,tol.draggable)
+    create_premium(tol,rightbar);
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -22,11 +23,14 @@ const w_a_d = document.createElement("img");//#
 w_a_d.src = "images/what_a_drag.jpeg";
 //*
 
-let tool = document.querySelectorAll(".tools");
+let tool = document.querySelectorAll(".tools");//#
 
 for(let tlo of tool){
     drag(tlo,dropzone);
 }
+
+/////////////////////////////////////////////////////////////////////////
+// function that makes the dropzone take stuff
 location_drag(dropzone);
 
 /////////////////////////////////////////////////////////////////////////

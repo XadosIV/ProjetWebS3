@@ -3,22 +3,46 @@ let tools =[
         "item":"button",
         "draggable":"true",
         "classs":"tools",
-        "id":"test",
-        "text":"drag me",
-        "idNbr":0
+        "id":"button",
+        "text":"button",
+        "idNbr":0,
+        "styles":[{"color":"black"}],
+        "attributes":[]
     },{
         "item":"p",
         "draggable":"true",
         "classs":"tools",
-        "id":"bro",
-        "text":"hello",
-        "idNbr":0
+        "id":"paragraph",
+        "text":"paragraph",
+        "idNbr":0,
+        "styles":[{"color":"gray"}],
+        "attributes":[]
     },{
         "item":"a",
         "draggable":"true",
         "classs":"tools",
-        "id":"brok",
-        "text":"mello",
-        "idNbr":0
-    }
+        "id":"link",
+        "text":"link",
+        "idNbr":0,
+        "styles":[{"color":"red"}],
+        "attributes":[]
+    },{
+        "item":"table",
+        "draggable":"true",
+        "classs":"tools",
+        "id":"table",
+        "text":"table",
+        "idNbr":0,
+        "styles":[{"color":"purple"}],
+        "attributes":[]
+    },{
+        "item":"input",
+        "draggable":"true",
+        "classs":"tools",
+        "id":"input",
+        "text":"input",
+        "idNbr":0,
+        "styles":[{"color":"yellow"}],
+        "attributes":[]
+    },
 ]
