@@ -1,13 +1,14 @@
-let tools =[
+let toolss =[
     {
-        "item":"button",
-        "draggable":"true",
+        "item":"button", // create element tag
+        "draggable":"true", // if draggable
         "classs":"tools",
         "id":"button",
         "text":"button",
-        "idNbr":0,
-        "styles":[{"color":"black"}],
-        "attributes":[]
+        "idNbr":0, // this will increase when clones are created
+        "styles":[{"color":"black"}], // style added by admin deafult
+        "attributes":[],  // attributes added by admin defult
+        "basic":"true"  // if able to be parent for childs set to false
     },{
         "item":"p",
         "draggable":"true",
@@ -16,7 +17,8 @@ let tools =[
         "text":"paragraph",
         "idNbr":0,
         "styles":[{"color":"gray"}],
-        "attributes":[]
+        "attributes":[],
+        "basic":"true"
     },{
         "item":"a",
         "draggable":"true",
@@ -25,7 +27,8 @@ let tools =[
         "text":"link",
         "idNbr":0,
         "styles":[{"color":"red"}],
-        "attributes":[]
+        "attributes":[],
+        "basic":"true"
     },{
         "item":"table",
         "draggable":"true",
@@ -34,15 +37,17 @@ let tools =[
         "text":"table",
         "idNbr":0,
         "styles":[{"color":"purple"}],
-        "attributes":[]
+        "attributes":[],
+        "basic":"false"
     },{
         "item":"input",
         "draggable":"true",
         "classs":"tools",
         "id":"input",
-        "text":"input",
+        "text":"",
         "idNbr":0,
         "styles":[{"color":"yellow"}],
-        "attributes":[]
-    },
+        "attributes":[],
+        "basic":"true" 
+    }
 ]

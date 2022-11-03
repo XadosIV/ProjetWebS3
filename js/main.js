@@ -1,22 +1,22 @@
 /////////////////////////////////////////////////////////////////////////
 // difine global variables
-const body = document.querySelector("body"); //#
-const God = document.querySelector("#God"); //#
-const nav = document.querySelector("#nav"); //#
-const main = document.querySelector("#main"); //#
+const body = document.querySelector("body"); //#--
+const God = document.querySelector("#God"); //#--
+const nav = document.querySelector("#nav"); //#--
+const main = document.querySelector("#main"); //#--
 const leftbar = document.querySelector("#leftbar"); //#
 const dropzone = document.querySelector("#dropzone"); //#
 const rightbar = document.querySelector("#rightbar"); //#
-const foot = document.querySelector("#foot"); //#
+const foot = document.querySelector("#foot"); //#--
 /////////////////////////////////////////////////////////////////////////
 // Import tools from tools
-for (let tol of tools){
+for (let tol of toolss){
     //create(tol.item,rightbar,tol.text,tol.classs,tol.id,tol.draggable)
     create_premium(tol,rightbar);
 }
 
 /////////////////////////////////////////////////////////////////////////
-// drag and drop tools from tool bar
+// drag and drop tools from tool bar to dropzone
 
 //* css needed
 const w_a_d = document.createElement("img");//#
@@ -36,9 +36,4 @@ location_drag(dropzone);
 /////////////////////////////////////////////////////////////////////////
 
 
-/*let cloned = document.querySelectorAll(".cloned");
-
-for(let cln of cloned){
-    console.log("yo");
-    moveAround(cln,dropzone);
-}*/
+let cloned = document.querySelectorAll(".cloned");

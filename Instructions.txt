@@ -16,6 +16,7 @@ JS:
 - in each part of code make sure to discribe its function
 - when css need to be added , put " // css needed "
 - add this symbole " //# " everytime you creat a variable
+- use "--" after a comment if an element is defined but not used yet
 
 PHP:
 
