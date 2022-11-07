@@ -22,14 +22,26 @@ possible de switch entre les pages (système d'onglet)
 
 
 ### Arborescence :
-
-=> Accueil : "attirer l'oeil et la connexion"
-
-
+	=> Accueil : "attirer l'oeil et la connexion"
+	Genre de site vitrine interactif pour voir les projets possible qu'on propose avec label "connectez vous pour commencer"
+	(et connexion inscription dans le header)
 	=> Connnexion / Inscription
-		=> Espace client (liste des projets)
+		=> Page utilisateur (avec modification des informations)
+		=> Espace client (liste des projets) <=> Accueil
 		=> Page création de site
 		=> Exportation (avec header (+bouton de download) et preview)
+
+Priorités
+1. Faire fonctionner l'ajout d'élément (et le css)
+2. Save les éléments and Load les éléments
+3. Ajout utilisateur (gestion de comptes, page de connexion/inscription)
+4. Workspace => HTML (une page) : La conversion
+5. Interactions utilisateurs (ajout/suppression de page)
+6. Page d'accueil
+7. Plusieurs pages par projet
+8. Preview
+9. Upload images et vidéos (et mp3 pour mamie)
+10. User premium
 
 # Monétisation :
 ## Compte gratuit :
