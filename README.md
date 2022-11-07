@@ -18,24 +18,10 @@
 Visuellement une page html avec du css
 possible de switch entre les pages (système d'onglet)
 	=> Qu'est ce qu'on autorise à l'utilisateur?
-		=> p
-		=> div
-		=> a (interne au site)
-		=> a (externe au site)
-		=> img (possiblité d'upload?) <=> (lien)
-		=> vid (possiblité d'upload?) <=> (lien)
-		=> tableau
-		=> bouton
-		=> h1
-		=> ...
+		h1, p, div, a (interne/externe au site), img/vid (lien) / upload?, tableau, bouton
 
-## Preview
 
-(bonus : Template)
-
-Arborescence :
-
-/ 
+### Arborescence :
 
 => Accueil : "attirer l'oeil et la connexion"
 
