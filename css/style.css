@@ -10,13 +10,15 @@ header{
 /* end header */
 /**************************************/
 /* begin body */
-body{
+html,body{
     margin: 0;
     padding: 0;
+    height: 100vh;
+    width: 100%;
 }
 /* begin god */
 #God{
-    height:100vh;
+    height:100%;
     width: 100%;
     background-color: aqua;
     display: flex;
@@ -41,6 +43,11 @@ body{
 }
 #leftbar{
     background-color: pink;
+}
+#deletion{
+    height: 25px;
+    display: none;
+    border:5px dashed red;
 }
 #dropzone{
     margin: 1em;
@@ -79,6 +86,6 @@ footer{
     display: none;
     height: 175px;
     width: 150px;
-
 }
+
 /* end test*/

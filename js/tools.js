@@ -1,53 +1,53 @@
-let toolss =[
+let tools =[
     {
         "item":"button", // create element tag
         "draggable":"true", // if draggable
-        "classs":"tools",
+        "classs":"tool",
         "id":"button",
         "text":"button",
         "idNbr":0, // this will increase when clones are created
-        "styles":[{"color":"black"}], // style added by admin deafult
+        "styles":[{"color":"black"},{"cursor":"pointer"}], // style added by admin deafult
         "attributes":[],  // attributes added by admin defult
-        "basic":"true"  // if able to be parent for childs set to false
+        "childs":"true"  // if able to be parent for childs set to false
     },{
         "item":"p",
         "draggable":"true",
-        "classs":"tools",
+        "classs":"tool",
         "id":"paragraph",
         "text":"paragraph",
         "idNbr":0,
-        "styles":[{"color":"gray"}],
+        "styles":[{"color":"gray"},{"cursor":"pointer"}],
         "attributes":[],
-        "basic":"true"
+        "childs":"true"
     },{
         "item":"a",
         "draggable":"true",
-        "classs":"tools",
+        "classs":"tool",
         "id":"link",
         "text":"link",
         "idNbr":0,
-        "styles":[{"color":"red"}],
+        "styles":[{"color":"red"},{"cursor":"pointer"}],
         "attributes":[],
-        "basic":"true"
+        "childs":"true"
     },{
         "item":"table",
         "draggable":"true",
-        "classs":"tools",
+        "classs":"tool",
         "id":"table",
         "text":"table",
         "idNbr":0,
-        "styles":[{"color":"purple"}],
+        "styles":[{"color":"purple"},{"cursor":"pointer"}],
         "attributes":[],
-        "basic":"false"
+        "childs":"true"
     },{
         "item":"input",
         "draggable":"true",
-        "classs":"tools",
+        "classs":"tool",
         "id":"input",
         "text":"",
         "idNbr":0,
-        "styles":[{"color":"yellow"}],
-        "attributes":[],
-        "basic":"true" 
+        "styles":[{"color":"blue"},{"border":"10px solid pink"},{"cursor":"pointer"}],
+        "attributes":[{"placeholder":"fuck you granny"}],
+        "childs":"false" 
     }
 ]

@@ -7,35 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>hello</h1>
+    <button id="yo" class="yo" onclick="lol()">HELLO</button>
     <style>
-
+        .yo{
+            position: absolute;
+            top: 200px;
+            left: 200px;
+        }
+        .yop{
+            position: absolute;
+            top: 50vh;
+            left: 50vw;
+            transition: 3s;
+            font-size: xx-large;
+        }
     </style>
+        
     <script>
-        let cloneing =[
-            {
-                "item":"button",
-                "draggable":"true",
-                "classs":"tools",
-                "id":"test",
-                "text":"drag me"
-            },{
-                "item":"p",
-                "draggable":"true",
-                "classs":"tools",
-                "id":"bro",
-                "text":"hello"
-            },{
-                "item":"a",
-                "draggable":"true",
-                "classs":"tools",
-                "id":"brok",
-                "text":"mello"
-            }
-        ]
-        cloneing.push({"rgydt":"dth"});
-        console.log(cloneing);
-
+    
+        function lol(){
+            document.querySelector("#yo").classList.replace("yo","yop"); 
+        }
     </script>
 </body>
 </html>
