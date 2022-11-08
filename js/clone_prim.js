@@ -7,7 +7,7 @@ function clone_prime(elem){//elem is an object "tool"
             drag(sh,dropzone);// apply dragable on clone
             sh.id=sh.id+"_"+er.idNbr;// put unique id to eachy clone
             sh.classList.replace("tool","cloned");// make clones have a class of cloned
-            store(er);
+            //store(er);
             return sh;
         }
     }
