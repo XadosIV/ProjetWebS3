@@ -24,4 +24,10 @@ dele.addEventListener('drop',e=>{
     }
 });
 
-
+// function that deletes all elements in dropzone
+function delete_all_clones(){
+    let clones = document.querySelectorAll(".cloned");
+    for(let clone of clones){
+        clone.remove();
+    }
+}
