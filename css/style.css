@@ -3,6 +3,10 @@
 .cloned,.tool{
     cursor: move;
 }
+
+.invisible{
+    display:None;
+}
 /* end global css */
 /**************************************/
 /* begin header */
@@ -74,7 +78,6 @@ html,body{
     cursor: pointer;
 }
 .dropzone{
-    display: none;
     height: 95%;
 }
 #rightbar{

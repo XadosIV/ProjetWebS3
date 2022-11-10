@@ -18,7 +18,7 @@ dele.addEventListener('drop',e=>{
     e.preventDefault();
     const tool_id =e.dataTransfer.getData('text/plain');
     el=document.getElementById(tool_id);
-    if (dropzone.contains(el)){
+    if (current_dropzone.contains(el)){
         el.remove();
         dragend();
     }
@@ -27,8 +27,7 @@ dele.addEventListener('drop',e=>{
 // function that deletes all elements in dropzone
 // error need urgent modification
 function delete_all_clones(){
-    let clones = document.querySelectorAll(".cloned");
-    for(let clone of clones){
-        clone.remove();
+    while (current_dropzone.childNodes.length != 0){
+        current_dropzone.removeChild(current_dropzone.childNodes[0])
     }
 }

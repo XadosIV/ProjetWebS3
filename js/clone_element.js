@@ -8,9 +8,6 @@ function clone_prime(elem,container){//elem is an object "tool"
             sh.id=sh.id+"_"+er.idNbr;// put unique id to eachy clone
             sh.classList.replace("tool","cloned");// make clones have a class of cloned
             //store(er);
-            if(elem.id=="local-link"){
-                create_local_link(sh,er)
-            }
             return sh;
         }
     }

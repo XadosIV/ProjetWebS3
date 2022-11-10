@@ -1,42 +1,44 @@
-// function that will allow the user to create pages in his/her website
-let website =document.querySelector("#website");
-// function that create new canvas
-function create_local_link(object,tool){
-    if(true){
-        new_button = create("button",tabs,object.id,null,tool.idNbr);
-        new_button.setAttribute("onclick","z_index_depth(this.id,this)");
+var website = document.querySelector("#website")
+var tabs = document.querySelector("#tabs")
+var pages = []
 
-        new_div = create("div",website,null,"dropzone","dropzone"+tool.idNbr);
-        new_div.style.zIndex=-tool.idNbr;
-        drop(new_div);
-    }
-}
-// 2 functions that creates switching between tabs
-var compteur=0;
-function z_index_depth(id_button,button){
-    let box = document.querySelectorAll(".dropzone");//#
-    for(let drp of box){
-        if("dropzone"+id_button==drp.id && drp.style.zIndex==-id_button && compteur==0){
-
-            drp.style.zIndex=id_button;//css 
-            drp.style.display="block";//css
-            button.style.backgroundColor="white";//css
-
-            res=button;
-            res_id=id_button;
-            res_page=drp;
-
-            compteur++;
-        }else if("dropzone"+id_button==drp.id && drp.style.zIndex==-id_button && compteur>0){
-            reverse(res_id,res_page,res);
-            compteur=0;
-            return z_index_depth(id_button,button);
+function switch_pages(nb){
+    var args = nb.split("_")
+    nb = args[args.length-1]
+    for (var i in pages){
+        var button = document.querySelector("#tab_button_"+i)
+        if (i == nb){
+            pages[i].classList.remove("invisible")
+            current_dropzone = pages[i]
+            button.style.backgroundColor="white"
+        }else{
+            pages[i].classList.add("invisible")
+            button.style.backgroundColor="buttonface"
         }
     }
 }
 
-function reverse(id_button,object,item){
-    object.style.zIndex=-id_button;//css
-    object.style.display="none";//css
-    item.style.backgroundColor="buttonface";//css
+function create_tab(){
+    //Crée un nouvel onglet et le sélectionne
+    var id = pages.length
+    var button = document.createElement("button")
+    button.id = "tab_button_"+id
+    button.innerText = id
+    button.setAttribute("onclick","switch_pages(this.id)");
+    var dropzone = document.createElement("div")
+    dropzone.classList.add("invisible")
+    drop(dropzone)
+    website.appendChild(dropzone)
+    tabs.insertBefore(button, plus_button)
+    pages.push(dropzone)
+    switch_pages(button.id)
 }
+
+create_tab()
+
+var plus_button = document.createElement("button")
+plus_button.id = "plus_button"
+plus_button.innerText = "+"
+plus_button.setAttribute("onclick", "create_tab()")
+tabs.appendChild(plus_button)
+var current_dropzone = pages[0]

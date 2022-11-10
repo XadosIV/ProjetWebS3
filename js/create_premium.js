@@ -10,7 +10,8 @@ function create_premium(object,container) {
         element.id = object.id
     }
     if (object.draggable !=""){
-        element.setAttribute("draggable",object.draggable)}
+        element.setAttribute("draggable",object.draggable)
+    }
     if (object.styles.length != 0){//apply all styles to element
         for(let stl of object.styles){
             for(u in stl){
