@@ -1,5 +1,8 @@
 /**************************************/
 /* begin global css */
+.cloned,.tool{
+    cursor: move;
+}
 /* end global css */
 /**************************************/
 /* begin header */
@@ -49,11 +52,30 @@ html,body{
     display: none;
     border:5px dashed red;
 }
-#dropzone{
-    margin: 1em;
+#website{
+    margin: 0em 1em 1em 1em;
     width: 90vw;
     background-color: white;
     border: 5px solid black;
+    display: flex;
+    flex-direction: column;
+}
+#tabs{
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+    background-color: buttonface;
+    
+}
+#tabs button{
+    border-bottom: none;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
+    cursor: pointer;
+}
+.dropzone{
+    display: none;
+    height: 95%;
 }
 #rightbar{
     background-color: rgb(172, 255, 142);

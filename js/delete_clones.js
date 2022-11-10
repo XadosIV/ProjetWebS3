@@ -25,6 +25,7 @@ dele.addEventListener('drop',e=>{
 });
 
 // function that deletes all elements in dropzone
+// error need urgent modification
 function delete_all_clones(){
     let clones = document.querySelectorAll(".cloned");
     for(let clone of clones){

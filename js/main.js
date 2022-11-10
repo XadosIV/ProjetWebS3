@@ -5,9 +5,10 @@ const God = document.querySelector("#God"); //#--
 const nav = document.querySelector("#nav"); //#--
 const main = document.querySelector("#main"); //#--
 const leftbar = document.querySelector("#leftbar"); //#
-const dropzone = document.querySelector("#dropzone"); //#
+const dropzone = document.querySelector("#dropzone0"); //#
 const rightbar = document.querySelector("#rightbar"); //#
 const foot = document.querySelector("#foot"); //#--
+const tabs = document.querySelector("#tabs"); //#--
 
 /////////////////////////////////////////////////////////////////////////
 // Import tools from toolss
@@ -27,5 +28,8 @@ for (let tool of tools){
 let tool = document.querySelectorAll(".tool");//#
 
 for(let tlo of tool){
-    drag(tlo,dropzone);
+    drag(tlo);
 }
+/////////////////////////////////////////////////////////////////////////
+drop(dropzone);
+/////////////////////////////////////////////////////////////////////////
