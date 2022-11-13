@@ -1,5 +1,11 @@
 /**************************************/
 /* begin global css */
+/*#FF416C =red*/
+/*#FF4B2B = orange*/
+*{
+    font-family: 'Montserrat', sans-serif;
+    list-style: none;
+}
 .cloned,.tool{
     cursor: move;
 }
@@ -7,31 +13,42 @@
 .invisible{
     display:None;
 }
+form {
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+}
+
 /* end global css */
 /**************************************/
 /* begin header */
 header{
     height: 10vh;
-    background-color: gray; 
+    background-color: gray;
+    width: 100%; 
 }
 /* end header */
 /**************************************/
 /* begin body */
 html,body{
-    margin: 0;
+    margin:0;
     padding: 0;
     height: 100vh;
     width: 100%;
+    background-color: #FF416C;
 }
-/* begin god */
-#God{
-    height:100%;
+/* begin app */
+#app{
     width: 100%;
     background-color: aqua;
     display: flex;
     flex-direction: column;
 }
-/* end god */
+/* end app */
 /* begin nav */
 #nav{
     display: flex;
@@ -43,13 +60,14 @@ html,body{
 /* begin main*/
 #main{
     display: flex;
-    background-color:yellow;
+    background-color:yellow;/*just for testing */
     flex-direction: row;
     justify-content: space-between;
     height: 90vh;
+    width: 100%;
 }
 #leftbar{
-    background-color: pink;
+    background-color:rgb(172, 255, 142);
 }
 #deletion{
     height: 25px;
@@ -57,8 +75,8 @@ html,body{
     border:5px dashed red;
 }
 #website{
-    margin: 0em 1em 1em 1em;
-    width: 90vw;
+
+    width: 90%;
     background-color: white;
     border: 5px solid black;
     display: flex;
@@ -72,10 +90,9 @@ html,body{
     
 }
 #tabs button{
-    border-bottom: none;
-    border-top-left-radius: 20%;
-    border-top-right-radius: 20%;
+    border-radius: 20% 20% 0% 0%;
     cursor: pointer;
+    width: 150px;
 }
 .dropzone{
     height: 95%;
@@ -86,13 +103,13 @@ html,body{
 #leftbar,#rightbar{
     display: flex;
     flex-direction: column;
-    width: 5vw;
+    width: 5%;
 }
 /* end main */
 /* begin foot*/
 #foot{
     display: flex;
-    background-color: green;
+    background-color:  blueviolet;
     flex-direction: row;
     height: 5vh;
 }
@@ -101,16 +118,54 @@ html,body{
 /**************************************/
 /* begin footer*/
 footer{
-    height: 10vh;
+    height: 50vh;
     background-color: gray;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.social{
+    width:73%;
+    height: 100%;
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.About-us{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.About-us,.social{
+    color: #eee;
+}
+.contact-us{
+    height: 100%;
+    width: 27%;
+  
+}
+.contact-us button {
+    border-radius: 20px;
+    border: 1px solid #FF4B2B;
+    background-color: #FF416C;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 5%;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+.contact-us input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 80%;
 }
 /* end footer */
 /**************************************/
 /* begin test*/
-#dragon_deezenuts_all_over_your_face{
-    display: none;
-    height: 175px;
-    width: 150px;
-}
 
 /* end test*/
