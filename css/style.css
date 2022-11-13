@@ -130,8 +130,17 @@ html,body{
 #foot{
     display: flex;
     background-color:  blueviolet;
-    flex-direction: row;
-    height: 5vh;
+    flex-direction: column;
+    width: 100%;
+}
+#templates{
+    cursor: pointer;
+    padding: 1em;
+    background-color: #FF416C;
+    width: fit-content;
+}
+#iframe{
+    width: 100%;
 }
 /* end foot */
 /* end body */
@@ -187,5 +196,4 @@ footer{
 /* end footer */
 /**************************************/
 /* begin test*/
-
 /* end test*/
