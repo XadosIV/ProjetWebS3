@@ -139,8 +139,15 @@ html,body{
     background-color: #FF416C;
     width: fit-content;
 }
+
 #iframe{
     width: 100%;
+    flex-direction: row;
+    overflow: hidden;
+}
+iframe{
+    width: auto;
+    margin: 0;
 }
 /* end foot */
 /* end body */

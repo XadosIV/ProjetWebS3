@@ -34,15 +34,17 @@
         </div>
 
         <div id="foot"> 
-            <span id="templates" onclick="on_click_template(this)">
-                Templates
-                <i class="fa-solid fa-bars"></i>
-            </span>
-            <div id="iframe" class="invisible">
+            <div id="templates" onclick="on_click_template(this)">
+                <span class="temp">Templates</span>
+                <span id="temp_menu"><i class="fa-solid fa-bars" ></i></span>
+            </div>
+            <div id="iframe" class="invisible" onclick="scroll(0, 100);">
+                <!--onmouseover="horizantal_scroll()"-->
                 <iframe src="templates/temp1/index.html" ></iframe>
                 <iframe src="templates/temp2/index.html" ></iframe>
                 <iframe src="templates/temp3/index.html" ></iframe>
                 <iframe src="templates/temp4/index.html" ></iframe>
+                <iframe src="templates/temp5/index.html" ></iframe>
                 <iframe src="templates/temp5/index.html" ></iframe>
             </div>
         </div>
@@ -50,36 +52,6 @@
 
     <footer>
         <div class="social">
-            <div class="About-us">
-                <div>
-                    <h2>Lorem.</h2>
-                    <ul>
-                        <li>Lorem, ipsum.</li>
-                        <li>Molestias, saepe.</li>
-                        <li>Dicta, repellat.</li>
-                        <li>Mollitia, excepturi!</li>
-                    </ul>
-                </div>
-                <div>
-                    <h2>Ipsum?</h2>
-                    <ul>
-                        <li>Lorem, ipsum.</li>
-                        <li>Suscipit, et.</li>
-                        <li>Recusandae, eos!</li>
-                        <li>Magni, facilis?</li>
-                    </ul>
-                </div>
-                <div>
-                    <h2>Magnam?</h2>
-                    <ul>
-                        <li>Lorem, ipsum.</li>
-                        <li>Quis, repellat.</li>
-                        <li>Obcaecati, iusto?</li>
-                        <li>Expedita, quam.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="company">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque voluptatem necessitatibus dolorem praesentium perspiciatis atque!</div>
         </div>
         <div class="contact-us">
             <form action="#">
@@ -105,6 +77,7 @@
     <script src="js/doc_drag_drop.js"></script>
     <script src="js/user_create_page.js"></script>
     <script src="js/hide_or_show_templates.js"></script>
+    <script src="js/horizantal_scroll.js"></script>
     <!---->
 </body>
 </html>
