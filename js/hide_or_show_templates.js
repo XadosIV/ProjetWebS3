@@ -1,5 +1,5 @@
 // function that hide or show templates
-const iframe = document.querySelector("#iframe");//#
+const iframe = document.querySelector("#template");//#
 const icon = document.querySelector("#temp_menu");//#
 var toggler = true;
 function on_click_template(element){
