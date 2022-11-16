@@ -1,22 +1,3 @@
-// function that is used to scroll the templates
-/* var clock =true;
-function horizantal_scroll(element){
-    if(clock){
-        element.scroll({
-            left: element.offsetWidth,
-            behavior: 'smooth'
-        });
-        clock=false;
-    }else{
-        element.scroll({
-        left: 0,
-        behavior: 'smooth'
-        });
-        clock=true;
-    }
-
-} */
-
 let template=document.querySelector("#template");
 let scrl1 = document.querySelector("#main_scorll_1"); 
 let scrl2 = document.querySelector("#main_scorll_2");
