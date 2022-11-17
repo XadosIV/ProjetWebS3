@@ -89,6 +89,10 @@ html,body{
     align-items: center;
 
 }
+#tabs button{
+    color: aqua;
+    background-color: #FF416C;
+}
 #plus_button{
     border-radius: 50%;
     border: none;
@@ -132,7 +136,7 @@ html,body{
     background-color:  blueviolet;
     flex-direction: column;
     width: 100%;
-    overflow: hidden;
+    overflow: scroll;
 
 
 }
