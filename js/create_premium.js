@@ -1,4 +1,3 @@
-// function to create complex elements
 function create_premium(object,container) {
     let element = document.createElement(object.item);//#
     container.appendChild(element)
@@ -18,7 +17,8 @@ function create_premium(object,container) {
                 element.style[u]=stl[u];
             }
         }
-    }if (object.attributes.length != 0){//apply all attributes to element
+    }
+    if (object.attributes.length != 0){//apply all attributes to element
         for(let attr of object.attributes){
             for(a in attr){
                 element.setAttribute(a,attr[a]);

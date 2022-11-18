@@ -50,6 +50,7 @@ function create_tab(){
     tabs.insertBefore(button, plus_button)
     pages.push(dropzone)
     switch_pages(button.id)
+    return [dropzone, button]
 }
 
 create_tab()

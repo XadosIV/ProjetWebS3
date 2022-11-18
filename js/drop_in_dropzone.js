@@ -30,7 +30,7 @@ function drop(container){
 
 
         if (!container.contains(el)){
-            let vz = document.querySelector("#"+clone_prime(el,container).id);//#
+            let vz = clone_prime(el,container);//#
             style_it(vz,perYmain,perXmain)
         }else{
             style_it(el,perYmain,perXmain)

@@ -1,7 +1,7 @@
 // Element in args while be draggable
 
 function drag(element){
-    // the object is starting to get draged
+    // the object is starting to get dragged
     // activates on mouse hold
     element.addEventListener('dragstart', e=>{
         e.dataTransfer.setData('text/plain',e.target.id);// get data to be transfered

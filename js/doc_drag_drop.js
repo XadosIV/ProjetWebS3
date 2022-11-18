@@ -1,4 +1,4 @@
-// to put css whenever something is draged
+// to put css whenever something is dragged
 
 document.addEventListener('dragover',dragover);
 
