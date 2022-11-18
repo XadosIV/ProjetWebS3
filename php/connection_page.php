@@ -1,7 +1,8 @@
 <?php
 include("connectSQL.php");
 include("registration.php");
-$connected = "False";
+$connected = False;
+$alreadyUsed = False;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,9 +27,26 @@ $connected = "False";
                 <input type="submit" class="button" value="Sign up"></button>
             </form>
             <?php 
+            echo "<script>console.log($alreadyUsed)</script>";
 				if (isset($_GET['name']) and isset($_GET['email']) and isset($_GET['password'])){ 
-					insert_user($_GET['name'],$_GET['email'],$_GET['password']);
-                    echo "<script>window.location.href='../index.html';</script>";
+                    $res=get_users();
+                    for ($i=0; $i<count($res); $i++){
+                        if ($res[$i]['name']==$_GET['name'] {
+                            echo("<br><br><i><strong><span style='color:red'>*</span> Name already taken.</strong></i>");
+                            $alreadyUsed = True;
+                            echo "<script>console.log($alreadyUsed)</script>";
+                        }
+                        if $res[$i]['email']==$_GET['email'] {
+                            echo("<br><br><i><strong><span style='color:red'>*</span> Email alrdeady used.</strong></i>");
+                            $alreadyUsed = True;
+                            echo "<script>console.log($alreadyUsed)</script>";
+                        }
+                    }	
+                    if (!$alreadyUsed){
+                        echo "<script>console.log($alreadyUsed)</script>";
+					    insert_user($_GET['name'],$_GET['email'],$_GET['password']);
+                        
+                    }        
 				}
 				?>
         </div>
@@ -40,7 +58,7 @@ $connected = "False";
                 <input type="submit" class="button" value="Sign in" name="submit"></button>  
                 <?php
                 if (isset($_GET['submit'])){ 
-                    if ($connected == "False"){
+                    if ($connected == False){
                         echo("<br><br><i><strong><span style='color:red'>*</span> Password or username incorrect</strong></i>");
                     }	
                 }
@@ -48,14 +66,14 @@ $connected = "False";
             </form> 
             <?php
 			if (isset($_GET['name2']) and isset($_GET['password2'])){ 
-				$res=get_user();
+				$res=get_users();
 				for ($i=0; $i<count($res); $i++){
 					if ($res[$i]['name']==$_GET['name2'] or $res[$i]['email']==$_GET['name2'] and $res[$i]['password']==$_GET['password2']){
-						$connected = "True";
+						$connected = True;
 					}
 				}		
 			}
-			if ($connected == "True"){
+			if ($connected){
 				echo "<script>window.location.href='../index.html';</script>";
 				exit;
 			}
