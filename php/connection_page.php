@@ -1,5 +1,5 @@
 <?php
-include("../php/connectSQL.php");
+include("connectSQL.php");
 include("registration.php");
 $connected = "False";
 ?>
@@ -9,7 +9,7 @@ $connected = "False";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="connection_style.css">
+    <link rel="stylesheet" href="../css/connection_style.css">
     
 </head>
 <body>
@@ -80,9 +80,9 @@ $connected = "False";
         <a href="../index.html">Back to home</a>
     </footer>
 
-    <script src="connection_animations.js"></script>
+    <script src="../js/connection_animations.js"></script>
 </body>
 </html>
 <?php
-include("../php/disconnectSQL.php");
+include("disconnectSQL.php");
 ?>
