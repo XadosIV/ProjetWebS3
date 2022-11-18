@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////
 // get elements from the site
 const toolbar = document.querySelector("#rightbar"); //#
-const tabs = document.querySelector("#tabs"); //#
+var tabs = document.querySelector("#tabs"); //#
 
 /////////////////////////////////////////////////////////////////////////
 // Load tools on the rightbar

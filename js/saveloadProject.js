@@ -5,7 +5,7 @@ function saveProject(projectId){
     var siteSave  = [];
     siteSave = getSiteData(workspace, siteSave);
 
-    axios.post('http://localhost/www/WEB/ProjetWebS3/php/projectsCruds/saveProject.php', {
+    axios.post('php/projectsCruds/saveProject.php', {
         id: projectId,
         json: JSON.stringify(siteSave)
     })
@@ -89,7 +89,7 @@ function resetWorkspace(){
 function loadProject(projectId){
     resetWorkspace();
 
-    axios.post('http://localhost/www/WEB/ProjetWebS3/php/projectsCruds/loadProject.php', {
+    axios.post('php/projectsCruds/loadProject.php', {
         id: projectId
     })
     .then(async response => {
