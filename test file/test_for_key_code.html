@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="btn">1</div>
+    <div class="btn">2</div>
+    <div class="btn">3</div>
+    <div class="btn">4</div>
+    <div class="btn">5</div>
+
+    <style>
+        .btn{
+            color: blueviolet;
+            background-color: aqua;
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+
+    <script>
+        let btn =document.querySelectorAll(".btn");
+        for(let i of btn){
+            let isHovered = false;
+
+            i.addEventListener('click',(e)=>{
+                console.log("in1");
+                isHovered = true;
+            });
+
+            i.addEventListener('mouseleave',(e)=>{
+                console.log("in7");
+                isHovered = false;
+            });
+            var element =i;
+            document.addEventListener('keydown',function(event){
+                console.log("i:",i)
+                if(isHovered) {
+                    console.log("in2");
+                    if(event.keyCode ==46 ||event.keyCode ==8){
+                        console.log("in4");
+                        i.remove();
+                    }
+                } 
+            });
+        }
+    </script>
+</body>
+</html>
