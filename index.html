@@ -10,76 +10,33 @@
     <title>PROJECT</title>
 </head>
 <body>
-    <!---->
-    <header>
-        header
-        <a href="php/connection_page.php" target="_parent">Sign in</a>
-    </header>
-    <!---->
     <div id="app">
+
+        <div id="header" >
+            <a href="php/connection_page.php" target="_parent">Sign in</a>
+        </div>
 
         <div id="nav">
             <button id="del all" onclick="delete_all_clones()">delete all</button>
+            <div id="show_header" onclick="header_show()">header</div>
+            <div id="show_leftbar" onclick="leftBar_show()">leftbar</div>
         </div>
 
-        <div id="main">
-
-            <div id="leftbar">attributes<div id="deletion">delete</div></div>
-            
-            <div id="website">
+        <div id="leftbar">attributes<div id="deletion">delete</div></div>
+        
+        <div id="website">
+            <div id="responsive">
+                <div class="navigation" onclick="nav_show()"></div>
                 <div id="tabs"></div>
-            </div>
-            
-            <div id="rightbar"></i></div>
-
-        </div>
-
-        <div id="foot"> 
-            <div id="templates" onclick="on_click_template(this)">
-                <span class="temp">Templates</span>
-                <span id="temp_menu"><i class="fa-solid fa-bars" ></i></span>
-            </div>            
-            <div id="template" class="invisible">
-                <div class="on_scroll" id="on_scroll">1</div>
-                <div class="on_scroll">2</div>
-                <div class="on_scroll">3</div>
-                <div class="on_scroll">4</div>
-                <div class="on_scroll">5</div>
-                <div class="on_scroll">6</div>
-                <div class="on_scroll">7</div>
-                <div class="on_scroll">8</div>
-                <div class="on_scroll">9</div>
-                <div class="on_scroll">10</div>
-                <div class="on_scroll">11</div>
-                <div class="on_scroll">12</div>
-                <div class="on_scroll">13</div>
-                <div class="on_scroll">14</div>
-                <div class="on_scroll">15</div>
-                <div class="on_scroll">16</div>
-                <div class="on_scroll">17</div>
-                <div class="on_scroll">18</div>
-                <div class="on_scroll">19</div>
-                <div class="on_scroll">20</div>
+                <div class="draggable" onclick="rightBar_show()"></div>
             </div>
         </div>
+        
+        <div id="rightbar" ></i></div>
+
     </div>
 
-    <footer>
-        <div class="social">
-        </div>
-        <div class="contact-us">
-            <form action="#">
-                <h1>Contact Us</h1>
-                <input type="name" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="subject" placeholder="Subject">
-                <input type="message" placeholder="Message">
-                <button>Send</button>
-            </form>
-        </div>
-    </footer>
     <!---->
-
     <script src="js/main.js" defer></script>
     <script src="js/drag.js"></script>
     <script src="js/drop_in_dropzone.js"></script>
@@ -91,12 +48,10 @@
     <script src="js/delete_clones.js"></script>
     <script src="js/doc_drag_drop.js"></script>
     <script src="js/user_create_page.js"></script>
-    <script src="js/hide_or_show_templates.js"></script>
-    <script src="js/horizantal_scroll.js"></script>
     <script src="js/saveloadProject.js"></script>
     <script src="js/connection_animations.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-
+    <script src="js/style.js"></script>
     <!---->
 </body>
 </html>
