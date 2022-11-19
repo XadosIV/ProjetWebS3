@@ -5,6 +5,8 @@
 *{
     font-family: 'Montserrat', sans-serif;
     list-style: none;
+    text-decoration: none;
+    
 }
 .cloned,.tool{
     cursor: move;
@@ -13,39 +15,7 @@
 .invisible{
     display:None;
 }
-form {
-    background-color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
-    text-align: center;
-}
-
-a {
-	color: #333;
-	font-size: 28px;
-	text-decoration: none;
-    border:solid 1px;
-	margin: 15px 0;
-}
-
-header a, footer a {
-    align-self: flex-end;
-}
-
 /* end global css */
-/**************************************/
-/* begin header */
-header{
-    display: flex;
-    flex-direction: column;
-    height: 10vh;
-    background-color: gray;
-    width: 100%; 
-}
-/* end header */
 /**************************************/
 /* begin body */
 html,body{
@@ -54,58 +24,80 @@ html,body{
     height: 100vh;
     width: 100%;
     background-color: #FF416C;
+    overflow: hidden;
 }
+/**************************************/
 /* begin app */
 #app{
-    width: 100%;
+    position: absolute;
+    height: 100%;
+    width: fit-content;
     background-color: aqua;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    left: -300px;
 }
 /* end app */
+/**************************************/
+/* begin header*/
+#header{
+    display: flex;
+    background-color: pink;
+    flex-direction: column;
+    height:100vh;
+    width: 300px;
+    border: 2px solid black;
+
+}
+/* end header*/
+/**************************************/
 /* begin nav */
 #nav{
-    display: flex;
+    display: none;
     background-color: blueviolet;
-    flex-direction: row;
-    height: 5vh;
+    flex-direction: column;
+    height:100%;
+    width: 2%;
+    border: 2px solid black;
+
 }
 /* end nav */
+/**************************************/
 /* begin main*/
-#main{
-    display: flex;
-    background-color:yellow;/*just for testing */
-    flex-direction: row;
-    justify-content: space-between;
-    height: 90vh;
-    width: 100%;
-}
-#leftbar{
-    background-color:rgb(172, 255, 142);
-}
+
 #deletion{
     height: 25px;
     display: none;
     border:5px dashed red;
 }
+/* begin website */
 #website{
-    width: 90%;
+    width: 100vw;
+    height: 100%;
     background-color: white;
     border: 2px solid black;
     display: flex;
     flex-direction: column;
 }
-#tabs{
+#responsive{
     height: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.draggable,.navigation{
+    height: 100%;
+    width: 1%;
+    background-color: #FF416C;    
+}
+#tabs{
+    height: 100%;
+    width: 98%;
     display: flex;
     flex-direction: row;
     background-color:buttonface;
     align-items: center;
 
-}
-#tabs button{
-    color: aqua;
-    background-color: #FF416C;
 }
 #plus_button{
     border-radius: 50%;
@@ -135,95 +127,28 @@ html,body{
 .dropzone{
     height: 95%;
 }
-#rightbar{
-    background-color: rgb(172, 255, 142);
-}
+/* end website */
+
 #leftbar,#rightbar{
-    display: flex;
+    position: absolute;
+    display: none;
     flex-direction: column;
-    width: 5%;
-}
-/* end main */
-/* begin foot*/
-#foot{
-    display: flex;
-    background-color:  blueviolet;
-    flex-direction: column;
-    width: 100%;
-    overflow: scroll;
-
-
-}
-#templates{
-    cursor: pointer;
-    padding: 1em;
-    background-color: #FF416C;
-    width: fit-content;
-}
-
-#template{
-    flex-direction: row;
-    width: fit-content;
-    position: relative;
-}
-.on_scroll{
     width: 300px;
-    height: 200px;
-    margin: 1em;
-    background-color: #eee;
+    height: 100%;
+    color: pink;
+    background-color: aqua;
+    border: 2px solid black;
 }
-/* end foot */
+#leftbar{
+    left: 0;
+    z-index: 1;
+}
+#rightbar{
+    right: 0;
+    z-index: 1;
+}
+
+
+/* end main */
 /* end body */
 /**************************************/
-/* begin footer*/
-footer{
-    height: 50vh;
-    background-color: gray;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-.social{
-    width:73%;
-    height: 100%;
-    background: linear-gradient(to right, #FF4B2B, #FF416C);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-.About-us{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.About-us,.social{
-    color: #eee;
-}
-.contact-us{
-    height: 100%;
-    width: 27%;
-  
-}
-.contact-us button {
-    border-radius: 20px;
-    border: 1px solid #FF4B2B;
-    background-color: #FF416C;
-    color: #FFFFFF;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 5%;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
-}
-.contact-us input {
-    background-color: #eee;
-    border: none;
-    padding: 12px 15px;
-    margin: 8px 0;
-    width: 80%;
-}
-/* end footer */
-/**************************************/
-/* begin test*/
-/* end test*/
