@@ -108,12 +108,12 @@ function loadProject(projectId){
             tabButton.innerText = pageJSON.name
 
             for(elementJSON of pageJSON.elements){
-                var element = document.querySelector("#"+ clone_prime({id :elementJSON.type}, page).id);
+                var element = document.querySelector("#"+ clone_tools({id :elementJSON.type}, page).id);
                 
 
                 var x = (page.clientWidth * elementJSON.x + page.offsetLeft)/document.body.clientWidth * 100
                 var y = (page.clientHeight * elementJSON.y + page.offsetTop)/document.body.clientHeight * 100
-                style_it(element, y, x);
+                style_dropped_element(element, y, x);
             }
         }
 

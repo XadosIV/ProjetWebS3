@@ -1,12 +1,13 @@
+/////////////////////////////////////////////////////////////////////////
 var website = document.querySelector("#website")
 var tabs = document.querySelector("#tabs")
 var pages = []
-
+/////////////////////////////////////////////////////////////////////////
 function switch_pages(nb){
     var args = nb.split("_");
     nb = args[args.length-1];
     // gab a modifer
-    const tab_width=tabs.offsetWidth;
+    var tab_width=tabs.offsetWidth;
     var old_but_width = document.querySelector("#tab_button_0").offsetWidth;
     var nbr_of_butt=Math.floor(tab_width/old_but_width)-1;
 
@@ -35,7 +36,7 @@ function switch_pages(nb){
         }
     }
 }
-
+/////////////////////////////////////////////////////////////////////////
 function create_tab(){
     //Crée un nouvel onglet et le sélectionne
     var id = pages.length
@@ -52,7 +53,7 @@ function create_tab(){
     switch_pages(button.id)
     return [dropzone, button]
 }
-
+/////////////////////////////////////////////////////////////////////////
 create_tab()
 
 var plus_button = document.createElement("button")

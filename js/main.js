@@ -6,7 +6,7 @@ var tabs = document.querySelector("#tabs"); //#
 /////////////////////////////////////////////////////////////////////////
 // Load tools on the rightbar
 for (let tool of tools){
-    create_premium(tool,toolbar);
+    create_tools(tool,toolbar);// function in create_tools.js
 }
 /////////////////////////////////////////////////////////////////////////
 // drag and drop tools from tool bar to dropzone

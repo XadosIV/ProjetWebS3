@@ -1,12 +1,6 @@
 // here are all the functions that deletes clones
-
+/////////////////////////////////////////////////////////////////////////
 const dele = document.querySelector("#deletion");//#
-// works like hover
-// activates when hovering the conzone with draggable
-dele.addEventListener('dragenter',e=>{});//--
-// works like hover:leave
-// activates when hover leaving the dropzone with draggable
-dele.addEventListener('dragleave',e=>{});//--
 // similar to fiering dragenter sith set interval of 50ms
 // activates when hovering the dropzone with draggable
 dele.addEventListener('dragover',e=>{
@@ -20,9 +14,10 @@ dele.addEventListener('drop',e=>{
     el=document.getElementById(tool_id);
     if (current_dropzone.contains(el)){
         el.remove();
-        dragend();
+        dragend();//Allow docuiment to be dragged / function in document_dragover_dragend.js
     }
 });
+/////////////////////////////////////////////////////////////////////////
 
 // function that deletes all elements in dropzone
 // error need urgent modification
@@ -31,3 +26,4 @@ function delete_all_clones(){
         current_dropzone.removeChild(current_dropzone.childNodes[0])
     }
 }
+/////////////////////////////////////////////////////////////////////////

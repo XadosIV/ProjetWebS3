@@ -1,4 +1,5 @@
 //  make the workspace a dropzone
+/////////////////////////////////////////////////////////////////////////
 function drop(container){
     
     // works like hover
@@ -30,10 +31,11 @@ function drop(container){
 
 
         if (!container.contains(el)){
-            let vz = clone_prime(el,container);//#
-            style_it(vz,perYmain,perXmain)
+            let vz = clone_tools(el,container);//#
+            style_dropped_element(vz,perYmain,perXmain);//put some css /function in style_dropped_element.js
         }else{
-            style_it(el,perYmain,perXmain)
+            style_dropped_element(el,perYmain,perXmain);//put some css /function in style_dropped_element.js
         }
     }); 
 }
+/////////////////////////////////////////////////////////////////////////
