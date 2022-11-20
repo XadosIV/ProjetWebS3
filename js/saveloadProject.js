@@ -1,3 +1,12 @@
+//saveProject([id du projet])  pour save
+//loadProject([id du projet]) pour load
+
+//un projet doit deja etre creer dans la base de donné
+//de forme [id : int, name : char, json : text]
+
+//login modifiable dans le fichier ./PHP/connectionSQL.php
+
+
 const workspace = document.querySelector("#website");
 
 function saveProject(projectId){
