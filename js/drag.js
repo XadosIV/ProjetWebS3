@@ -1,5 +1,5 @@
 // Element in args while be draggable
-
+var rightbar = document.querySelector("#rightbar");
 function drag(element){
     // the object is starting to get dragged
     // activates on mouse hold

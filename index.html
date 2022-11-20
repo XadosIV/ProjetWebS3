@@ -12,17 +12,20 @@
 <body>
     <div id="app">
 
-        <div id="header" >
-            <a href="php/connection_page.php" target="_parent">Sign in</a>
+        <div id="header_leftbar" >
+            <div id="header">
+                <a href="php/connection_page.php" target="_parent">Sign in</a>
+            </div>
+            <div id="leftbar">attributes<div id="deletion">delete</div></div>
+
         </div>
 
         <div id="nav">
             <button id="del all" onclick="delete_all_clones()">delete all</button>
-            <div id="show_header" onclick="header_show()">header</div>
-            <div id="show_leftbar" onclick="leftBar_show()">leftbar</div>
+            <div id="show_header" onclick="show_header_leftbar(this.id)">header</div>
+            <div id="show_leftbar" onclick="show_header_leftbar(this.id)">leftbar</div>
         </div>
 
-        <div id="leftbar">attributes<div id="deletion">delete</div></div>
         
         <div id="website">
             <div id="responsive">

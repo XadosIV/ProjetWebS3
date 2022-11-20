@@ -1,7 +1,7 @@
 /**************************************/
 /* begin global css */
-/*#FF416C =red*/
-/*#FF4B2B = orange*/
+/*#FF416C =red or rgb(255, 65, 108) */
+/*#FF4B2B = orange or rgb(255, 75, 43)*/
 *{
     font-family: 'Montserrat', sans-serif;
     list-style: none;
@@ -24,7 +24,6 @@ html,body{
     height: 100vh;
     width: 100%;
     background-color: #FF416C;
-    overflow: hidden;
 }
 /**************************************/
 /* begin app */
@@ -40,24 +39,32 @@ html,body{
 /* end app */
 /**************************************/
 /* begin header*/
-#header{
-    display: flex;
+#header_leftbar{
     background-color: pink;
-    flex-direction: column;
-    height:100vh;
+    height:100%;
     width: 300px;
     border: 2px solid black;
+}
 
+#leftbar,#rightbar,#header{
+    flex-direction: column;
+    width: 300px;
+    height: 100%;
+    color: pink;
+    background-color: aqua;
+    display: none;
 }
 /* end header*/
 /**************************************/
 /* begin nav */
 #nav{
+    position: fixed;
+    left: 0;
     display: none;
     background-color: blueviolet;
     flex-direction: column;
     height:100%;
-    width: 2%;
+    width: 50px;
     border: 2px solid black;
 
 }
@@ -72,7 +79,7 @@ html,body{
 }
 /* begin website */
 #website{
-    width: 100vw;
+    width: 98.7vw;
     height: 100%;
     background-color: white;
     border: 2px solid black;
@@ -89,6 +96,12 @@ html,body{
     height: 100%;
     width: 1%;
     background-color: #FF416C;    
+}
+.draggable{
+
+}
+.navigation{
+
 }
 #tabs{
     height: 100%;
@@ -125,28 +138,11 @@ html,body{
 
 }
 .dropzone{
-    height: 95%;
+    height: 100%;
 }
 /* end website */
 
-#leftbar,#rightbar{
-    position: absolute;
-    display: none;
-    flex-direction: column;
-    width: 300px;
-    height: 100%;
-    color: pink;
-    background-color: aqua;
-    border: 2px solid black;
-}
-#leftbar{
-    left: 0;
-    z-index: 1;
-}
-#rightbar{
-    right: 0;
-    z-index: 1;
-}
+
 
 
 /* end main */
