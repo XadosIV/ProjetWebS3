@@ -16,14 +16,30 @@
             <div id="header">
                 <a href="php/connection_page.php" target="_parent">Sign in</a>
             </div>
-            <div id="leftbar">attributes<div id="deletion">delete</div></div>
+            <div id="leftbar">
+                <div id="del all" class="nav" onclick="delete_all_clones()">
+                    <i class="fa-solid fa-circle-minus"></i>
+                </div>
+                <div id="deletion" class="hvr-buzz">
+                    <i class="fa-solid fa-trash"></i>
+                </div>
+            </div>
 
         </div>
 
         <div id="nav">
-            <button id="del all" onclick="delete_all_clones()">delete all</button>
-            <div id="show_header" onclick="show_header_leftbar(this.id)">header</div>
-            <div id="show_leftbar" onclick="show_header_leftbar(this.id)">leftbar</div>
+            <div id="show_header" class="nav"onclick="show_header_leftbar(this.id)">
+                <i class="fa-solid fa-circle-question fa-2xl"></i>
+            </div>
+            <div id="show_leftbar" class="nav" onclick="show_header_leftbar(this.id)">
+                <i class="fa-solid fa-pen-to-square fa-2xl"></i>
+            </div>
+            <div id="profile" class="nav">
+                <i class="fa-solid fa-user fa-2xl" ></i>
+            </div>
+            <div id="contact_us" class="nav">
+                <i class="fa-solid fa-comments fa-2xl"></i>
+            </div>
         </div>
 
         

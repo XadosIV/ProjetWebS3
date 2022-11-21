@@ -4,6 +4,8 @@ var leftbar =document.querySelector("#leftbar");
 var rightbar =document.querySelector("#rightbar");
 var nav =document.querySelector("#nav");
 var header =document.querySelector("#header");
+var navigation=document.querySelector(".navigation");
+var draggable=document.querySelector(".draggable");
 /////////////////////////////////////////////////////////////////////////
 // header / leftbar
 var toggler1=true;//change position of app
@@ -44,9 +46,11 @@ var rightbar_toggler=true;
 function rightBar_show(){
     if(rightbar_toggler){
         rightbar.style.display='flex';
+        draggable.style.backgroundColor="#FF416C";
         rightbar_toggler=false;
     }else{
         rightbar.style.display='none';
+        draggable.style.backgroundColor="";
         rightbar_toggler=true;
     }
 }
@@ -55,13 +59,20 @@ function rightBar_show(){
 var nav_toggler=true;
 function nav_show(){
     if(nav_toggler){
-        nav.style.display='flex';
-        app.style.left="-250px";
         nav_toggler=false;
+        app.style.left="-250px";
+        nav.style.left="0px"
+        nav.style.transition = "1s";
+        navigation.style.transition = "1s";
+        navigation.style.backgroundColor="rgb("+255+","+ 65+","+108+")";
     }else{
-        nav.style.display='none';
-        app.style.left="";
         nav_toggler=true;
+        app.style.left="";
+        nav.style.left="";
+        nav.style.transition = "1s";
+        navigation.style.transition = "1s";
+        navigation.style.backgroundColor="";
+        
     }
 }
 /////////////////////////////////////////////////////////////////////////

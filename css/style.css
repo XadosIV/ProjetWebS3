@@ -1,12 +1,13 @@
 /**************************************/
-/* begin global css */
-/*#FF416C =red or rgb(255, 65, 108) */
-/*#FF4B2B = orange or rgb(255, 75, 43)*/
+:root{
+    --red-color:#FF416C;/*rgba(255, 65, 108,1) */
+    --orange-color:#FF4B2B;/*#rgba(255, 75, 43,1)*/
+    --button-color:buttonface;
+}
 *{
     font-family: 'Montserrat', sans-serif;
     list-style: none;
     text-decoration: none;
-    
 }
 .cloned,.tool{
     cursor: move;
@@ -15,103 +16,132 @@
 .invisible{
     display:None;
 }
-/* end global css */
 /**************************************/
-/* begin body */
 html,body{
     margin:0;
     padding: 0;
     height: 100vh;
     width: 100%;
-    background-color: #FF416C;
+    background-color: var(--red-color);
+    overflow-y: hidden;
 }
 /**************************************/
-/* begin app */
 #app{
     position: absolute;
     height: 100%;
     width: fit-content;
-    background-color: aqua;
     display: flex;
     flex-direction: row;
     left: -300px;
+    transition: 1s;
 }
-/* end app */
 /**************************************/
-/* begin header*/
 #header_leftbar{
-    background-color: pink;
     height:100%;
     width: 300px;
-    border: 2px solid black;
 }
 
 #leftbar,#rightbar,#header{
     flex-direction: column;
     width: 300px;
     height: 100%;
-    color: pink;
-    background-color: aqua;
+    color: white;
+    background-color: var(--red-color);
     display: none;
+    align-items: center;
+    justify-content: flex-start;
 }
-/* end header*/
 /**************************************/
-/* begin nav */
-#nav{
+#nav {
     position: fixed;
-    left: 0;
-    display: none;
-    background-color: blueviolet;
+    left: -50px;
+    display: flex;
     flex-direction: column;
-    height:100%;
-    width: 50px;
-    border: 2px solid black;
-
-}
-/* end nav */
-/**************************************/
-/* begin main*/
-
-#deletion{
-    height: 25px;
-    display: none;
-    border:5px dashed red;
-}
-/* begin website */
-#website{
-    width: 98.7vw;
+    justify-content: space-evenly;
     height: 100%;
-    background-color: white;
-    border: 2px solid black;
+    width: 50px;
+    color: white;
+    background-color: var(--red-color);
+
+}
+.nav{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+}
+i{
+    width: 50px;
+    height: 50px;
+}
+/**************************************/
+#deletion{
+}
+
+@keyframes hvr-buzz {
+50% {
+    transform:rotate(5deg);
+}
+100% {
+    transform:rotate(-5deg);
+}
+}
+.hvr-buzz {
+    display: inline-block;
+}
+.hvr-buzz:hover{
+    animation-name: hvr-buzz;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+}
+/**************************************/
+#website{
+    width: 100vw;
+    height: 100%;
+    background-color: var(--button-color);
     display: flex;
     flex-direction: column;
 }
+/**************************************/
 #responsive{
     height: 5%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+/**************************************/
 .draggable,.navigation{
-    height: 100%;
-    width: 1%;
-    background-color: #FF416C;    
+    height: 80%;
+    width: 0.2%;
+    border:4px solid;
+    border-color:rgba(255, 65, 108,0.8);
+    background-color: white;
 }
 .draggable{
-
+    border-start-start-radius: 10px;
+    border-end-start-radius: 10px;
+    border-right: none;
 }
 .navigation{
-
+    border-end-end-radius: 10px;
+    border-start-end-radius: 10px;
+    border-left: none;
 }
+.draggable:hover,.navigation:hover{
+    border-color:var(--red-color);
+    background-color:var(--red-color);
+    transition: 1s;
+}
+/**************************************/
 #tabs{
     height: 100%;
     width: 98%;
     display: flex;
     flex-direction: row;
-    background-color:buttonface;
     align-items: center;
 
 }
+/**************************************/
 #plus_button{
     border-radius: 50%;
     border: none;
@@ -124,7 +154,7 @@ html,body{
     background-color:white;
     color: #FF416C;
 }
-
+/**************************************/
 .default-but{
     height: 100%;
     border: none;
@@ -137,14 +167,9 @@ html,body{
     border-top-left-radius: 20px 20px;
 
 }
+/**************************************/
 .dropzone{
     height: 100%;
+    background-color: white;
 }
-/* end website */
-
-
-
-
-/* end main */
-/* end body */
 /**************************************/
