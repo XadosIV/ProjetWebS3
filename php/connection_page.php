@@ -27,25 +27,21 @@ $alreadyUsed = False;
                 <input type="submit" class="button" value="Sign up"></button>
             </form>
             <?php 
-            echo "<script>console.log($alreadyUsed)</script>";
 				if (isset($_GET['name']) and isset($_GET['email']) and isset($_GET['password'])){ 
                     $res=get_users();
                     for ($i=0; $i<count($res); $i++){
-                        if ($res[$i]['name']==$_GET['name'] {
+                        if ($res[$i]['name']==$_GET['name']) {
                             echo("<br><br><i><strong><span style='color:red'>*</span> Name already taken.</strong></i>");
                             $alreadyUsed = True;
-                            echo "<script>console.log($alreadyUsed)</script>";
                         }
-                        if $res[$i]['email']==$_GET['email'] {
+                        if ($res[$i]['email']==$_GET['email']) {
                             echo("<br><br><i><strong><span style='color:red'>*</span> Email alrdeady used.</strong></i>");
                             $alreadyUsed = True;
-                            echo "<script>console.log($alreadyUsed)</script>";
                         }
                     }	
                     if (!$alreadyUsed){
-                        echo "<script>console.log($alreadyUsed)</script>";
-					    insert_user($_GET['name'],$_GET['email'],$_GET['password']);
-                        
+					    insert_user($_GET['name'],$_GET['email'],$_GET['password']);         
+                        header("Location:../index.html");
                     }        
 				}
 				?>
@@ -74,7 +70,7 @@ $alreadyUsed = False;
 				}		
 			}
 			if ($connected){
-				echo "<script>window.location.href='../index.html';</script>";
+				header("Location:../index.html");
 				exit;
 			}
 			?>                             
