@@ -12,70 +12,38 @@
 <body>
     <div id="app">
         <div id="nav">
-            <div  class="nav">
+            <div>
                 <i class="fa-solid fa-circle-question fa-2xl"></i>
             </div>
 
-            <div  class="nav">
+            <div>
                 <i class="fa-solid fa-pen-to-square fa-2xl"></i>
             </div>
 
-            <div class="nav">
+            <div>
                 <i class="fa-solid fa-screwdriver-wrench fa-2xl"></i>
             </div>
 
-            <div class="nav">
-                <p>
-                    tabs
-                </p>
+            <div>
+                <p>tabs</p>
             </div>
         </div>
 
-        <div id="slideMenu" class="hide">
-            <div id="header" >
-                <div>
-                    <a href="php/connection_page.php" target="_parent">Sign in</a>
-                </div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-            </div>
-            
-            <div id="editingContainer" >
-                <div id="del all" class="nav" onclick="delete_all_clones()">
-                    <i class="fa-solid fa-circle-minus"></i>
-                </div>
-                <div id="deletion" class="hvr-buzz">
-                    <i class="fa-solid fa-trash"></i>
-                </div>
-            </div>
-
-            <div id="toolsContainer" ></i></div>
-            
-            <div id="tabs" ></div>
+        <div id="website">
+            <p>le rename workspace serait mieux</p>
         </div>
-
-        <div id="website"></div>
-
     </div>
 
-    <!---->
-    <script src="js/main.js" defer></script>
-    <script src="js/drag.js"></script>
-    <script src="js/drop.js"></script>
-    <script src="js/tools.js"></script>
-    <script src="js/create.js"></script>
-    <script src="js/create_tools.js"></script>
-    <script src="js/style_dropped_element.js"></script>
-    <script src="js/clone_tools.js"></script>
-    <script src="js/delete_clones.js"></script>
-    <script src="js/document_dragover_dragend.js"></script>
-    <script src="js/user_create_page.js"></script>
-    <script src="js/saveloadProject.js"></script>
-    <script src="js/connection_animations.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-    <script src="js/style.js" defer></script>
-    <!---->
+    
+
+
+    <!--- ajouter la classe 'menu' a un div le transforme en menu dynamique, cf js/slideMenu.js -->
+    <div id="header" class = menu></div>      
+    <div id="editingContainer" class = menu></div>
+    <div id="toolsContainer" class = menu></div>   
+    <div id="tabs" class = menu></div>
+
+
+    <script src="js/slideMenu.js" defer></script>
 </body>
 </html>
