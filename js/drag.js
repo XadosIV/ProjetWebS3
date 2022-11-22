@@ -1,6 +1,6 @@
 // Element in args while be draggable
 /////////////////////////////////////////////////////////////////////////
-var rightbar = document.querySelector("#rightbar");
+var rightbar = document.querySelector("#tools");
 /////////////////////////////////////////////////////////////////////////
 function drag(element){
     // the object is starting to get dragged

@@ -11,12 +11,38 @@
 </head>
 <body>
     <div id="app">
-
-        <div id="header_leftbar" >
-            <div id="header">
-                <a href="php/connection_page.php" target="_parent">Sign in</a>
+        <div id="nav">
+            <div  class="nav">
+                <i class="fa-solid fa-circle-question fa-2xl"></i>
             </div>
-            <div id="leftbar">
+
+            <div  class="nav">
+                <i class="fa-solid fa-pen-to-square fa-2xl"></i>
+            </div>
+
+            <div class="nav">
+                <i class="fa-solid fa-screwdriver-wrench fa-2xl"></i>
+            </div>
+
+            <div class="nav">
+                <p>
+                    tabs
+                </p>
+            </div>
+        </div>
+
+        <div id="slideMenu" class="hide">
+            <div id="header" >
+                <div>
+                    <a href="php/connection_page.php" target="_parent">Sign in</a>
+                </div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+            </div>
+            
+            <div id="editingContainer" >
                 <div id="del all" class="nav" onclick="delete_all_clones()">
                     <i class="fa-solid fa-circle-minus"></i>
                 </div>
@@ -25,33 +51,12 @@
                 </div>
             </div>
 
+            <div id="toolsContainer" ></i></div>
+            
+            <div id="tabs" ></div>
         </div>
 
-        <div id="nav">
-            <div id="show_header" class="nav"onclick="show_header_leftbar(this.id)">
-                <i class="fa-solid fa-circle-question fa-2xl"></i>
-            </div>
-            <div id="show_leftbar" class="nav" onclick="show_header_leftbar(this.id)">
-                <i class="fa-solid fa-pen-to-square fa-2xl"></i>
-            </div>
-            <div id="profile" class="nav">
-                <i class="fa-solid fa-user fa-2xl" ></i>
-            </div>
-            <div id="contact_us" class="nav">
-                <i class="fa-solid fa-comments fa-2xl"></i>
-            </div>
-        </div>
-
-        
-        <div id="website">
-            <div id="responsive">
-                <div class="navigation" onclick="nav_show()"></div>
-                <div id="tabs"></div>
-                <div class="draggable" onclick="rightBar_show()"></div>
-            </div>
-        </div>
-        
-        <div id="rightbar" ></i></div>
+        <div id="website"></div>
 
     </div>
 
@@ -70,7 +75,7 @@
     <script src="js/saveloadProject.js"></script>
     <script src="js/connection_animations.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-    <script src="js/style.js"></script>
+    <script src="js/style.js" defer></script>
     <!---->
 </body>
 </html>

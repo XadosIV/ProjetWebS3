@@ -1,8 +1,18 @@
 /**************************************/
+/* 
+size for icon
+fa-2xs	0.625em	10px
+fa-xs	0.75em	12px
+fa-sm	0.875em	14px
+fa-lg	1.25em	20px
+fa-xl	1.5em	24px
+fa-2xl	2em	    32px
+*/
 :root{
     --red-color:#FF416C;/*rgba(255, 65, 108,1) */
     --orange-color:#FF4B2B;/*#rgba(255, 75, 43,1)*/
     --button-color:buttonface;
+    --nav-width:3%;
 }
 *{
     font-family: 'Montserrat', sans-serif;
@@ -16,6 +26,13 @@
 .invisible{
     display:None;
 }
+
+.hide{
+    transform: translateX(-400px);
+    transition:1s;
+    width: 0px;
+
+}
 /**************************************/
 html,body{
     margin:0;
@@ -23,56 +40,89 @@ html,body{
     height: 100vh;
     width: 100%;
     background-color: var(--red-color);
-    overflow-y: hidden;
 }
 /**************************************/
 #app{
-    position: absolute;
     height: 100%;
-    width: fit-content;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    left: -300px;
     transition: 1s;
 }
 /**************************************/
-#header_leftbar{
+
+
+#slideMenu{
+    margin-left : var(--nav-width);
     height:100%;
     width: 300px;
+    position: absolute;
+    display: flex;
+    background-color: black;
+    z-index: 1;
+    transition: 1s;
 }
-
-#leftbar,#rightbar,#header{
+#slideMenu *{
     flex-direction: column;
     width: 300px;
     height: 100%;
     color: white;
+    display: flex   ;
     background-color: var(--red-color);
-    display: none;
     align-items: center;
     justify-content: flex-start;
 }
+#slideMenu * div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    cursor: pointer;
+}
+#toolsContainer div{
+
+}
+
+
+#editingContainer div{
+
+}
+/*#header div{
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    transition-duration: 0.3s;
+    transition-property: box-shadow;
+}
+#header div:hover{
+    color: var(--red-color);
+    background-color: rgba(255,255,255,0.7);
+    transition: 0.5s;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}*/
 /**************************************/
 #nav {
     position: fixed;
-    left: -50px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     height: 100%;
-    width: 50px;
+    width: var(--nav-width);
     color: white;
     background-color: var(--red-color);
-
+    border-color: white;
+    border: 1px solid;
+    border-top: none;
+    border-left: none;
+    z-index: 2; 
 }
 .nav{
     display: flex;
     justify-content: center;
     width: 100%;
     height: fit-content;
-}
-i{
-    width: 50px;
-    height: 50px;
+    cursor: pointer;
 }
 /**************************************/
 #deletion{
@@ -96,50 +146,15 @@ i{
 }
 /**************************************/
 #website{
-    width: 100vw;
+    width: 97%;
     height: 100%;
     background-color: var(--button-color);
     display: flex;
     flex-direction: column;
-}
-/**************************************/
-#responsive{
-    height: 5%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-/**************************************/
-.draggable,.navigation{
-    height: 80%;
-    width: 0.2%;
-    border:4px solid;
-    border-color:rgba(255, 65, 108,0.8);
-    background-color: white;
-}
-.draggable{
-    border-start-start-radius: 10px;
-    border-end-start-radius: 10px;
-    border-right: none;
-}
-.navigation{
-    border-end-end-radius: 10px;
-    border-start-end-radius: 10px;
-    border-left: none;
-}
-.draggable:hover,.navigation:hover{
-    border-color:var(--red-color);
-    background-color:var(--red-color);
-    transition: 1s;
+    transform: translateX(3%);
 }
 /**************************************/
 #tabs{
-    height: 100%;
-    width: 98%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
 }
 /**************************************/
 #plus_button{
