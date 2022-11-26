@@ -13,13 +13,4 @@ function get_users(){
 	}
 	return $res;
 }
-
-function get_user($name, $email){
-	global $connection;
-	$result = mysqli_query($connection, "SELECT * WHERE name='$name' OR email='$email' FROM users");
-	while ($row = $result->fetch_assoc()) {
-		$res[]=$row;
-	}
-	return $res;
-}
 ?>

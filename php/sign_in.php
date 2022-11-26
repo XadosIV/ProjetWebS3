@@ -10,6 +10,10 @@ $_POST = json_decode(file_get_contents("php://input"),true);
         for ($i=0; $i<count($res); $i++){
             if (($res[$i]['name']==$_POST['name2'] || $res[$i]['email']==$_POST['name2']) && $res[$i]['password']==$_POST['password2']){
                 $connected = True;  
+                $connectedAs = array(
+                    "name" => $res[$i]['name'], 
+                    "email" => $res[$i]['email']
+                );   
             } else {
                 $errorPassword += 1;
             }
@@ -17,7 +21,10 @@ $_POST = json_decode(file_get_contents("php://input"),true);
     }
 
     if ($connected){
-        echo "leave";
+        echo (json_encode(array(
+            "leave" => True,
+            "profile" => $connectedAs
+        )));
         exit;
     }  
 

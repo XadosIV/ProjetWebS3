@@ -23,11 +23,18 @@ if (isset($_POST['name1']) and isset($_POST['email']) and isset($_POST['password
     
     if (!$alreadyUsed){
         insert_user($_POST['name1'],$_POST['email'],$_POST['password']);         
-        $connected = True;           
+        $connected = True;        
+        $connectedAs = array(
+            "name" => $_POST['name1'], 
+            "email" => $_POST['email']
+        );   
     }        
 
     if ($connected){
-        echo "leave";
+        echo (json_encode(array(
+            "leave" => True,
+            "profile" => $connectedAs
+        )));
         exit;
     } else {
         echo $rep;
