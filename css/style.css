@@ -8,134 +8,101 @@ fa-lg	1.25em	20px
 fa-xl	1.5em	24px
 fa-2xl	2em	    32px
 */
+
 :root{
     --red-color:#FF416C;/*rgba(255, 65, 108,1) */
     --orange-color:#FF4B2B;/*#rgba(255, 75, 43,1)*/
     --button-color:buttonface;
     --nav-width:3%;
 }
-*{
-    font-family: 'Montserrat', sans-serif;
-    list-style: none;
-    text-decoration: none;
-}
-.cloned,.tool{
-    cursor: move;
-}
 
-.invisible{
-    display:None;
-}
-
-.hide{
-    transform: translateX(-400px);
-    transition:1s;
-    width: 0px;
-
-}
-/**************************************/
-html,body{
-    margin:0;
-    padding: 0;
-    height: 100vh;
-    width: 100%;
-    background-color: var(--red-color);
-}
-/**************************************/
-#app{
-    height: 100%;
-    width: 100%;
+#app {
     display: flex;
     flex-direction: row;
-    transition: 1s;
-}
-/**************************************/
-
-
-#slideMenu{
-    margin-left : var(--nav-width);
-    height:100%;
-    width: 300px;
-    position: absolute;
-    display: flex;
-    background-color: black;
-    z-index: 1;
-    transition: 1s;
-}
-#slideMenu *{
-    flex-direction: column;
-    width: 300px;
     height: 100%;
-    color: white;
-    display: flex   ;
-    background-color: var(--red-color);
-    align-items: center;
-    justify-content: flex-start;
 }
-#slideMenu * div {
+html, body {
+    height: 100vh;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    font-size: 2em;
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
-    cursor: pointer;
-}
-#toolsContainer div{
-
+    margin:0;
+    padding: 0;
+    background-color: blue;
 }
 
-
-#editingContainer div{
-
+#website{
+    flex: 1;
+    background-color: beige;
 }
-/*#header div{
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    transition-duration: 0.3s;
-    transition-property: box-shadow;
-}
-#header div:hover{
-    color: var(--red-color);
-    background-color: rgba(255,255,255,0.7);
-    transition: 0.5s;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-}*/
-/**************************************/
-#nav {
-    position: fixed;
+
+#nav, .menu{
+    position: sticky;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    height: 100%;
-    width: var(--nav-width);
-    color: white;
     background-color: var(--red-color);
-    border-color: white;
-    border: 1px solid;
-    border-top: none;
-    border-left: none;
-    z-index: 2; 
+    color : white;
+    justify-content: center;
 }
-.nav{
+
+
+
+#nav {
+    justify-content: space-around;
+    align-items: center;
+    width: var(--nav-width);
+    z-index: 2;
+
+    border-right: solid  2px;
+}
+
+
+#nav>div{
     display: flex;
     justify-content: center;
     width: 100%;
     height: fit-content;
     cursor: pointer;
 }
-/**************************************/
-#deletion{
+
+.menu {
+    position: absolute;
+    width: 20%;
+    left: var(--nav-width);
+    top: 0px;
+    height: 100%;
+    transition:  1s;
+    z-index:1;
+
+    padding-left: 5px;
+    border-radius: 0px 40px 0px 0px;
+}
+.menu.hide {
+    transition: 1.5s;
 }
 
+
+.hide {
+    transition: 0.01s;
+    /* rend invible un element sans utilisé display:none */
+    transform: translateX(-500px);
+    
+}
+
+
+
+.cloned,.tool{
+    cursor: move;
+}
+
+
 @keyframes hvr-buzz {
-50% {
-    transform:rotate(5deg);
+    50% {
+        transform:rotate(5deg);
+    }
+    100% {
+        transform:rotate(-5deg);
+    }
 }
-100% {
-    transform:rotate(-5deg);
-}
-}
+
 .hvr-buzz {
     display: inline-block;
 }
@@ -144,19 +111,7 @@ html,body{
     animation-duration: 0.2s;
     animation-iteration-count: infinite;
 }
-/**************************************/
-#website{
-    width: 97%;
-    height: 100%;
-    background-color: var(--button-color);
-    display: flex;
-    flex-direction: column;
-    transform: translateX(3%);
-}
-/**************************************/
-#tabs{
-}
-/**************************************/
+
 #plus_button{
     border-radius: 50%;
     border: none;
@@ -169,7 +124,7 @@ html,body{
     background-color:white;
     color: #FF416C;
 }
-/**************************************/
+
 .default-but{
     height: 100%;
     border: none;
@@ -182,9 +137,9 @@ html,body{
     border-top-left-radius: 20px 20px;
 
 }
-/**************************************/
+
+
 .dropzone{
     height: 100%;
     background-color: white;
 }
-/**************************************/

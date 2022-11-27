@@ -1,67 +1,42 @@
-/////////////////////////////////////////////////////////////////////////
-var nav =document.querySelector("#nav");
-/////////////////////////////////////////////////////////////////////////
-//var isContainerVisible=false;
+/**
+ * affiche/cache le menu deroulant.
+ */
 function showHideSlideMenu(){
-    const slideMenu =document.querySelector("#slideMenu");
+    const slideMenu =document.querySelector(".slideMenu");
     slideMenu.classList.toggle("hide");
 }
 
-function setUpSlideMenu(){
-    const slideMenu = document.querySelector("#slideMenu");
-    const nav = document.querySelector("#nav");
 
+/**
+ * CrÃ©e les events 'click' des bouttons menu pour rendre le menu dynamique.
+ * Le nombre de bouton dans l'element avec l'id 'nav' doit etre le meme que
+ * le nombre de div avec la classe 'menu'
+ */
+function setUpSlideMenu(){
+    let menus = document.querySelectorAll(".menu");
+    const nav = document.querySelector("#nav");
+    hideAllMenu();
 
     const childNumber = nav.children.length
 
     for(let i = 0; i < childNumber ; i++){
         nav.children[i].addEventListener("click", ()=>{
-            slideMenu.classList.remove("hide");
-            hideAllMenu();
-            slideMenu.children[i].classList.remove("hide");
+            menus[i].classList.toggle("hide");
+            hideAllMenu(menus[i]);
         });
     }
 }
-function hideAllMenu(){
-    const slideMenu =document.querySelector("#slideMenu");
-    for(let menu of slideMenu.children){
-        menu.classList.add("hide");
+
+
+/**
+ * Rend invisible tout les sous menus du slide.
+ * @param {array} exception parametre optionnel, menu a ne pas rendre invisible
+ */
+function hideAllMenu(exception = null){
+    let menus = document.querySelectorAll(".menu");
+    for(let menu of menus){
+        if(exception == null || exception != menu){
+            menu.classList.add("hide");
+        }
     }
 }
-
-setUpSlideMenu();
-
-
-/* // header / leftbar
-var toggler1=true;//change position of app
-var toggler2;//used to get the element previously clicked
-// 2 variables are used to determin the nature of the click
-function show_header_leftbar(element_id){
-    if(toggler1){
-        //show the clicked elemenet
-        toggler1=false;
-        header_leftbar.style.left="300px";
-        //if
-        element_id =="show_header"?
-        toggler2=hide_Seek(leftbar,header,element_id):
-        toggler2=hide_Seek(header,leftbar,element_id);
-        //end if
-    }
-    else{
-        //close element is clicked twice else reload the function
-        toggler1=true;
-        //if
-        element_id==toggler2?
-        header_leftbar.style.left="-300px"://close element
-        show_header_leftbar(element_id);//reload the function
-        //end if
-    }
-}
-
-function hide_Seek(hide,seek,id){
-    seek.style.display='flex';
-    hide.style.display='none';
-    return id
-} */
-/////////////////////////////////////////////////////////////////////////
-
