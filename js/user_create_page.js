@@ -1,64 +1,99 @@
-/////////////////////////////////////////////////////////////////////////
 var website = document.querySelector("#website")
 var tabs = document.querySelector("#tabs")
-var pages = []
-/////////////////////////////////////////////////////////////////////////
-function switch_pages(nb){
-    var args = nb.split("_");
-    nb = args[args.length-1];
-    // gab a modifer
-    var tab_width=tabs.offsetWidth;
-    var old_but_width = document.querySelector("#tab_button_0").offsetWidth;
-    var nbr_of_butt=Math.floor(tab_width/old_but_width)-1;
+const tabToDropzoneMap = new Map()
 
-    for (var i in pages){
-        var button = document.querySelector("#tab_button_"+i);
-        button.classList.add("default-but");
-        if (i == nb){
-            pages[i].classList.remove("invisible");
-            current_dropzone = pages[i];
-            button.style.backgroundColor="white";
-            button.classList.add("onclick-but");
-        }else{
-            pages[i].classList.add("invisible");
-            button.style.backgroundColor="buttonface";
-            button.classList.remove("onclick-but");
-        }
-        // gab a modifer
-        // adjust the size of the buttons
-        b=parseInt(i);
-        if (b>=nbr_of_butt){
-            nbr_of_butt++;
-            for(var j=0; j<pages.length;j++){
-                var but = document.querySelector("#tab_button_"+j);
-                but.offsetWidth=tab_width/nbr_of_butt;
+function switch_pages(divPage){
+    var dropzone = tabToDropzone(divPage)
+    var workspace = document.querySelector("#website")
+    for (var element of workspace.childNodes){
+        if (element.classList.contains("dropzone")){
+            if (element == dropzone){
+                dropzone.classList.remove("invisible")
+            }else{
+                element.classList.add("invisible")
             }
         }
     }
 }
-/////////////////////////////////////////////////////////////////////////
+
+function tabToDropzone(div){
+    return tabToDropzoneMap.get(div)
+}
+
+function dropzoneToTab(dropzone){
+    for (var kv of tabToDropzoneMap.entries()){ //kv stands for key/value, array with [key, value]
+        if (kv[1] == dropzone){
+            return kv[0]
+        }
+    }
+    return false
+}
+
+function switch_first_page(){
+    for (var element of workspace.childNodes){
+        if (element.classList.contains("dropzone")){
+            element.classList.remove("invisible")
+            return element
+        }
+    }
+}
+
+function get_current_dropzone(){
+    var workspace = document.querySelector("#website")
+    for (var element of workspace.childNodes){
+        if (element.classList.contains("dropzone")){
+            if (!element.classList.contains("invisible")){
+                return element
+            }
+        }
+    }
+    return false
+}
+
+function delete_page(divPage){
+    var dropzone = tabToDropzone(divPage)
+    switchToFirst = get_current_dropzone() == dropzone
+    dropzone.remove()
+    tabToDropzoneMap.delete(divPage)
+    divPage.remove()
+    if (switchToFirst){
+        switch_first_page()
+    }
+
+}
+
 function create_tab(){
     //Crée un nouvel onglet et le sélectionne
-    var id = pages.length
-    var button = document.createElement("button")
-    button.id = "tab_button_"+id
-    button.innerText = id
-    button.setAttribute("onclick","switch_pages(this.id)");
+    var divOnglet = document.createElement("div")
+
+    var divSwitch = document.createElement("span") //remplacer par un div puis faire du css
+    divSwitch.innerText = "Page"
+    divSwitch.addEventListener("click", (e) => switch_pages(e.target.parentElement))
+    divOnglet.appendChild(divSwitch)
+
+    var divDel = document.createElement("span") //remplacer par un div puis faire du css
+    divDel.innerText = "[X]"
+    divDel.addEventListener("click", (e) => delete_page(e.target.parentElement))
+    divOnglet.appendChild(divDel)
+
     var dropzone = document.createElement("div")
-    dropzone.classList.add("invisible")
     drop(dropzone)
     website.appendChild(dropzone)
-    tabs.insertBefore(button, plus_button)
-    pages.push(dropzone)
-    switch_pages(button.id)
-    return [dropzone, button]
-}
-/////////////////////////////////////////////////////////////////////////
-create_tab()
 
-var plus_button = document.createElement("button")
-plus_button.id = "plus_button"
-plus_button.innerText = "+"
-plus_button.setAttribute("onclick", "create_tab()")
-tabs.appendChild(plus_button)
-var current_dropzone = pages[0]
+    tabToDropzoneMap.set(divOnglet, dropzone)
+
+    var plus_button = document.querySelector("#plus_button")
+    tabs.insertBefore(divOnglet, plus_button)
+    switch_pages(divOnglet)
+}
+
+function plus_button(){
+    var plus_button = document.createElement("button")
+    plus_button.id = "plus_button"
+    plus_button.innerText = "+"
+    plus_button.setAttribute("onclick", "create_tab()")
+    tabs.appendChild(plus_button)
+}
+
+plus_button()
+create_tab()

@@ -143,3 +143,7 @@ html, body {
     height: 100%;
     background-color: white;
 }
+
+.invisible{
+    display:none;
+}
