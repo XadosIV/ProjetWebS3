@@ -1,5 +1,5 @@
 function deconnection() {
     var profileName = sessionStorage.removeItem('name');
     var profileEmail = sessionStorage.removeItem('email');
-    window.location.href = "accueil.html";
+    window.location.href = "index.html";
 }

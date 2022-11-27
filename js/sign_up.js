@@ -11,10 +11,10 @@ createAccount.addEventListener("submit", (e) => {
 		password : createAccount.elements["password"].value,
 	};
 	axios.post("php/sign_up.php", params).then(response => {
-		sessionStorage.setItem("name", response.data["profile"]["name"]);
-		sessionStorage.setItem("email", response.data["profile"]["email"]);
 		if (response.data["leave"]) {
-			window.location.href = "index.html";
+			window.location.href = "create_website.html";
+			sessionStorage.setItem("name", response.data["profile"]["name"]);
+			sessionStorage.setItem("email", response.data["profile"]["email"]);
 		} else {
 			var newlabel = document.createElement("label");
 			newlabel.innerHTML = response.data; //"<br><br><i><strong><span style='color:red'>*</span> Password or username incorrect</strong></i>"
