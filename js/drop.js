@@ -2,15 +2,6 @@
 /////////////////////////////////////////////////////////////////////////
 function drop(container){
     
-    // works like hover
-    // activates when hovering the dropzone with draggable
-    // container.addEventListener('dragenter',e=>{});//--
-    // works like hover:leave
-    // activates when hover leaving the dropzone with draggable
-    // container.addEventListener('dragleave',e=>{});//--
-    // similar to fiering dragenter sith set interval of 50ms
-    // activates when hovering the dropzone with draggable
-
     container.classList.add("dropzone")
     container.addEventListener('dragover',e=>{e.preventDefault();});
     // works when object has successfully been dragged 
