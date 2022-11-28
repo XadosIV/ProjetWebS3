@@ -63,6 +63,47 @@ html, body {
     cursor: pointer;
 }
 
+#profile > a {
+    text-align:center;
+    margin-bottom:20px;
+    text-decoration: none;
+    color:blue;
+}
+
+#profile > a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+#profile > button {
+    border-radius: 20px;
+    border: 1px solid #FF4B2B;
+    background-color: #FF4B2B;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    margin-right:50px;
+    margin-left:50px;
+}
+    
+#profile > button:active {
+    transform: scale(0.95);
+}
+    
+#profile > button:focus {
+    outline: none;
+}
+
+#profile > button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+
+
 .menu {
     position: absolute;
     width: 20%;
