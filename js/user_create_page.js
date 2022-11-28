@@ -8,9 +8,11 @@ function switch_pages(divPage){
     for (var element of workspace.childNodes){
         if (element.classList.contains("dropzone")){
             if (element == dropzone){
-                dropzone.classList.remove("invisible")
+                element.classList.remove("invisible")
+                dropzoneToTab(element).style.color = "black"
             }else{
                 element.classList.add("invisible")
+                dropzoneToTab(element).style.color = "white"
             }
         }
     }
