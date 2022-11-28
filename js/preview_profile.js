@@ -1,4 +1,4 @@
-var slideMenu = document.getElementById('slideMenu');  
+var slideMenu = document.querySelector("#profile");  
 var profileLink = document.createElement("a");
 var profileName = sessionStorage.getItem('name');
 var profileEmail = sessionStorage.getItem('email');
@@ -12,7 +12,7 @@ if (profileName != null && profileEmail != null) {
 
     var deconnectionButton = document.createElement("button");
     deconnectionButton.innerHTML = "Se déconnecter";
-    deconnectionButton.className = "button";
+    deconnectionButton.className = "button ghost";
     deconnectionButton.addEventListener("click", deconnection)
     slideMenu.append(deconnectionButton);
 }
