@@ -25,6 +25,9 @@ function setUpSlideMenu(){
             hideAllMenu(menus[i]);
         });
     }
+    document.body.addEventListener("keydown", e => {
+        if (e.keyCode == 27) hideAllMenu();
+    })
 }
 
 
