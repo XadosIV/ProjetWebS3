@@ -1,24 +1,22 @@
 <?php
 include("connectSQL.php");
-include("registration.php");
+include("connCrud/user_crud.php");
 $connected = False;
-$errorPassword = 0;
 $_POST = json_decode(file_get_contents("php://input"),true);
 
     if (isset($_POST['name2']) and isset($_POST['password2'])){ 
-        $res=get_users();
-        for ($i=0; $i<count($res); $i++){
-            if (($res[$i]['name']==$_POST['name2'] || $res[$i]['email']==$_POST['name2']) && $res[$i]['password']==$_POST['password2']){
-                $connected = True;  
-                $connectedAs = array(
-                    "name" => $res[$i]['name'], 
-                    "email" => $res[$i]['email']
-                );   
-            } else {
-                $errorPassword += 1;
-            }
-        }		
-    }
+        $res=get_user($_POST['name2'], $_POST['password2']);
+        if ($res != null){
+            $connected = True;  
+            $connectedAs = array(
+                "name" => $res['name'], 
+                "email" => $res['email'],
+                "id" => $res['id']
+            );   
+        } else {
+            echo "Name, email or password incorrect";
+        }
+    }		
 
     if ($connected){
         echo (json_encode(array(
@@ -27,10 +25,6 @@ $_POST = json_decode(file_get_contents("php://input"),true);
         )));
         exit;
     }  
-
-    if ($errorPassword == count($res)) {
-        echo "Name, email or password incorrect";
-    }
 
 include("disconnectSQL.php");
 ?>

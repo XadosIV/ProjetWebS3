@@ -14,6 +14,7 @@ signIn.addEventListener("submit", (e) => {
 			window.location.href = "create_website.html";
 			sessionStorage.setItem("name", response.data["profile"]["name"]);
 			sessionStorage.setItem("email", response.data["profile"]["email"]);
+			sessionStorage.setItem("id", response.data["profile"]["id"]);
 		} else {
 			var newlabel = document.createElement("label");
 			newlabel.innerHTML = response.data;
