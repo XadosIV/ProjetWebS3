@@ -1,0 +1,130 @@
+body {
+    display: flex;
+
+}
+
+* {
+    margin : 0px;
+    border : 0px;
+    padding: 0px;
+}
+
+
+body,html {
+    height: 100vh;
+    width: 100%;
+    background-color: aqua;
+}
+
+
+header {
+    display : flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 0px;
+
+
+    width: 20%;
+
+    background-color: blue;
+
+    position: sticky;
+
+    border-radius: 0px 50px 0px 0px;
+}
+
+
+
+
+
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    flex : 1;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: aqua;
+    padding: 50px;
+    overflow: auto;
+}
+
+main#noProject {
+    justify-content: center;
+    align-items: center;
+}
+
+
+.project {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 300px;
+    min-width: 200px;
+
+    margin: 20px;
+    border : solid 2px black;
+    border-radius: 10px;
+    cursor:pointer;
+    background-color: gray;
+}
+
+.project#newProject {
+    justify-content: center;
+    min-height: 200px;
+    min-width: 200px;
+}
+
+
+
+.project>*{
+    width: 100%;
+    text-align: center;
+}
+
+
+
+.delButton{
+    background-color: red;
+    border-radius: 50%;
+
+    height: 40px;
+    width: 40px;
+
+    position: relative;
+    left: 100px;
+    top: -10px;
+
+    font-size: 2em;
+
+    border : solid 2px rgb(37, 16, 16);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.exportButton {
+    border-top: solid 2px black;
+    padding: 10px 0px;
+}
+
+.project>h3 {
+    padding: 10px 0px;
+}
+
+.display {
+    min-height: 200px;
+    background-color: aquamarine;
+    border-top: 2px solid black ;
+    border-bottom: 2px solid black ;
+}
