@@ -25,14 +25,17 @@
         <div id="website"></div>
     </div>
     <!--- ajouter la classe 'menu' a un div le transforme en menu dynamique, cf js/slideMenu.js -->
-    <div id="header" class = menu></div>      
-    <div id="editingContainer" class = menu></div>
-    <div id="toolsContainer" class = menu></div>   
-    <div id="tabs" class = menu></div>
-    <div id="profile" class = menu></div>
+    <div id="header" class = "menu hide"></div>      
+    <div id="editingContainer" class = "menu hide"></div>
+    <div id="toolsContainer" class = "menu hide"></div>   
+    <div id="tabs" class = "menu hide"></div>
+    <div id="profile" class = "menu hide"></div>
 
-    <!---->
+    <!----> 
     <script src="js/main.js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+
+    <script src="js/slideMenu.js"></script>
     <script src="js/drag.js"></script>
     <script src="js/drop.js"></script>
     <script src="js/tools.js"></script>
@@ -46,8 +49,6 @@
     <script src="js/saveloadProject.js"></script>
     <script src="js/deconnection.js"></script>
     <script src="js/preview_profile.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-    <script src="js/slideMenu.js"></script>
     <!---->
 </body>
 </html>
