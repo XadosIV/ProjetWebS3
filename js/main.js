@@ -1,8 +1,11 @@
 setUpSlideMenu();
+init_tabs()
+
+var toolsContainer = document.querySelector("#toolsContainer")
 
 function main(){
-    for(let tool of tools){
-        create_tools(tool,toolsContainer)
+    for(var tool of tools){
+        create_tool(tool,toolsContainer)
     }
 }
 main();

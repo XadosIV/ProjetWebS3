@@ -1,7 +1,7 @@
-let tools = [
+const tools = [
     {
         "balise":"p",
-        "displayName":"Texte"
+        "displayName":"Texte",
         "class":"text"
     },
     {
@@ -11,13 +11,8 @@ let tools = [
     },
     {
         "balise":"a",
-        "displayName":"link",
+        "displayName":"Lien",
         "class":"link"
-    },
-    {
-        "balise":"table",
-        "displayName":"Tableau",
-        "class":"table"
     },
     {
         "balise":"input",
@@ -25,3 +20,12 @@ let tools = [
         "class":"input"
     }
 ]
+
+function nameToTool(name){
+    for (var tool of tools){
+        if (tool.displayName == name){
+            return tool
+        }
+    }
+    return false;
+}

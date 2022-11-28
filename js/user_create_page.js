@@ -95,5 +95,7 @@ function plus_button(){
     tabs.appendChild(plus_button)
 }
 
-plus_button()
-create_tab()
+function init_tabs(){
+    plus_button()
+    create_tab()
+}
