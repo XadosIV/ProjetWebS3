@@ -9,6 +9,10 @@ fa-xl	1.5em	24px
 fa-2xl	2em	    32px
 */
 
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
 body {
     background-image:url(../imgs/background-index.png);
     background-size: 100%;
