@@ -2,26 +2,26 @@ let tools = [
     {
         "balise":"p",
         "displayName":"Texte"
-        "id":0
+        "class":"text"
     },
     {
         "balise":"button",
         "displayName":"Bouton",
-        "id":1
+        "class":"button"
     },
     {
         "balise":"a",
         "displayName":"link",
-        "id":2
+        "class":"link"
     },
     {
         "balise":"table",
         "displayName":"Tableau",
-        "id":3
+        "class":"table"
     },
     {
         "balise":"input",
         "displayName":"Champ d'écriture",
-        "id":4
-    },
+        "class":"input"
+    }
 ]
