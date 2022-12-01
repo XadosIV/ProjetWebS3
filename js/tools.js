@@ -29,3 +29,12 @@ function nameToTool(name){
     }
     return false;
 }
+
+function getToolByClass(classs) {
+    for (var tool of tools){
+        if (tool.class == classs){
+            return tool
+        }
+    }
+    return false;
+}

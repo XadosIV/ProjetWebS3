@@ -7,11 +7,15 @@
 //login modifiable dans le fichier ./PHP/connectionSQL.php
 
 
-const workspace = document.querySelector("#website");
-
+/**
+ * Save le projet dans une base de donnée.
+ * @param {number} projectId Id du projet ou va etre save projet.
+ */
 function saveProject(projectId){
 
     var siteSave  = [];
+    
+    const workspace = document.querySelector("#website");
     siteSave = getSiteData(workspace, siteSave);
 
     axios.post('php/projectsCruds/saveProject.php', {
@@ -22,32 +26,25 @@ function saveProject(projectId){
     console.log(siteSave)
 }
 
-function getActivePageIndex(site){
-    for(var i = 1;i < site.children.length; i++){
-        if(!(site.children[i].classList.contains("invisible"))){
-            return i;
-        }
-    }
-
-    return -1;
-}
-
-function getSiteData(site, JSON){
-
-    const tabs = site.children[0].children
-    const activePageIndex = getActivePageIndex(site);
 
 
-    site.children[activePageIndex].classList.add("invisible");
 
-  
 
-    for(var i = 1;i < site.children.length; i++){
-        var page = site.children[i];
-        page.classList.remove("invisible");
+/**
+ * Convertie un projet en json.
+ * @param {projectElement} project projet a convertir en json.
+ * @param {json} JSON JSON a modifier.
+ * @returns Le json modifié.
+ */
+function getSiteData(project, JSON){
+
+    const tabs = document.querySelectorAll("#tabs>div");
+
+    for(var i = 0;i < project.children.length; i++){
+        var page = project.children[i];
 
         var pageJSON = {
-            name : tabs[i-1].innerText,
+            name : tabs[i].children[0].innerText,
             elements : []
         };
 
@@ -56,45 +53,52 @@ function getSiteData(site, JSON){
             
 
             var elementJSON = {
-                type : element.id.substr(0, element.id.length-2),
+                type : element.classList[0],
                 x : 0,
                 y : 0
             }
 
 
-            elementJSON.x = (element.offsetLeft - page.offsetLeft)/page.clientWidth;
-            elementJSON.y = (element.offsetTop - page.offsetTop)/page.clientHeight;
+            elementJSON.x = parseFloat(element.style.left);
+            elementJSON.y = parseFloat(element.style.top);
 
             pageJSON.elements.push(elementJSON);
         }
 
         JSON.push(pageJSON);
-
-        page.classList.add("invisible")
     }
-
-    site.children[activePageIndex].classList.remove("invisible");
 
     return JSON
 }
 
 
+
+
+
+/**
+ * Suprime toute les pages et leurs contenue.
+ */
 function resetWorkspace(){
-    const tabs = workspace.children[0].children
+    const tabs = document.querySelector("#tabs");
+    const workspace = document.querySelector("#website");
 
-    while(workspace.children[1]){
-        workspace.children[1].remove()
+    while(workspace.children[0]){
+        workspace.children[0].remove();
     }
 
-    while(tabs.length > 1){
-        tabs[0].remove()
+    while(tabs.children.length > 1){
+        tabs.children[0].remove();
     }
 
-    pages = []
 }
 
 
 
+
+/**
+ * Ouvre un projet.
+ * @param {number} projectId Id du projet a ouvrir.
+ */
 function loadProject(projectId){
     resetWorkspace();
 
@@ -111,18 +115,35 @@ function loadProject(projectId){
 
             create_tab();
 
-            var tabButton = workspace.children[0].children[pageIndex]
-            var page = workspace.children[pageIndex + 1]
+            const tabs = document.querySelector("#tabs");
+            const workspace = document.querySelector("#website");
+
+            var tabButton = tabs.children[tabs.children.length-2];
+            var page = workspace.children[pageIndex];
             
-            tabButton.innerText = pageJSON.name
+            tabButton.children[0].innerText = pageJSON.name
 
             for(elementJSON of pageJSON.elements){
-                var element = document.querySelector("#"+ clone_tools({id :elementJSON.type}, page).id);
+                var tool = getToolByClass(elementJSON.type);
                 
+                var element = document.createElement(tool.balise);
+                element.classList.add(tool.class);
+                element.draggable = true;
 
-                var x = (page.clientWidth * elementJSON.x + page.offsetLeft)/document.body.clientWidth * 100
-                var y = (page.clientHeight * elementJSON.y + page.offsetTop)/document.body.clientHeight * 100
+                element.addEventListener('dragstart', e=>{
+                    dragData = e.target
+                    hideAllMenu()
+                    element.style.opacity = 0.3;
+                });
+                element.addEventListener('dragend',e=>{
+                    element.style.opacity = 1;
+                });
+
+                var x = elementJSON.x;
+                var y = elementJSON.y;
+                element.innerText = tool.displayName
                 style_dropped_element(element, y, x);
+                page.appendChild(element)
             }
         }
 
