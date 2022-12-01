@@ -23,12 +23,18 @@ function drop(container){
         
         if (element.classList.contains("toolInMenu")){
             //create
-            var toolData = nameToTool(element.innerText)
+            var toolData = displayNameToTool(element.innerText)
             if (toolData){
                 var element = document.createElement(toolData.balise)
+                element.classList.add("toolElement")
                 element.classList.add(toolData.class)
                 element.innerText = toolData.displayName
                 drag(element)
+                element.addEventListener("click", e => {
+                    if (e.target == element){
+                        select(e.target);
+                    }
+                })
                 get_current_dropzone().appendChild(element)
             }
         }

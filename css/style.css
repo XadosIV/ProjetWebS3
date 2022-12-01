@@ -195,6 +195,25 @@ html, body {
     display:none;
 }
 
+.selector{
+    border: dashed black;
+    padding: 5px;
+}
+/*Faut le placer en bas à droite de son parent en gros, puis donnez une forme de rond ça rendra mieux*/
+#delete_button_attribute { 
+    position:relative;
+    left: 100%;
+    top:0%;
+}
+
+
+/*Idem pour lui mais en haut à droite*/
+#quitter_button_attribute {
+    position: relative;
+    left: 0%;
+    top: 100%;
+}
+
 * {
     margin: 0;
     padding: 0;
