@@ -128,7 +128,7 @@ html, body {
 .hide {
     transition: 0.01s;
     /* rend invible un element sans utilisé display:none */
-    transform: translateX(-500px);
+    transform: translateX(-1000px);
     
 }
 
