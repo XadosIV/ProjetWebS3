@@ -48,9 +48,10 @@ a{
     position: sticky;
     display: flex;
     flex-direction: row;
-    background-color: var(--red-color);
+    background-color: gray;
     color : white;
     justify-content: center;
+    cursor: auto;
 }
 
 #nav {
@@ -60,7 +61,7 @@ a{
     z-index: 2;
     font-size:50px;
     padding: 10px;
-    color:#d4d0cf;
+    color:white;
     border-right: solid  2px;
     box-sizing: border-box;
 }
@@ -70,7 +71,6 @@ a{
     justify-content: center;
     width: 100%;
     height: fit-content;
-    cursor: pointer;
 }
 
 #website {
@@ -89,6 +89,7 @@ a{
 
 #welcome > p {
     display : inline-block;
+    padding:10px;
     border:solid 2px;
     border-color:gold;
 }
@@ -107,30 +108,36 @@ a{
     border-color:gold;
 }
 
-#exemple1 {
+#exemple1, #exemple2 {
+    padding:10px;
+    box-sizing:inherit;
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
     margin: 20px;
     gap: 50px;
-    align-items:center;
+    border: solid 1px;
+    border-radius : 20px;
+    box-shadow: 2px -2px gray;
+    align-items: center;
+}
+
+img {
+    border-radius : 20px
+}
+
+#exemple1 {
+    margin-left:40%;
 }
 
 #exemple2 {
-    display:flex;
-    flex-direction:row;
-    margin: 20px;
-    gap: 50px;
-    align-items:center;
-}
-
-#exemple > img {
-    max-width: 40%;
-	height: auto;
+    margin-right:40%;
 }
 
 #text {
-    font-size:30px;
-    color:black;
+    margin-left:10%;
+    margin-right:10%;
+    font-size:20px;
+    color:#333333;
     z-index:3;
 }
 
