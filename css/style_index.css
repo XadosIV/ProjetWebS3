@@ -55,6 +55,8 @@ a{
 }
 
 #nav {
+    border-bottom:solid 2px black;
+    box-shadow: 0px 3px 3px gray;
     justify-content: space-between;
     align-items: center;
     width: var(--nav-width);
@@ -117,25 +119,25 @@ a{
     gap: 50px;
     border: solid 1px;
     border-radius : 20px;
-    box-shadow: 2px -2px gray;
-    align-items: center;
 }
 
 img {
+    margin-left:2%;
     border-radius : 20px
 }
 
 #exemple1 {
-    margin-left:40%;
+    box-shadow: 3px -3px 3px gray;
+    margin-left:45%;
 }
 
 #exemple2 {
-    margin-right:40%;
+    box-shadow: -3px 3px 3px gray;
+    margin-right:45%;
 }
 
 #text {
-    margin-left:10%;
-    margin-right:10%;
+    margin-left:2%;
     font-size:20px;
     color:#333333;
     z-index:3;
