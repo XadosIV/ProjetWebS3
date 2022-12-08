@@ -25,6 +25,12 @@ body {
     --nav-width:100%;
 }
 
+@font-face {
+	font-family: 'Roboto';
+	src: url(‘/fonts/Roboto-Regular.woff2’) format(‘woff2’),
+		url(‘/fonts/Robot-Regular.ttf’) format(‘truetype’)
+}
+
 #app {
     display: flex;
     flex-direction: column;
@@ -45,7 +51,6 @@ a{
 
 
 #nav, .menu{
-    position: sticky;
     display: flex;
     flex-direction: row;
     background-color: gray;
@@ -54,17 +59,17 @@ a{
     cursor: auto;
 }
 
+
 #nav {
     border-bottom:solid 2px black;
     box-shadow: 0px 3px 3px gray;
-    justify-content: space-between;
     align-items: center;
     width: var(--nav-width);
     z-index: 2;
     font-size:50px;
-    padding: 10px;
+    padding: 0px 0px 0px 10px;
     color:white;
-    border-right: solid  2px;
+    border-right: solid 2px;
     box-sizing: border-box;
 }
 
@@ -82,9 +87,10 @@ a{
 
 #welcome {   
     margin-top:200px;
-    margin-bottom: 200px;
+    margin-bottom: 250px;
     text-align:center;
     font-size:50px;
+    font-family: 'Roboto', sans-serif;
     color:#FF4B2B;
     /*font-family: ?;*/
 }
@@ -92,8 +98,6 @@ a{
 #welcome > p {
     display : inline-block;
     padding:10px;
-    border:solid 2px;
-    border-color:gold;
 }
 
 #creations {   
@@ -121,7 +125,7 @@ a{
     border-radius : 20px;
 }
 
-img {
+#exemple1>img, #exemple2>img {
     margin-left:2%;
     border-radius : 20px
 }
