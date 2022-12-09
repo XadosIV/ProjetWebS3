@@ -4,13 +4,18 @@ init_tabs();
 
 
 let query;
-try {
-    query = window.location.search.substring(1);
-    projectID = parseInt((new URLSearchParams(query)).get("id"));
-    console.log(projectID);
-    loadProject(projectID);
-} catch(e) {
-    console.log(e)
+if(sessionStorage.getItem('id')){
+    try {
+        query = window.location.search.substring(1);
+        projectID = parseInt((new URLSearchParams(query)).get("id"));
+        console.log(projectID);
+        loadProject(projectID);
+    } catch(e) {
+        console.log(e)
+    }
+}
+else {
+    document.location.href = "index.html";
 }
 
 
