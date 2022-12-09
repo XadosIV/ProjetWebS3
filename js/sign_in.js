@@ -11,7 +11,7 @@ signIn.addEventListener("submit", (e) => {
 	};
 	axios.post("php/sign_in.php", params).then(response => {
 		if (response.data["leave"]) {
-			window.location.href = "create_website.html";
+			window.location.href = "projects.html";
 			sessionStorage.setItem("name", response.data["profile"]["name"]);
 			sessionStorage.setItem("email", response.data["profile"]["email"]);
 			sessionStorage.setItem("id", response.data["profile"]["id"]);
