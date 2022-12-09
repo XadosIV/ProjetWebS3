@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --body-height:100vh;
+    --body-width:100%;
+    --pop-background-color:;
+}
+html,
+body {
+    height: var(--body-height);
+    width: var(--body-width);
+}
+body{
+    background-color: aqua;
+    color: red;
+}
+.pop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: var(--body-height);
+    width: var(--body-width);
+}
+.popBackground{
+    height: var(--body-height);
+    width: var(--body-width);
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.popEvent{
+    height: 0;
+    width: 0;
+    background-color: pink;
+    display: none;
+    flex-direction: column;
+    transition: 10s;
+}
+.popEventDisplay{
+    transition: 10s;
+    display: flex;
+    height: 50%;
+    width: 50%;
+}
+.positionInSpaceZ{
+    z-index: 1000;
+}
+
+#text{
+    width: 90%;
+    height: 60%;
+}
+#title{
+    width: 90%;
+    height: 20%;
+}
+#answer{
+    width: 90%;
+    height: 20%;
+}
+#true{
+
+}
+#false{
+
+}

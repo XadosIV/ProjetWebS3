@@ -28,6 +28,15 @@
         function lol(){
             document.querySelector("#yo").classList.replace("yo","yop"); 
         }
+        function decimalToHexString(number){
+
+            (number < 0)?number = 0xFFFFFFFF + number + 1:false;
+
+            return number.toString(16).toUpperCase();
+        }
+        console.log(decimalToHexString(10));
+        console.log(decimalToHexString(27));
+        console.log(decimalToHexString(48.6));
     </script>
 </body>
 </html>
