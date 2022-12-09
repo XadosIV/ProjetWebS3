@@ -60,13 +60,17 @@ function createAllProjectsDiv() {
  */
 function createProjectDiv(project){
     const projectDiv = createElement("div",  projectsMain, ["project"]);
+    projectDiv.addEventListener("click", () => {
+        document.location.href = "create_website.html?id=" + project.id;
+    });
 
     
     //ordre de creation des elements important.
 
     //bouton de supression de projet.
     const delButton = createElement("div",  projectDiv, ["delButton"], "x");
-    delButton.addEventListener("click", () => {
+    delButton.addEventListener("click", (e) => {
+        e.stopPropagation();
         axios.post("php/projectsCruds/deleteProject.php", {
             id : project.id
         })
@@ -83,7 +87,24 @@ function createProjectDiv(project){
     //bouton pour la creation du .zip et le telechargement du projet.
     //pour le moment ecrit juste un truc dans la console.
     const exportButton = createElement("div",  projectDiv, ["exportButton"], "Export Project");
-    exportButton.addEventListener("click", () => {
-        console.log("export projet id = " + project.id)
+    exportButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        axios.post("php/compresse.php", {
+            id: project.id
+        })
+        .then(response => {
+            const fileName = response.data;
+    
+            console.log(fileName)
+    
+            const aLink = document.createElement('a');
+            aLink.href = "projects/" + fileName + ".zip";
+            aLink.download = fileName;
+            document.body.appendChild(aLink);
+            aLink.click();
+            aLink.innerHTML ="aaaaaaaaaaah";
+            document.body.removeChild(aLink);
+        })
+
     });
 }
