@@ -11,6 +11,9 @@ fa-2xl	2em	    32px
 
 *{
     font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+
 }
 
 :root{
@@ -18,6 +21,7 @@ fa-2xl	2em	    32px
     --orange-color:#FF4B2B;/*#rgba(255, 75, 43,1)*/
     --button-color:buttonface;
     --nav-width:3%;
+    --tool-Element-height:50px;
 }
 
 #app {
@@ -221,13 +225,17 @@ html, body {
 
 .selector{
     border: dashed black;
-    padding: 5px;
+    border-radius: 20%;
 }
 /*Faut le placer en bas à droite de son parent en gros, puis donnez une forme de rond ça rendra mieux*/
 #delete_button_attribute { 
     position:relative;
-    left: 100%;
-    top:0%;
+    right:var(--tool-Element-delete-height);
+    top:var(--tool-Element-delete-height);
+    border-radius: 50%;
+    height: var(--tool-Element-delete-height);
+    width: var(--tool-Element-delete-height);
+
 }
 
 
@@ -236,9 +244,14 @@ html, body {
     position: relative;
     left: 0%;
     top: 100%;
+    display: none;
 }
 
-* {
-    margin: 0;
-    padding: 0;
+
+.toolElement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: var(--tool-Element-height);
 }

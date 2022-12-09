@@ -1,14 +1,19 @@
 //BOUTON DE SUPPRESSION D ELEMENT
 const delete_button_attribute = document.createElement("button")
 delete_button_attribute.id = "delete_button_attribute"
-delete_button_attribute.innerHTML = "Supprimer"
+delete_button_attribute.innerHTML = "X"
 delete_button_attribute.addEventListener("click", e => e.target.parentNode.remove())
 
 //BOUTON POUR ANNULER LA SELECTION
 /*const quitter_button_attribute = document.createElement("button")
 quitter_button_attribute.id = "quitter_button_attribute"
+<<<<<<< Updated upstream
 quitter_button_attribute.innerHTML = "X"
 quitter_button_attribute.addEventListener("click", e => popUp("Warning","Do you really want to delete ?","Yes","No")); //Action = select(null)*/
+=======
+quitter_button_attribute.innerHTML = "NaN"
+quitter_button_attribute.addEventListener("click", e => select(null))
+>>>>>>> Stashed changes
 
 function select(element){
 	var selected = document.querySelector(".selector") // récupère l'ancien élément sélectionné
