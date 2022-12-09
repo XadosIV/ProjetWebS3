@@ -57,9 +57,7 @@ function getSiteData(project, JSON){
             elements : []
         };
 
-        for(element of page.children){
-            
-            
+        for(element of page.children){         
 
             var elementJSON = {
                 type : element.classList[1],
