@@ -2,13 +2,24 @@
 Syntaxe d'attribut : 
 
 {
-    "displayName":String qui sera affiché dans le menu
-    "style":l'attribut du style à changer dans le js / false si c'est un attribut directement dans l'élément, comme a.href
-    "name":si style à false, correspond à l'attribut à modifier
-    "inputtype": type de l'input pour rentrer les données
+    "display":String qui sera affiché dans le menu
+    "name":l'attribut du style à changer dans le js (faire "style.{name}" si la propriété est dans style.)
+    "input": type de l'input pour rentrer les données
+
+    ## Facultatifs ##
+    value : valeur par défaut (quand le tool sera créé)
+    unit : string à rajouter à la fin d'une valeur de l'input (ex: "px")
 }
 
 */
+
+const attributesAll = [
+    {"display":"Couleur", "name":"style.color", "input":"color"},
+    {"display":"Couleur de fond", "name":"style.backgroundColor", "input":"color"},
+    {"display":"Largeur", "name":"style.width", "input":"number", "unit":"%"},
+    {"display":"Hauteur", "name":"style.height", "input":"number", "unit":"%"},
+    {"display":"Profondeur", "name":"style.zIndex", "input":"number"}
+]
 
 const tools = [
     {
@@ -16,9 +27,8 @@ const tools = [
         "displayName":"Texte",
         "class":"text",
         "attributes":[
-            {"displayName":"Couleur", "name":"color", "inputtype":"color", "style":"color"},
-            {"displayName":"Couleur de fond", "name":"background-color", "inputtype":"color", "style":"backgroundColor"},
-            {"displayName":"Texte", "name":"innerHTML", "inputtype":"text", "style":false}
+            {"display":"Texte", "name":"innerHTML", "input":"text"},
+            {"display":"Police", "name":"style.fontSize", "input":"number", "unit":"px"}
         ]
     },
     {
@@ -26,9 +36,7 @@ const tools = [
         "displayName":"Bouton",
         "class":"button",
         "attributes":[
-            {"displayName":"Couleur", "name":"color", "inputtype":"color", "style":"color"},
-            {"displayName":"Couleur de fond", "name":"background-color", "inputtype":"color", "style":"backgroundColor"},
-            {"displayName":"Texte", "name":"innerHTML", "inputtype":"text", "style":false}
+            {"display":"Texte", "name":"innerHTML", "input":"text"}
         ]
     },
     {
@@ -36,16 +44,14 @@ const tools = [
         "displayName":"Lien",
         "class":"link",
         "attributes":[
-            {"displayName":"Couleur", "name":"color", "inputtype":"color", "style":"color"},
-            {"displayName":"Couleur de fond", "name":"background-color", "inputtype":"color", "style":"backgroundColor"},
-            {"displayName":"Texte", "name":"innerHTML", "inputtype":"text", "style":false},
-            {"displayName":"Redirection", "name":"href", "inputtype":"text", "style":false}
+            {"display":"Texte", "name":"innerHTML", "input":"text"},
+            {"display":"Redirection", "name":"href", "input":"text"}
         ]
     },
     {
-        "balise":"input",
-        "displayName":"Champ d'écriture",
-        "class":"input",
+        "balise":"div",
+        "displayName":"rectangle",
+        "class":"div",
         "attributes":[]
     }
 ]

@@ -45,7 +45,7 @@ if(sessionStorage.getItem('id')){
         });
     });
     const projectsMain = document.querySelector("body>main")
-    createAllProjectsDiv();
+    createAllProjectsDiv(projectsMain);
 }
 else {
     //utilisateur non conencté
@@ -59,7 +59,7 @@ else {
 /**
  * crée tout les div projet.
  */
-function createAllProjectsDiv() {
+function createAllProjectsDiv(projectsMain) {
     axios.post("php/projectsCruds/getAllProject.php", {
         ownerId : 1
     })
@@ -67,7 +67,7 @@ function createAllProjectsDiv() {
         var projects = response.data;
 
         for(let project of projects){
-            createProjectDiv(project);
+            createProjectDiv(project, projectsMain);
         }
     });
 }
@@ -77,7 +77,7 @@ function createAllProjectsDiv() {
  * crée un div projet avec tout les events "click" correspondant.
  * @param {ObjetProjet} project projet associé au div qui va etre creer. 
  */
-function createProjectDiv(project){
+function createProjectDiv(project, projectsMain){
     const projectDiv = createElement("div",  projectsMain, ["project"]);
     projectDiv.addEventListener("click", () => {
         document.location.href = "create_website.html?id=" + project.id;

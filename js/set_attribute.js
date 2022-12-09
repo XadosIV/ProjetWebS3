@@ -33,7 +33,11 @@ function loadAttributes(element){
 	var editDiv = document.querySelector("#editingContainer")
 	editDiv.innerHTML = "" //Retire tout les anciens attributs
 
-	for (let attrData of tool.attributes){
+	var attributes = attributesAll.concat(tool.attributes)
+
+	console.log(attributes)
+
+	for (let attrData of attributes){
 		/*
 		Chaque attribut : 
 		<div>
@@ -44,22 +48,29 @@ function loadAttributes(element){
 		var div = document.createElement("div")
 		
 		var name = document.createElement("span")
-		name.innerHTML = attrData["displayName"]
+		name.innerHTML = attrData["display"]
 		div.appendChild(name)
 
 		var input = document.createElement("input")
-		input.type = attrData["inputtype"]
+		input.type = attrData["input"]
 		input.addEventListener("change", e => {
 			var data = e.target.value
-			if (attrData["style"]){
-				element.style[attrData["style"]] = data
+
+			if (attrData["unit"]){
+				data = data + attrData["unit"]
+			}
+
+			if (attrData["name"].startsWith("style.")){
+				property = attrData["name"].split("style.")[1]
+				element.style[property] = data
 			}else{
+				property = attrData["name"]
 				//Exception pour 'texte', on ne veut pas supprimer le bouton de sélection s'il existe, donc on prend
 				//non pas l'innerhtml mais le node de texte pour le modifier.
-				if (attrData["name"] == "innerHTML"){
+				if (property == "innerHTML"){ 
 					element.childNodes[0].nodeValue = data
 				}else{
-					element[attrData["name"]] = data
+					element[property] = data
 				}
 			}
 		})
