@@ -11,19 +11,28 @@
  * Save le projet dans une base de donnée.
  * @param {number} projectId Id du projet ou va etre save projet.
  */
-function saveProject(projectId){
+function saveProject(){
 
-    var siteSave  = [];
+    try {
+        query = window.location.search.substring(1);
+        projectID = parseInt((new URLSearchParams(query)).get("id"));
+        console.log(projectID);
+
+        var siteSave  = [];
     
-    const workspace = document.querySelector("#website");
-    siteSave = getSiteData(workspace, siteSave);
+        const workspace = document.querySelector("#website");
+        siteSave = getSiteData(workspace, siteSave);
 
-    axios.post('php/projectsCruds/saveProject.php', {
-        id: projectId,
-        json: JSON.stringify(siteSave)
-    })
+        axios.post('php/projectsCruds/saveProject.php', {
+            id: projectId,
+            json: JSON.stringify(siteSave)
+        })
 
-    console.log(siteSave)
+        console.log(siteSave)
+
+    } catch(e) {
+        console.log(e)
+    }
 }
 
 
@@ -53,7 +62,7 @@ function getSiteData(project, JSON){
             
 
             var elementJSON = {
-                type : element.classList[0],
+                type : element.classList[1],
                 x : 0,
                 y : 0
             }
@@ -127,6 +136,7 @@ function loadProject(projectId){
                 var tool = getToolByClass(elementJSON.type);
                 
                 var element = document.createElement(tool.balise);
+                element.classList.add("toolElement")
                 element.classList.add(tool.class);
                 element.draggable = true;
 
@@ -144,6 +154,12 @@ function loadProject(projectId){
                 element.innerText = tool.displayName
                 style_dropped_element(element, y, x);
                 page.appendChild(element)
+
+                element.addEventListener("click", e => {
+                    if (e.target == element){
+                        select(e.target);
+                    }
+                })
             }
         }
 
