@@ -5,10 +5,10 @@ delete_button_attribute.innerHTML = "Supprimer"
 delete_button_attribute.addEventListener("click", e => e.target.parentNode.remove())
 
 //BOUTON POUR ANNULER LA SELECTION
-const quitter_button_attribute = document.createElement("button")
+/*const quitter_button_attribute = document.createElement("button")
 quitter_button_attribute.id = "quitter_button_attribute"
 quitter_button_attribute.innerHTML = "X"
-quitter_button_attribute.addEventListener("click", e => popUp("Warning","Do you really want to delete ?","Yes","No")); //Action = select(null)
+quitter_button_attribute.addEventListener("click", e => popUp("Warning","Do you really want to delete ?","Yes","No")); //Action = select(null)*/
 
 function select(element){
 	var selected = document.querySelector(".selector") // récupère l'ancien élément sélectionné
@@ -16,13 +16,13 @@ function select(element){
 		//lui retire la sélection
 		selected.classList.remove("selector")
 		selected.removeChild(delete_button_attribute)
-		selected.removeChild(quitter_button_attribute)
+		//selected.removeChild(quitter_button_attribute)
 	}
 	if (element != null){
 		// l'ajoute au nouvel element
 		element.classList.add("selector")
 		element.appendChild(delete_button_attribute)
-		element.appendChild(quitter_button_attribute)
+		//element.appendChild(quitter_button_attribute)
 		loadAttributes(element)
 	}
 }
