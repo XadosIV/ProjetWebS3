@@ -17,52 +17,45 @@ function createPopElement(textTitle,text,trueButtonName,falseButtonName){
     const mainElement = create("div",document.body,"pop","pop");
 
     create("div",document.querySelector("#pop"),"popBackground","popBackground");
-    create("div",document.querySelector("#popBackground"),"popEvent","popEvent");
+    create("div",document.querySelector("#popBackground"),"popWindow","popWindow");
 
-    popEventItem =`<div id="title">${textTitle}</div>\t\n
+    popWindowItem =`<div id="title">${textTitle}</div>\t\n
            <div id="text">${text}</div>\t\n
            <div id="answer">\t\n
                 <p id="true">${trueButtonName}</p>\t\t\n
                 <p id="false">${falseButtonName}</p>\t\t\n
            </div>`;
 
-    document.querySelector("#popEvent").innerHTML =popEventItem;
-    displayPopElement(document.querySelector("#popEvent"));
+    document.querySelector("#popWindow").innerHTML =popWindowItem;
+    displayPopElement(document.querySelector("#popWindow"));
     return mainElement
 }
 /////////////////////////////////////////////////////////////////////////
 function displayPopElement(element){
-    element.classList.add("popEventDisplay");
+    element.classList.add("popWindowDisplay");
 
 }
 
 /////////////////////////////////////////////////////////////////////////
-function time(){
+function removePopUp(){
     document.querySelector("#pop").remove();
     answerReturnFalse();
 }
 /////////////////////////////////////////////////////////////////////////
-function answerReturnTrue(){
-//if true ...
-}
-function answerReturnFalse(){
-    //if false ...
-}
 
 /////////////////////////////////////////////////////////////////////////
-function popUp(textTitle,text,trueButtonName,falseButtonName,popUpTime="permanant",positionInSpaceZ="positionInSpaceZ"){
+function popUp(textTitle,text,trueButtonName,falseButtonName,functionTrue, popUpTime="permanant",positionInSpaceZ="positionInSpaceZ"){
 
     const mainElement =createPopElement(textTitle,text,trueButtonName,falseButtonName);
 
     mainElement.classList.add(positionInSpaceZ);
 
     if(popUpTime!="permanant"){
-        setTimeout(time,parseInt(popUpTime));
+        setTimeout(removePopUp,parseInt(popUpTime));
     }
-    document.querySelector("#true").addEventListener('click',answerReturnTrue());
-    document.querySelector("#false").addEventListener('click',answerReturnFalse());
+    document.querySelector("#true").addEventListener('click',functionTrue);
+    document.querySelector("#false").addEventListener('click',removePopUp);
 
     
 }
 /////////////////////////////////////////////////////////////////////////
-popUp("warning","do u really want to delete ?","yes","no");

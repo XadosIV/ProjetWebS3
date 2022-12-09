@@ -39,13 +39,12 @@ body{
     background-color: pink;
     display: none;
     flex-direction: column;
-    transition: 10s;
 }
 .popEventDisplay{
-    transition: 10s;
     display: flex;
     height: 50%;
     width: 50%;
+    transition: 10s;
 }
 .positionInSpaceZ{
     z-index: 1000;
