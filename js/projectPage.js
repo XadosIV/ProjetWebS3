@@ -8,7 +8,7 @@
  * @param {String} text text contenue par l'element, parametre optionnel.
  * @returns {element} element créé.
  */
-function createElement(type, parent = null, classs = null, text = null){
+ function createElement(type, parent = null, classs = null, text = null){
     let obj = document.createElement(type);
 
     if(parent){
@@ -29,6 +29,21 @@ function createElement(type, parent = null, classs = null, text = null){
 /////////////////////////////////////////////////////////////////
 //code executé au chargement du script :
 const NewProjectButton = document.querySelector("#newProject");
+console.log("nnn")
+NewProjectButton.addEventListener("click", () => {
+    console.log("a")
+    axios.post("php/projectsCruds/createProject.php", {
+        ownerId : 1
+    })
+    .then(response => {
+        console.log(response.data)
+        document.location.href = "create_website.html?id=" + response.data;
+    });
+});
+
+
+
+
 const projectsMain = document.querySelector("body>main")
 
 createAllProjectsDiv();
