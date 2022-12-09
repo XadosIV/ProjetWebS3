@@ -8,7 +8,7 @@ delete_button_attribute.addEventListener("click", e => e.target.parentNode.remov
 const quitter_button_attribute = document.createElement("button")
 quitter_button_attribute.id = "quitter_button_attribute"
 quitter_button_attribute.innerHTML = "X"
-quitter_button_attribute.addEventListener("click", e => select(null))
+quitter_button_attribute.addEventListener("click", e => popUp("Warning","Do you really want to delete ?","Yes","No")); //Action = select(null)
 
 function select(element){
 	var selected = document.querySelector(".selector") // récupère l'ancien élément sélectionné

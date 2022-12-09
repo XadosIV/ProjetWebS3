@@ -107,6 +107,30 @@ html, body {
 	border-color: #FFFFFF;
 }
 
+#deconnection {
+    margin-top:10%;
+}
+
+#projects {
+    margin-top:170%;
+}
+
+#pseudo {
+    color:black;
+    text-align:center;
+    margin-top:-20%;
+}
+
+#email {
+    margin-top:-10%;
+    color:black;
+    text-align:center;
+}
+
+#changePseudo {
+    background-color: Transparent;
+    border:none;
+}
 
 .menu {
     position: absolute;
