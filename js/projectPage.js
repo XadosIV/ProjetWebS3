@@ -28,25 +28,29 @@
 
 /////////////////////////////////////////////////////////////////
 //code executé au chargement du script :
-const NewProjectButton = document.querySelector("#newProject");
-console.log("nnn")
-NewProjectButton.addEventListener("click", () => {
-    console.log("a")
-    axios.post("php/projectsCruds/createProject.php", {
-        ownerId : 1
-    })
-    .then(response => {
-        console.log(response.data)
-        document.location.href = "create_website.html?id=" + response.data;
+if(sessionStorage.getItem('id')){
+
+    //utilisateur connecté :
+
+    const id = sessionStorage.getItem('id')
+
+    const NewProjectButton = document.querySelector("#newProject");
+    NewProjectButton.addEventListener("click", () => {
+        console.log("a")
+        axios.post("php/projectsCruds/createProject.php", {
+            ownerId : id
+        })
+        .then(response => {
+            document.location.href = "create_website.html?id=" + response.data;
+        });
     });
-});
-
-
-
-
-const projectsMain = document.querySelector("body>main")
-
-createAllProjectsDiv();
+    const projectsMain = document.querySelector("body>main")
+    createAllProjectsDiv();
+}
+else {
+    //utilisateur non conencté
+    document.location.href = "index.html";
+}
 /////////////////////////////////////////////////////////////////
 
 
