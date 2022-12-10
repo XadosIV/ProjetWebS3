@@ -36,15 +36,12 @@ function displayPopElement(element){
 
 /////////////////////////////////////////////////////////////////////////
 function time(){
-    document.querySelector("#pop").remove();
     answerReturnFalse();
 }
 /////////////////////////////////////////////////////////////////////////
-function answerReturnTrue(){
-//if true ...
-}
-function answerReturnFalse(){
-    //if false ...
+
+function closePopUp(){
+    document.querySelector("#pop").remove();
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -57,8 +54,8 @@ function popUp(textTitle,text,trueButtonName,falseButtonName,popUpTime="permanan
     if(popUpTime!="permanant"){
         setTimeout(time,parseInt(popUpTime));
     }
-    document.querySelector("#true").addEventListener('click',answerReturnTrue());
-    document.querySelector("#false").addEventListener('click',answerReturnFalse());
+
+    document.querySelector("#false").addEventListener('click', (e) => closePopUp());
 
     
 }

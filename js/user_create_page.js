@@ -75,7 +75,13 @@ function create_tab(){
 
     var divDel = document.createElement("span") //remplacer par un div puis faire du css
     divDel.innerText = "[X]"
-    divDel.addEventListener("click", (e) => delete_page(e.target.parentElement))
+    divDel.addEventListener("click", (e) => {
+        popUp("Warning","Do you really want to delete this page ?","Yes","No");
+        document.querySelector("#true").addEventListener('click',(f) => {
+            closePopUp()
+            delete_page(e.target.parentElement)
+        })
+    })
     divOnglet.appendChild(divDel)
 
     var dropzone = document.createElement("div")

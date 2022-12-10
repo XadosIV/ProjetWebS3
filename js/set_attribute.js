@@ -2,18 +2,21 @@
 const delete_button_attribute = document.createElement("button")
 delete_button_attribute.id = "delete_button_attribute"
 delete_button_attribute.innerHTML = "X"
-delete_button_attribute.addEventListener("click", e => e.target.parentNode.remove())
+delete_button_attribute.addEventListener("click", (e) =>  {
+	popUp("Warning","Do you really want to delete this element ?","Yes","No");
+	document.querySelector("#true").addEventListener('click',(f) => {
+		e.target.parentNode.remove()
+		closePopUp()
+	});
+})
 
 //BOUTON POUR ANNULER LA SELECTION
 /*const quitter_button_attribute = document.createElement("button")
 quitter_button_attribute.id = "quitter_button_attribute"
-<<<<<<< Updated upstream
-quitter_button_attribute.innerHTML = "X"
-quitter_button_attribute.addEventListener("click", e => popUp("Warning","Do you really want to delete ?","Yes","No")); //Action = select(null)*/
-=======
-quitter_button_attribute.innerHTML = "NaN"
-quitter_button_attribute.addEventListener("click", e => select(null))
->>>>>>> Stashed changes
+*/
+
+//quitter_button_attribute.innerHTML = "X" //Bouton à delete ?
+//quitter_button_attribute.addEventListener("click", e => select(null))
 
 function select(element){
 	var selected = document.querySelector(".selector") // récupère l'ancien élément sélectionné

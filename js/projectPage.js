@@ -36,7 +36,7 @@ if(sessionStorage.getItem('id')){
 
     const NewProjectButton = document.querySelector("#newProject");
     NewProjectButton.addEventListener("click", () => {
-        console.log("a")
+        //console.log("a")
         axios.post("php/projectsCruds/createProject.php", {
             ownerId : id
         })
@@ -72,36 +72,39 @@ function createAllProjectsDiv(projectsMain) {
     });
 }
 
-
 /**
  * crée un div projet avec tout les events "click" correspondant.
  * @param {ObjetProjet} project projet associé au div qui va etre creer. 
  */
 function createProjectDiv(project, projectsMain){
     const projectDiv = createElement("div",  projectsMain, ["project"]);
-    projectDiv.addEventListener("click", () => {
-        document.location.href = "create_website.html?id=" + project.id;
-    });
-
     
     //ordre de creation des elements important.
 
     //bouton de supression de projet.
     const delButton = createElement("div",  projectDiv, ["delButton"], "x");
     delButton.addEventListener("click", (e) => {
-        e.stopPropagation();
-        axios.post("php/projectsCruds/deleteProject.php", {
-            id : project.id
-        })
-        .then(() => location.reload());
+        popUp("Warning","Do you really want to delete the project named : '" + project.name + "' ?","Yes","No");
+        document.querySelector("#true").addEventListener('click',(f) => {
+            e.stopPropagation();
+            axios.post("php/projectsCruds/deleteProject.php", {
+                id : project.id
+            })
+            .then(() => location.reload());
+        }); 
     });
 
     //apercu du projet (rien pour le moment dedans(pas de iframe pitié)).
-    createElement("div",  projectDiv, ["display"]);
+    const projectApercu = createElement("div",  projectDiv, ["display"]);
+    projectApercu.addEventListener("click", () => {
+        document.location.href = "create_website.html?id=" + project.id;
+    });
 
     //nom du projet.
-    createElement("h3",  projectDiv, null, project.name);
-
+    const projectName = createElement("h3",  projectDiv, null, project.name);
+    projectName.addEventListener("click", () => {
+        document.location.href = "create_website.html?id=" + project.id;
+    });
 
     //bouton pour la creation du .zip et le telechargement du projet.
     //pour le moment ecrit juste un truc dans la console.
@@ -114,7 +117,7 @@ function createProjectDiv(project, projectsMain){
         .then(response => {
             const fileName = response.data;
     
-            console.log(fileName)
+            //console.log(fileName)
     
             const aLink = document.createElement('a');
             aLink.href = "projects/" + fileName + ".zip";
