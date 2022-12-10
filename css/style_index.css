@@ -49,11 +49,15 @@ a{
     color:red;
 }
 
+#welcome img {
+    height:60%;
+}
+
 
 #nav, .menu{
     display: flex;
     flex-direction: row;
-    background-color: gray;
+    background: linear-gradient(black, gray);
     color : white;
     justify-content: center;
     cursor: auto;
@@ -86,48 +90,48 @@ a{
 }
 
 #welcome {   
-    margin-top:200px;
-    margin-bottom: 250px;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top:100px;
+    gap:100px;
     text-align:center;
     font-size:50px;
     font-family: 'Roboto', sans-serif;
-    color:#FF4B2B;
+    color: gray;
     /*font-family: ?;*/
 }
 
-#welcome > p {
+#welcome p {
     display : inline-block;
     padding:10px;
+    font-style:italic;
 }
 
 #creations {   
-    margin-bottom: 250px;
     text-align:center;
     font-size:50px;
     color:#FF4B2B;
+    margin-bottom: 100px;
     /*font-family: ?;*/
-}
-
-#creations > p {
-    display : inline-block;
-    border:solid 2px;
-    border-color:gold;
 }
 
 #exemple1, #exemple2 {
     padding:10px;
-    box-sizing:inherit;
     display:flex;
     flex-direction:column;
+    justify-content: center;
+    align-items: center;
     margin: 20px;
     gap: 50px;
     border: solid 1px;
     border-radius : 20px;
 }
 
-#exemple1>img, #exemple2>img {
+#exemple1 img, #exemple2 img {
     margin-left:2%;
-    border-radius : 20px
+    border-radius : 20px;
+    height:80%;
 }
 
 #exemple1 {
@@ -141,18 +145,19 @@ a{
 }
 
 #text {
+    margin-top:-10%;
     margin-left:2%;
     font-size:20px;
     color:#333333;
     z-index:3;
 }
 
-#text > a{
+#text a{
     color:blue;
     text-decoration: none;
 }
 
-#text > a:hover{
+#text a:hover{
     text-decoration: underline;
     color: black;
 }
