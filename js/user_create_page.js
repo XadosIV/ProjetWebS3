@@ -62,6 +62,7 @@ function delete_page(divPage){
         switch_first_page()
     }
 
+    saveProject();
 }
 
 function create_tab(){
@@ -93,6 +94,8 @@ function create_tab(){
     var plus_button = document.querySelector("#plus_button")
     tabs.insertBefore(divOnglet, plus_button)
     switch_pages(divOnglet)
+
+    saveProject();
 }
 
 function plus_button(){
