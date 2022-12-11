@@ -36,6 +36,7 @@ function check_user($name, $email){
 
 function change_user_name($name, $newName){
 	global $connection;
+	$return = null;
 	$result = mysqli_query($connection, "UPDATE users SET name='$newName' WHERE name='$name'");
 }
 ?>

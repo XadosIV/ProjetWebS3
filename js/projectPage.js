@@ -45,7 +45,7 @@ if(sessionStorage.getItem('id')){
         });
     });
     const projectsMain = document.querySelector("body>main")
-    createAllProjectsDiv(projectsMain);
+    createAllProjectsDiv(projectsMain, id);
 }
 else {
     //utilisateur non conencté
@@ -59,9 +59,9 @@ else {
 /**
  * crée tout les div projet.
  */
-function createAllProjectsDiv(projectsMain) {
+function createAllProjectsDiv(projectsMain, id) {
     axios.post("php/projectsCruds/getAllProject.php", {
-        ownerId : 1
+        ownerId : id
     })
     .then(response => {
         var projects = response.data;

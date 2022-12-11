@@ -1,4 +1,4 @@
-var slideMenu = document.querySelector("#profile");  
+var slideMenuProfile = document.querySelector("#profile");  
 var profileName = sessionStorage.getItem('name');
 var profileEmail = sessionStorage.getItem('email');
 
@@ -7,7 +7,7 @@ function previewProfile() {
         var pseudo = document.createElement("p");
         pseudo.innerHTML = "Connected as : " + profileName + "  <button id='changePseudo' onclick=modifPseudo()><i class='fa-solid fa-pen'></i></button>" + "<br><br>Email : " + profileEmail;
         pseudo.setAttribute("id", "pseudo");
-        slideMenu.appendChild(pseudo);
+        slideMenuProfile.appendChild(pseudo);
 
         var projectsButton = document.createElement("button");
         projectsButton.innerHTML = "Your projects";
@@ -16,7 +16,7 @@ function previewProfile() {
         projectsButton.addEventListener("click", function(){
             window.location.href = "projects.html";
         })
-        slideMenu.append(projectsButton);
+        slideMenuProfile.append(projectsButton);
 
         var deconnectionButton = document.createElement("button");
         deconnectionButton.innerHTML = "Se déconnecter";
@@ -24,11 +24,8 @@ function previewProfile() {
         deconnectionButton.style.marginTop = "10%";
         deconnectionButton.className = "button ghost";
         deconnectionButton.addEventListener("click", deconnection)
-        slideMenu.append(deconnectionButton);
+        slideMenuProfile.append(deconnectionButton);
     }
 }
 
 previewProfile()
-
-
-

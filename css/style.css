@@ -123,6 +123,18 @@ html, body {
     border:none;
 }
 
+#projectLabel {
+    color:black;
+    text-align:center;
+    margin-top:-200%;
+}
+
+#pageNumber {
+    color:black;
+    text-align:center;
+    margin-top:10%;
+}
+
 .menu {
     position: absolute;
     width: 20%;

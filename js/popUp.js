@@ -10,19 +10,24 @@ function create(tagName, container,classs=null, id=null,text=null) {
     return element
 }   
 /////////////////////////////////////////////////////////////////////////
-function createPopElement(textTitle,text,trueButtonName,falseButtonName){
+function createPopElement(textTitle,text,trueButtonName=null,falseButtonName=null){
 
     const mainElement = create("div",document.body,"pop","pop");
 
     create("div",document.querySelector("#pop"),"popBackground","popBackground");
     create("div",document.querySelector("#popBackground"),"popEvent","popEvent");
 
-    popEventItem =`<div id="title">${textTitle}</div>\t\n
-           <div id="text">${text}</div>\t\n
-           <div id="answer">\t\n
-                <p id="true">${trueButtonName}</p>\t\t\n
-                <p id="false">${falseButtonName}</p>\t\t\n
-           </div>`;
+    if (trueButtonName!=null && falseButtonName!=null) {
+        popEventItem =`<div id="title">${textTitle}</div>\t\n
+            <div id="text">${text}</div>\t\n
+            <div id="answer">\t\n
+                    <p id="true">${trueButtonName}</p>\t\t\n
+                    <p id="false">${falseButtonName}</p>\t\t\n
+            </div>`;
+    } else {
+        popEventItem =`<div id="title">${textTitle}</div>\t\n
+            <div id="text">${text}</div>\t\n`;
+    }
 
     document.querySelector("#popEvent").innerHTML =popEventItem;
     displayPopElement(document.querySelector("#popEvent"));
@@ -33,11 +38,6 @@ function displayPopElement(element){
     element.classList.add("popEventDisplay");
 
 }
-
-/////////////////////////////////////////////////////////////////////////
-function time(){
-    answerReturnFalse();
-}
 /////////////////////////////////////////////////////////////////////////
 
 function closePopUp(){
@@ -45,9 +45,14 @@ function closePopUp(){
 }
 
 /////////////////////////////////////////////////////////////////////////
-function popUp(textTitle,text,trueButtonName,falseButtonName,popUpTime="permanant",positionInSpaceZ="positionInSpaceZ"){
+function time(){
+    closePopUp();
+}
 
-    const mainElement =createPopElement(textTitle,text,trueButtonName,falseButtonName);
+/////////////////////////////////////////////////////////////////////////
+function popUp(textTitle,text,trueButtonName=null,falseButtonName=null,popUpTime="permanant",positionInSpaceZ="positionInSpaceZ"){
+
+    const mainElement = createPopElement(textTitle,text,trueButtonName,falseButtonName);
 
     mainElement.classList.add(positionInSpaceZ);
 
@@ -55,8 +60,9 @@ function popUp(textTitle,text,trueButtonName,falseButtonName,popUpTime="permanan
         setTimeout(time,parseInt(popUpTime));
     }
 
-    document.querySelector("#false").addEventListener('click', (e) => closePopUp());
-
+    if (falseButtonName!=null) {
+        document.querySelector("#false").addEventListener('click', (e) => closePopUp());
+    }
     
 }
 /////////////////////////////////////////////////////////////////////////

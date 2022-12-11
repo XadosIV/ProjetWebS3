@@ -12,20 +12,18 @@ function modifPseudo(){
         axios.post("php/modifPseudo/checkIfPseudo.php", paramsCheck).then(response => {
             if (response.data["exists"]) {
                 if (profileName != paramsCheck["name"]) {
-                    popUp("Warning","Pseudo already used !","","", popUpTime=2000);
+                    popUp("Warning","Pseudo already used !",null, null, popUpTime=2000);
                 }
-                deleteMenuProfile(profile)
-                previewProfile()
             } else {
                 popUp("Warning","Do you really want to change your pseudo to '" + newPseudo.elements["newPseudo"].value + "' ?","Yes","No");
                 document.querySelector("#true").addEventListener('click',(e) => {
                     validChange(newPseudo) 
                 }); 
-                deleteMenuProfile(profile)
-                previewProfile()
             }
-            });
-        })
+            deleteMenuProfile(profile)
+            previewProfile()
+        });
+    })
 }
 
 function deleteMenuProfile(menu) {
@@ -74,9 +72,9 @@ function validChange(newPseudo) {
             sessionStorage.setItem("name", response.data["profile"]["name"]);
             profileName = sessionStorage.getItem('name')
         }
-        
+        document.querySelector("#pop").remove();
         deleteMenuProfile(profile)
         previewProfile()
-        document.querySelector("#pop").remove();
     })
 }
+
