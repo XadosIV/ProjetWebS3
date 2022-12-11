@@ -7,7 +7,7 @@ delete_button_attribute.addEventListener("click", (e) =>  {
 	document.querySelector("#true").addEventListener('click',(f) => {
 		e.target.parentNode.remove()
 		closePopUp()
-		
+
 		saveProject();
 	});
 })
@@ -77,13 +77,15 @@ function loadAttributes(element){
 				property = attrData["name"]
 				//Exception pour 'texte', on ne veut pas supprimer le bouton de sélection s'il existe, donc on prend
 				//non pas l'innerhtml mais le node de texte pour le modifier.
-				if (property == "innerHTML"){ 
+				if (property == "innerHTML"){
 					element.childNodes[0].nodeValue = data
+					
 				}else{
 					element[property] = data
 				}
 			}
 
+			console.log(element)
 			saveProject();
 		})
 		div.appendChild(input)

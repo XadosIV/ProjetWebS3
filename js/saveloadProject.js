@@ -142,6 +142,34 @@ function resetWorkspace(){
 
 
 
+function loadAllAttributes(element, attributesJSON){
+
+    for(let attribute of attributesJSON) {
+
+        
+
+        var name;
+    
+        if ((attribute.name).startsWith("style.")){
+            name = (attribute.name).split("style.")[1]
+            element.style[name] = attribute.value;
+        }
+        else {
+            name = attribute.name;
+    
+            if (name == "innerHTML"){
+                element.innerText = attribute.value;
+            }else{
+                element[name] = attribute.value;
+            }
+        }
+    }
+
+}
+
+
+
+
 /**
  * Ouvre un projet.
  * @param {number} projectId Id du projet a ouvrir.
@@ -160,7 +188,7 @@ function loadProject(projectId){
         for(var pageIndex = 0;pageIndex < json.length; pageIndex++){
             pageJSON = json[pageIndex];
 
-            create_tab();
+            create_tab(false);
 
             const tabs = document.querySelector("#tabs");
             const workspace = document.querySelector("#website");
@@ -170,13 +198,17 @@ function loadProject(projectId){
             
             tabButton.children[0].innerText = pageJSON.name
 
-            for(elementJSON of pageJSON.elements){
+            for(let elementJSON of pageJSON.elements){
                 var tool = getToolByClass(elementJSON.type);
                 
                 var element = document.createElement(tool.balise);
+
                 element.classList.add("toolElement")
                 element.classList.add(tool.class);
+                element.classList.add("draggable")
                 element.draggable = true;
+
+
 
                 element.addEventListener('dragstart', e=>{
                     dragData = e.target
@@ -189,9 +221,11 @@ function loadProject(projectId){
 
                 var x = elementJSON.x;
                 var y = elementJSON.y;
-                element.innerText = tool.displayName
+
                 style_dropped_element(element, y, x);
-                page.appendChild(element)
+                loadAllAttributes(element, elementJSON.attributes);
+
+                page.appendChild(element)               
 
                 element.addEventListener("click", e => {
                     if (e.target == element){
@@ -207,8 +241,3 @@ function loadProject(projectId){
     });
 
 }
-
-
-
-//const workspaceObserver = new MutationObserver(saveProject);
-//workspaceObserver.observe(workspace , {subtree : true, attributes : true})
