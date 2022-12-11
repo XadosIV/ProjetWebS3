@@ -44,5 +44,7 @@ function drop(container){
         var perXmain = e.pageX /(document.body.offsetWidth) * 100;
         var perYmain = e.pageY /(document.body.offsetHeight)* 100;
         style_dropped_element(element, perYmain, perXmain)
+
+        saveProject();
     }); 
 }

@@ -16,7 +16,6 @@ function saveProject(){
     try {
         query = window.location.search.substring(1);
         projectId = parseInt((new URLSearchParams(query)).get("id"));
-        console.log(projectId);
 
         var siteSave  = [];
     
