@@ -20,23 +20,15 @@ function modifPseudo(){
                     validChange(newPseudo) 
                 }); 
             }
-            deleteMenuProfile(profile)
+            deleteMenu(profile)
             previewProfile()
         });
     })
 }
 
-function deleteMenuProfile(menu) {
-    var child = menu.lastChild; 
-    while (child) {
-        menu.removeChild(child);
-        child = menu.lastChild;
-    }
-}
-
 function createFormPseudo() {
     var pseudo = document.querySelector("#pseudo")
-    deleteMenuProfile(pseudo)
+    deleteMenu(pseudo)
 
     var formNewPseudo = document.createElement("form")
     formNewPseudo.action = "#";
@@ -73,7 +65,7 @@ function validChange(newPseudo) {
             profileName = sessionStorage.getItem('name')
         }
         document.querySelector("#pop").remove();
-        deleteMenuProfile(profile)
+        deleteMenu(profile)
         previewProfile()
     })
 }

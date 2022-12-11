@@ -11,17 +11,26 @@ function previewProject() {
         for(let project of projects){
             if(project.id == projectId) {
                 projectName = project.name
-                projectPages = eval(project.json).length
+                if (project.json!=null) {
+                    projectPages = eval(project.json).length
+                }
             }
         }
 
+        var projectId = parseInt((new URLSearchParams(query)).get("id"));
+
         var projectNameLabel = document.createElement("h1");
-        projectNameLabel.innerHTML = "Project : <br>" + projectName + "  <button id='changePseudo' onclick=modifPseudo()><i class='fa-solid fa-pen'></i></button>";
-        projectNameLabel.setAttribute("id", "projectLabel");
+        projectNameLabel.setAttribute("id", "id"+projectId);
+        projectNameLabel.classList = "project"
+        projectNameLabel.innerHTML = "Project : <br>" + projectName + "  <button id='changeName' onclick=modifName("+projectNameLabel.id+",'"+projectName+"',true"+")><i class='fa-solid fa-pen'></i></button>";
         slideMenuProject.appendChild(projectNameLabel);
 
         var pageNumber = document.createElement("h3");
-        pageNumber.innerHTML = "You got "+projectPages+" pages in your project";
+        if (projectPages==1) {
+            pageNumber.innerHTML = "You got "+projectPages+" page in your project";
+        } else {
+            pageNumber.innerHTML = "You got "+projectPages+" pages in your project";
+        }
         pageNumber.setAttribute("id", "pageNumber");
         slideMenuProject.appendChild(pageNumber);
     });

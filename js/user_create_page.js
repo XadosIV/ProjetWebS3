@@ -1,5 +1,6 @@
 var website = document.querySelector("#website")
 var tabs = document.querySelector("#tabs")
+var projects = document.querySelector("#project")
 const tabToDropzoneMap = new Map()
 
 function switch_pages(divPage){
@@ -64,19 +65,23 @@ function delete_page(divPage){
     }
 
     saveProject();
+    deleteMenu(projects)
+    previewProject();
 }
 
 function create_tab(save = true){
     //Crée un nouvel onglet et le sélectionne
     var divOnglet = document.createElement("div")
 
-    var divSwitch = document.createElement("span") //remplacer par un div puis faire du css
-    divSwitch.innerText = "Page"
+    var divSwitch = document.createElement("div") //remplacer par un div puis faire du css
+    divSwitch.innerHTML = "Page <button id='changePageName' onclick=modifPageName("+divSwitch+")><i class='fa-solid fa-pen'></i></button>"
     divSwitch.addEventListener("click", (e) => switch_pages(e.target.parentElement))
+    divSwitch.setAttribute("id", "pageStyle")
     divOnglet.appendChild(divSwitch)
 
-    var divDel = document.createElement("span") //remplacer par un div puis faire du css
-    divDel.innerText = "[X]"
+    var divDel = document.createElement("button") //remplacer par un div puis faire du css
+    divDel.setAttribute("id", "delButton")
+    divDel.innerHTML = "<i class='fa-solid fa-trash'></i>"
     divDel.addEventListener("click", (e) => {
         popUp("Warning","Do you really want to delete this page ?","Yes","No");
         document.querySelector("#true").addEventListener('click',(f) => {
@@ -90,9 +95,6 @@ function create_tab(save = true){
     drop(dropzone)
     website.appendChild(dropzone)
 
-
-    
-
     tabToDropzoneMap.set(divOnglet, dropzone)
 
     var plus_button = document.querySelector("#plus_button")
@@ -101,6 +103,8 @@ function create_tab(save = true){
 
     if(save){
         saveProject();
+        deleteMenu(projects)
+        previewProject();
     }
 
 }

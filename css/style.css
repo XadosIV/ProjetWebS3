@@ -123,7 +123,7 @@ html, body {
     border:none;
 }
 
-#projectLabel {
+.project {
     color:black;
     text-align:center;
     margin-top:-200%;
@@ -133,6 +133,11 @@ html, body {
     color:black;
     text-align:center;
     margin-top:10%;
+}
+
+#changePageName {
+    background-color: Transparent;
+    border:none;
 }
 
 .menu {
@@ -190,11 +195,31 @@ html, body {
     height: auto;
     width: auto;
     padding: 10px;
-    margin: 5px;
+    margin: 10px 20% 10px 20%;
 }
 #plus_button:hover{
     background-color:white;
     color: #FF416C;
+}
+
+#pageStyle {
+    border: solid 1px;
+    margin: 0px 40% 0px 40%;
+    text-align: center;
+    width:20%;
+}
+
+#delButton {
+    position:relative;
+    background-color: Transparent;
+    border:none;
+    border-radius: 50%;
+    border: none;
+    height: auto;
+    width: 10%;
+    padding: 10px;
+    margin: 0% 25% 0% 65%;
+    top:-50%;
 }
 
 .default-but{
@@ -242,4 +267,14 @@ html, body {
     justify-content: center;
     align-content: center;
     height: var(--tool-Element-height);
+}
+
+#changeName {
+    background-color: Transparent;
+    border:none;
+}
+
+.name {
+    color:black;
+    text-align:center;
 }
