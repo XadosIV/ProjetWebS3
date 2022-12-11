@@ -38,30 +38,47 @@ foreach($site as $page){
     foreach($page["elements"] as $element){
 
 
+        $balise = "<{$element['balise']} ";
+
 
         $x = $element["x"];
         $y = $element["y"];
-        $style = "style= 'position:absolute; left:{$x}%; top:{$y}%;'";
 
+        $style = " style = 'position:absolute; left:{$x}%; top:{$y}%; ";
 
-        switch($element["type"]){
-            case "link" : {
-                $content .= "<a href = 'https://pornhub.com' {$style}>lien local</a>";
+        foreach($element["attributes"] as $attribute){
+
+            if(str_starts_with($attribute["name"], "style.")) {
+
+                if($attribute["style"] == "") {
+                    $property = ltrim($attribute["name"], "style.");
+                    $style .= $property . ":" . $attribute["value"] . "; ";
+                }
+                else {
+                    $style .= $attribute["style"] . ":" . $attribute["value"] . "; ";
+                }
+                
             }
-            break;
-            case "input" : {
-                $content .= "<input {$style}>";
+            else {
+
+                if($attribute["name"] != "innerHTML"){
+                    $balise .=  $attribute["name"] . " = '" . $attribute["value"] . "'";
+                }
+                else{
+                    $text = $attribute["value"];
+                }
             }
-            break;
-            case "text" : {
-                $content .= "<p {$style}>text</p>";
-            }
-            break;
-            case "button" : {
-                $content .= "<button {$style}>button</button>";
-            }
-            break;
+
         }
+
+        $style .= "' ";
+
+
+        $balise .= $style . " {$element['balise']}>{$text}</{$element['balise']}>";
+
+
+        $content .= $balise;
+
     }
 
     $content .= "</body>

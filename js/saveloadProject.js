@@ -66,7 +66,12 @@ function getSiteData(project){
                 type : classs,
                 x : 0,
                 y : 0,
-                attributes : []
+                attributes : [],
+                balise : element.tagName,
+            }
+            
+            if(getToolByClass(classs).style){
+                elementJSON.style = getToolByClass(classs).style;
             }
 
             elementJSON.x = parseFloat(element.style.left);
@@ -102,7 +107,14 @@ function getAttribute(element, attributeJSON) {
         }
     }
 
-    return {"name" : attributeJSON.name, "value" : value}
+    if(attributeJSON.style) {
+        style = attributeJSON.style;
+    }
+    else {
+        style = "";
+    }
+
+    return {"name" : attributeJSON.name, "value" : value, "style" : style};
 }
 
 

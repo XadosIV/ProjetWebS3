@@ -15,7 +15,7 @@ Syntaxe d'attribut :
 
 const attributesAll = [
     {"display":"Couleur", "name":"style.color", "input":"color"},
-    {"display":"Couleur de fond", "name":"style.backgroundColor", "input":"color"},
+    {"display":"Couleur de fond", "name":"style.backgroundColor", "input":"color" , "style": "background-color"},
     {"display":"Largeur", "name":"style.width", "input":"number", "unit":"%"},
     {"display":"Hauteur", "name":"style.height", "input":"number", "unit":"%"},
     {"display":"Profondeur", "name":"style.zIndex", "input":"number"}
@@ -28,7 +28,7 @@ const tools = [
         "class":"text",
         "attributes":[
             {"display":"Texte", "name":"innerHTML", "input":"text"},
-            {"display":"Police", "name":"style.fontSize", "input":"number", "unit":"px"}
+            {"display":"Police", "name":"style.fontSize", "input":"number", "unit":"px", "style": "font-size"}
         ]
     },
     {
