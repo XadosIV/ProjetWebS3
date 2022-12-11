@@ -211,9 +211,10 @@ function loadProject(projectId){
             tabButton.children[0].innerText = pageJSON.name
 
             for(let elementJSON of pageJSON.elements){
+
                 var tool = getToolByClass(elementJSON.type);
                 
-                var element = document.createElement(tool.balise);
+                let element = document.createElement(tool.balise);
 
                 element.classList.add("toolElement")
                 element.classList.add(tool.class);
@@ -235,15 +236,14 @@ function loadProject(projectId){
                 var y = elementJSON.y;
 
                 style_dropped_element(element, y, x);
-                loadAllAttributes(element, elementJSON.attributes);
-
-                page.appendChild(element)               
+                loadAllAttributes(element, elementJSON.attributes);               
 
                 element.addEventListener("click", e => {
-                    if (e.target == element){
-                        select(e.target);
-                    }
+                    //g lu la doc dog
+                    e.stopPropagation();
+                    select(element);
                 })
+                page.appendChild(element)
             }
         }
 

@@ -90,6 +90,9 @@ function create_tab(save = true){
     drop(dropzone)
     website.appendChild(dropzone)
 
+
+    
+
     tabToDropzoneMap.set(divOnglet, dropzone)
 
     var plus_button = document.querySelector("#plus_button")
@@ -99,6 +102,7 @@ function create_tab(save = true){
     if(save){
         saveProject();
     }
+
 }
 
 function plus_button(){

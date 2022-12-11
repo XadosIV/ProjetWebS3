@@ -17,12 +17,13 @@ function drag(element){
 function drop(container){ // transforme le container en dropzone
     container.classList.add("dropzone")
     container.addEventListener('dragover',e=>{e.preventDefault();});
-    container.addEventListener('click', e => {
-        //Retire la sélection si on clique sur la dropzone.
-        if (e.target == get_current_dropzone()){
-            select(null);
-        }
+
+    //deselect ;)
+    container.addEventListener("click", e => {
+        e.stopPropagation();
+        select(null);
     });
+
     container.addEventListener('drop',e=>{
         e.preventDefault();
         var element = dragData  //voir drag.js <=> l'élément qui est drag
@@ -36,11 +37,13 @@ function drop(container){ // transforme le container en dropzone
                 element.classList.add(toolData.class)
                 element.innerText = toolData.displayName
                 drag(element)
+
                 element.addEventListener("click", e => {
-                    if (e.target == element){
-                        select(e.target);
-                    }
+                    //g lu la doc dog
+                    e.stopPropagation();
+                    select(element);
                 })
+
                 get_current_dropzone().appendChild(element)
             }
         }

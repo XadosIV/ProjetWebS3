@@ -48,6 +48,8 @@ foreach($site as $page){
 
         foreach($element["attributes"] as $attribute){
 
+            $text = "";
+
             if(str_starts_with($attribute["name"], "style.")) {
 
                 if($attribute["style"] == "") {
