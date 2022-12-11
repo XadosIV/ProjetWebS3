@@ -65,7 +65,7 @@ function delete_page(divPage){
     saveProject();
 }
 
-function create_tab(){
+function create_tab(save = true){
     //Crée un nouvel onglet et le sélectionne
     var divOnglet = document.createElement("div")
 
@@ -95,7 +95,9 @@ function create_tab(){
     tabs.insertBefore(divOnglet, plus_button)
     switch_pages(divOnglet)
 
-    saveProject();
+    if(save){
+        saveProject();
+    }
 }
 
 function plus_button(){
