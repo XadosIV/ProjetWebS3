@@ -17,10 +17,10 @@ function saveProject(){
         query = window.location.search.substring(1);
         projectId = parseInt((new URLSearchParams(query)).get("id"));
 
-        var siteSave  = [];
+        
     
         const workspace = document.querySelector("#website");
-        siteSave = getSiteData(workspace, siteSave);
+        var siteSave = getSiteData(workspace);
 
         axios.post('php/projectsCruds/saveProject.php', {
             id: projectId,
@@ -44,7 +44,9 @@ function saveProject(){
  * @param {json} JSON JSON a modifier.
  * @returns Le json modifié.
  */
-function getSiteData(project, JSON){
+function getSiteData(project){
+
+    const JSON = [];
 
     const tabs = document.querySelectorAll("#tabs>div");
 
@@ -58,15 +60,19 @@ function getSiteData(project, JSON){
 
         for(element of page.children){         
 
-            var elementJSON = {
-                type : element.classList[1],
-                x : 0,
-                y : 0
-            }
+            classs = element.classList[1];
 
+            var elementJSON = {
+                type : classs,
+                x : 0,
+                y : 0,
+                attributes : []
+            }
 
             elementJSON.x = parseFloat(element.style.left);
             elementJSON.y = parseFloat(element.style.top);
+
+            elementJSON.attributes = getAllAttributes(element, classs);
 
             pageJSON.elements.push(elementJSON);
         }
@@ -77,7 +83,42 @@ function getSiteData(project, JSON){
     return JSON
 }
 
+function getAttribute(element, attributeJSON) {
 
+    var name;
+    var value;
+
+    if (attributeJSON.name.startsWith("style.")){
+        name = attributeJSON.name.split("style.")[1]
+        value = element.style[name];
+    }
+    else {
+        name = attributeJSON.name;
+
+        if (name == "innerHTML"){ 
+            value = element.childNodes[0].nodeValue;
+        }else{
+            value = element[name];
+        }
+    }
+
+    return {"name" : attributeJSON.name, "value" : value}
+}
+
+
+function getAllAttributes(element, classs) {
+    var attributes = [];
+
+    for(let defaultAttribute of attributesAll) {
+        attributes.push(getAttribute(element, defaultAttribute));
+    }
+
+    for(let attribute of getToolByClass(classs).attributes){
+        attributes.push(getAttribute(element, attribute));
+    }
+
+    return attributes;
+}
 
 
 
