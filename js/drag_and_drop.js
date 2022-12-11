@@ -14,9 +14,15 @@ function drag(element){
 }
 
 
-function drop(container){
+function drop(container){ // transforme le container en dropzone
     container.classList.add("dropzone")
     container.addEventListener('dragover',e=>{e.preventDefault();});
+    container.addEventListener('click', e => {
+        //Retire la sélection si on clique sur la dropzone.
+        if (e.target == get_current_dropzone()){
+            select(null);
+        }
+    });
     container.addEventListener('drop',e=>{
         e.preventDefault();
         var element = dragData  //voir drag.js <=> l'élément qui est drag

@@ -4,8 +4,8 @@ const tabToDropzoneMap = new Map()
 
 function switch_pages(divPage){
     var dropzone = tabToDropzone(divPage)
-    var workspace = document.querySelector("#website")
-    for (var element of workspace.childNodes){
+    var website = document.querySelector("#website")
+    for (var element of website.childNodes){
         if (element.classList.contains("dropzone")){
             if (element == dropzone){
                 element.classList.remove("invisible")
@@ -32,7 +32,8 @@ function dropzoneToTab(dropzone){
 }
 
 function switch_first_page(){
-    for (var element of workspace.childNodes){
+    var website = document.querySelector("#website")
+    for (var element of website.childNodes){
         if (element.classList.contains("dropzone")){
             element.classList.remove("invisible")
             return element
@@ -41,8 +42,8 @@ function switch_first_page(){
 }
 
 function get_current_dropzone(){
-    var workspace = document.querySelector("#website")
-    for (var element of workspace.childNodes){
+    var website = document.querySelector("#website")
+    for (var element of website.childNodes){
         if (element.classList.contains("dropzone")){
             if (!element.classList.contains("invisible")){
                 return element

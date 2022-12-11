@@ -215,7 +215,12 @@ html, body {
     border-radius: 20%;
 }
 /*Faut le placer en bas à droite de son parent en gros, puis donnez une forme de rond ça rendra mieux*/
-#delete_button_attribute { 
+#delete_button_attribute {
+    border-radius:50%;
+    padding:2px;
+    position:relative;
+    top:-50%;
+    left:15%;
 }
 
 
