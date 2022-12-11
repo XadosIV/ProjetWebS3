@@ -7,6 +7,7 @@ delete_button_attribute.addEventListener("click", (e) =>  {
 	document.querySelector("#true").addEventListener('click',(f) => {
 		e.target.parentNode.remove()
 		closePopUp()
+		saveProject();
 	});
 })
 
@@ -81,6 +82,8 @@ function loadAttributes(element){
 					element[property] = data
 				}
 			}
+
+			saveProject();
 		})
 		div.appendChild(input)
 
