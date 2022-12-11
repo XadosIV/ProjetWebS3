@@ -216,22 +216,6 @@ html, body {
 }
 /*Faut le placer en bas à droite de son parent en gros, puis donnez une forme de rond ça rendra mieux*/
 #delete_button_attribute { 
-    position:relative;
-    right:var(--tool-Element-delete-height);
-    top:var(--tool-Element-delete-height);
-    border-radius: 50%;
-    height: var(--tool-Element-delete-height);
-    width: var(--tool-Element-delete-height);
-
-}
-
-
-/*Idem pour lui mais en haut à droite*/
-#quitter_button_attribute {
-    position: relative;
-    left: 0%;
-    top: 100%;
-    display: none;
 }
 
 
