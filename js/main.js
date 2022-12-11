@@ -1,17 +1,15 @@
 setUpSlideMenu();
 
-init_tabs();
 
+plus_button()
 
 let query;
 if(sessionStorage.getItem('id')){
+    query = window.location.search.substring(1);
+    projectId = parseInt((new URLSearchParams(query)).get("id"));
     try {
-        query = window.location.search.substring(1);
-        projectID = parseInt((new URLSearchParams(query)).get("id"));
-        console.log(projectID);
-        loadProject(projectID);
+        loadProject(projectId);
     } catch(e) {
-        console.log(e)
     }
 }
 else {
