@@ -169,3 +169,13 @@ main#noProject {
     border-top: 2px solid black ;
     border-bottom: 2px solid black ;
 }
+
+#changeName {
+    background-color: Transparent;
+    border:none;
+}
+
+.name {
+    color:black;
+    text-align:center;
+}

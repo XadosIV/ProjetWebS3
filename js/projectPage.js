@@ -8,7 +8,7 @@
  * @param {String} text text contenue par l'element, parametre optionnel.
  * @returns {element} element créé.
  */
- function createElement(type, parent = null, classs = null, text = null){
+function createElement(type, parent = null, classs = null, text = null){
     let obj = document.createElement(type);
 
     if(parent){
@@ -101,10 +101,9 @@ function createProjectDiv(project, projectsMain){
     });
 
     //nom du projet.
-    const projectName = createElement("h3",  projectDiv, null, project.name);
-    projectName.addEventListener("click", () => {
-        document.location.href = "create_website.html?id=" + project.id;
-    });
+    var projectNameView = createElement("h3",  projectDiv, [".name"]);
+    projectNameView.id = "id"+project.id.toString()
+    projectNameView.innerHTML = project.name + " <button id='changeName' onclick=modifName("+projectNameView.id+",'"+project.name+"')><i class='fa-solid fa-pen'></i></button>" 
 
     //bouton pour la creation du .zip et le telechargement du projet.
     //pour le moment ecrit juste un truc dans la console.
@@ -129,4 +128,66 @@ function createProjectDiv(project, projectsMain){
         })
 
     });
+}
+
+function modifName(projectNameView, nameProj) {
+    
+    createFormName(projectNameView, nameProj)
+    var newName = document.getElementById('newNameForm');  
+    newName.addEventListener("submit", (e) => {
+        e.preventDefault();
+        var paramsCheck = {
+            name : newName.elements["newName"].value,
+            ownerId : sessionStorage.getItem('id')
+        };
+        axios.post("php/projectsCruds/checkIfName.php", paramsCheck).then(response => {
+            if (response.data["exists"]) {
+                if (nameProj != paramsCheck["name"]) {
+                    popUp("Warning","Project name already used !","","", popUpTime=2000);
+                }
+                projectNameView.innerHTML = nameProj + " <button id='changeName' onclick=modifName("+projectNameView.id+",'"+nameProj+"')><i class='fa-solid fa-pen'></i></button>" 
+            } else {
+                popUp("Warning","Do you really want to change this project name to '" + newName.elements["newName"].value + "' ?","Yes","No");
+                document.querySelector("#true").addEventListener('click',(f) => {
+                    validChangeName(projectNameView, nameProj, newName) 
+                }); 
+                projectNameView.innerHTML = nameProj + " <button id='changeName' onclick=modifName("+projectNameView.id+",'"+nameProj+"')><i class='fa-solid fa-pen'></i></button>" 
+            }
+            });
+        })
+}
+
+function validChangeName(projectNameView, lastName, newName) {
+    var paramsChange = {
+        name : lastName,
+        newProjectName : newName.elements["newName"].value,
+    };
+
+    axios.post("php/projectsCruds/modifNameProject.php", paramsChange).then(response => {
+        projectNameView.innerHTML = newName.elements["newName"].value + " <button id='changeName' onclick=modifName("+projectNameView.id+",'"+newName.elements["newName"].value+"')><i class='fa-solid fa-pen'></i></button>" 
+        document.querySelector("#pop").remove();
+    })
+}
+
+function createFormName(projectNameView, nameProj) {
+    projectNameView.innerHTML = ""
+    
+    var formNewName = document.createElement("form")
+    formNewName.action = "#";
+    formNewName.id = "newNameForm";
+    formNewName.name = "newNameForm";
+
+    var labelName = document.createElement("input")
+    labelName.name = "newName";
+    labelName.value = nameProj
+    labelName.required = true;
+
+    var buttonChangeName = document.createElement("button");
+    buttonChangeName.type = 'submit'
+    buttonChangeName.innerHTML = `<i class='fa-solid fa-check'></i>`;   
+    buttonChangeName.setAttribute("id", "changeName")
+    
+    formNewName.appendChild(labelName)
+    formNewName.appendChild(buttonChangeName)
+    projectNameView.appendChild(formNewName)
 }

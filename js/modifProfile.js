@@ -2,7 +2,7 @@ var profileName = sessionStorage.getItem('name');
 var profileEmail = sessionStorage.getItem('email');
 
 function modifPseudo(){
-    createForm()
+    createFormPseudo()
     var newPseudo = document.getElementById('newPseudoForm');  
     newPseudo.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -20,9 +20,9 @@ function modifPseudo(){
                 popUp("Warning","Do you really want to change your pseudo to '" + newPseudo.elements["newPseudo"].value + "' ?","Yes","No");
                 document.querySelector("#true").addEventListener('click',(e) => {
                     validChange(newPseudo) 
-                    deleteMenuProfile(profile)
-                    previewProfile()
                 }); 
+                deleteMenuProfile(profile)
+                previewProfile()
             }
             });
         })
@@ -36,7 +36,7 @@ function deleteMenuProfile(menu) {
     }
 }
 
-function createForm() {
+function createFormPseudo() {
     var pseudo = document.querySelector("#pseudo")
     deleteMenuProfile(pseudo)
 
@@ -49,6 +49,7 @@ function createForm() {
     labelPseudo.name = "newPseudo";
     labelPseudo.value = profileName
     labelPseudo.required = true;
+
     var buttonChangePseudo = document.createElement("button");
     buttonChangePseudo.type = 'submit'
     buttonChangePseudo.innerHTML = `<i class='fa-solid fa-check'></i>`;   
@@ -63,7 +64,6 @@ function createForm() {
 }
 
 function validChange(newPseudo) {
-    console.log("yo")
     var paramsChange = {
         name : profileName,
         newPseudo : newPseudo.elements["newPseudo"].value,
