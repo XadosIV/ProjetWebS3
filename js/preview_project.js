@@ -24,6 +24,7 @@ function previewProject() {
         projectNameLabel.classList = "project"
         projectNameLabel.innerHTML = "Project : <br>" + projectName + "  <button id='changeName' onclick=modifName("+projectNameLabel.id+",'"+projectName+"',true"+")><i class='fa-solid fa-pen'></i></button>";
         slideMenuProject.appendChild(projectNameLabel);
+        console.log(projectNameLabel.innerHTML)
 
         var pageNumber = document.createElement("h3");
         if (projectPages==1) {
