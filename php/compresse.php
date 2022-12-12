@@ -48,7 +48,7 @@ foreach($site as $page){
         <meta name={$page['name']} content='width=device-width, initial-scale=1.0'>
         <title>Document</title>
     </head>
-    <body style= 'height:100%; width:100vh; border:0px; margin:0px; padding:0px'>";
+    <body style= 'height:100%; width:100vh; border:0px; margin:0px; padding:0px'>\n";
     
    
     foreach($page["elements"] as $element){
@@ -60,7 +60,7 @@ foreach($site as $page){
         $x = $element["x"];
         $y = $element["y"];
 
-        $style = " style = 'position:absolute; left:{$x}%; top:{$y}%; ";
+        $style = "style = 'position:absolute; left:{$x}%; top:{$y}%; ";
 
         $text = "";
 
@@ -92,15 +92,14 @@ foreach($site as $page){
         $style .= "' ";
 
 
-        $balise .= $style . "> {$text} </{$element['balise']}>";
+        $balise .= $style . "> {$text} </{$element['balise']}>\n";
 
 
         $content .= $balise;
 
     }
 
-    $content .= "</body>
-                    </html>";
+    $content .= "</body>\n</html>";
 
     $pageName = $page["name"];
     
