@@ -75,7 +75,10 @@ function create_tab(save = true){
 
     var divSwitch = document.createElement("div") //remplacer par un div puis faire du css
     divSwitch.innerHTML = "Page <button id='changePageName' onclick=modifPageName("+divSwitch+")><i class='fa-solid fa-pen'></i></button>"
-    divSwitch.addEventListener("click", (e) => switch_pages(e.target.parentElement))
+    divSwitch.addEventListener("click", (e) => {
+        switch_pages(e.target.parentElement)
+        e.stopPropagation();
+    })
     divSwitch.setAttribute("id", "pageStyle")
     divOnglet.appendChild(divSwitch)
 

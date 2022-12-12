@@ -19,6 +19,7 @@ if(sessionStorage.getItem('id')){
             try {
                 loadProject(projectId);
             } catch(e) {
+                console.log(e)
             }
         else{
             document.location.href = "index.html";
