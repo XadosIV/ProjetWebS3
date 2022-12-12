@@ -34,11 +34,12 @@ function modifName(projectNameView, nameProj, mainPage) {
 }
 
 function validChangeName(projectNameView, lastName, newName, mainPage) {
+    var projectId = projectNameView.id.split("id")[1];
     var paramsChange = {
-        name : lastName,
+        id : projectId,
         newProjectName : newName.elements["newName"].value,
     };
-
+    
     axios.post("php/projectsCruds/modifNameProject.php", paramsChange).then(response => {
         textProject = newName.elements["newName"].value + " <button id='changeName' onclick=modifName("+projectNameView.id+",'"+newName.elements["newName"].value+"',"+mainPage+")><i class='fa-solid fa-pen'></i></button>" 
         if (!mainPage) {
