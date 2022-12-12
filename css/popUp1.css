@@ -13,11 +13,6 @@ html, body {
     width: var(--body-width);
 }
 
-body{
-    background-color: aqua;
-    color: red;
-}
-
 .pop{
     position: fixed;
     top: 0;

@@ -34,6 +34,32 @@ else {
     document.location.href = "index.html";
 }
 
+body = document.body
+body.addEventListener("keydown", (e) => {
+    //37 left
+    //38 up
+    //39 right
+    //40 down
+    var selected = document.querySelector(".selector")
+    if (selected){
+        switch (e.keyCode){
+            case 37:
+                selected.style.left = parseInt(selected.style.left)-1 + "%"
+                break
+            case 38:
+                selected.style.top = parseInt(selected.style.top)-1 + "%"
+                break
+            case 39:
+                selected.style.left = parseInt(selected.style.left)+1 + "%"
+                break;
+            case 40:
+                selected.style.top = parseInt(selected.style.top)+1 + "%"
+                break;
+        }
+        saveProject();
+    }
+})
+
 
 
 var toolsContainer = document.querySelector("#toolsContainer")
