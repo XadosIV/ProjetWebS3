@@ -89,7 +89,12 @@ function create_tab(save = true){
         popUp("Warning","Do you really want to delete this page ?","Yes","No");
         document.querySelector("#true").addEventListener('click',(f) => {
             closePopUp()
-            delete_page(e.target.parentElement)
+            if (e.target.tagName == "BUTTON"){
+                delete_page(e.target.parentElement)
+            }else{
+                delete_page(e.target.parentElement.parentElement)
+            }
+
         })
     })
     divOnglet.appendChild(divDel)
