@@ -1,13 +1,4 @@
 /**
- * affiche/cache le menu deroulant.
- */
-function showHideSlideMenu(){
-    const slideMenu =document.querySelector(".slideMenu");
-    slideMenu.classList.toggle("hide");
-}
-
-
-/**
  * CrÃ©e les events 'click' des bouttons menu pour rendre le menu dynamique.
  * Le nombre de bouton dans l'element avec l'id 'nav' doit etre le meme que
  * le nombre de div avec la classe 'menu'
@@ -42,4 +33,10 @@ function hideAllMenu(exception = null){
             menu.classList.add("hide");
         }
     }
+}
+
+
+function openMenuByID(id){
+    hideAllMenu()
+    document.querySelector("#" + id).classList.remove("hide");
 }
