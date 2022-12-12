@@ -1,4 +1,16 @@
 <?php
+function findValidFileName($index,$defaultFileName,$zip) {
+    if ($zip->locateName($defaultFileName . $index . ".html") !== false)
+    {
+        return findValidFileName($index +1, $defaultFileName, $zip);
+    }
+
+    return $defaultFileName . $index;
+}
+
+
+
+
 include "connectSQL.php";
 
 $request_body = file_get_contents('php://input');
@@ -13,8 +25,10 @@ $projectName = $data["name"] . "-" . $data["id"];
 $site = json_decode($data["json"], true);
 
 
-$zip = new ZipArchive();
 
+unlink('../projects/' . $projectName . ".zip");
+
+$zip = new ZipArchive();
 
 if ($zip->open("../projects/" . $projectName . ".zip", ZipArchive::CREATE)!==TRUE) {
     exit("cannot open file");
@@ -86,7 +100,16 @@ foreach($site as $page){
     $content .= "</body>
                     </html>";
 
-    $zip->addFromString($page["name"].".html", $content);
+    $pageName = $page["name"];
+    
+    if ($zip->locateName($pageName . ".html") !== false)
+    {
+        $pageName = findValidFileName(1, $pageName, $zip);
+    }
+                    
+    
+
+    $zip->addFromString($pageName.".html", $content);
 }
 
 
