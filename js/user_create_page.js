@@ -113,7 +113,6 @@ function create_tab(save = true){
     website.appendChild(dropzone)
 
     tabToDropzoneMap.set(divOnglet, dropzone)
-    console.log(tabToDropzoneMap)
 
     var plus_button = document.querySelector("#plus_button")
     tabs.insertBefore(divOnglet, plus_button)
