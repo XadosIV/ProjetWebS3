@@ -32,7 +32,6 @@ const tools = [
         ],
         "defaultValue" : [
             {"name" : "style.color", "value" : "black"},
-            {"name" : "style.backgroundColor", "value" : "white"},
             {"name" : "style.width", "value" : "10%"},
             {"name" : "style.height", "value" : "10%"},
             {"name" : "style.zIndex", "value" : "1"},
@@ -95,7 +94,46 @@ const tools = [
         "defaultValue":[
             {"name":"src", "value":"https://static.thenounproject.com/png/2932881-200.png"}
         ]
-    }
+    },
+    {
+        "balise":"h1",
+        "displayName":"Titre",
+        "class":"h1",
+        "attributes":[
+            {"display":"Texte", "name":"innerHTML", "input":"text"},
+        ],
+        "defaultValue" : [
+            {"name" : "style.color", "value" : "black"},
+            {"name" : "style.zIndex", "value" : "1"},
+            {"name" : "innerHTML", "value" : "text"},
+        ]
+    },
+    {
+        "balise":"h2",
+        "displayName":"Sous-Titre",
+        "class":"h2",
+        "attributes":[
+            {"display":"Texte", "name":"innerHTML", "input":"text"},
+        ],
+        "defaultValue" : [
+            {"name" : "style.color", "value" : "black"},
+            {"name" : "style.zIndex", "value" : "1"},
+            {"name" : "innerHTML", "value" : "text"},
+        ]
+    },
+    {
+        "balise":"h3",
+        "displayName":"Sous-Sous-Titre",
+        "class":"h3",
+        "attributes":[
+            {"display":"Texte", "name":"innerHTML", "input":"text"},
+        ],
+        "defaultValue" : [
+            {"name" : "style.color", "value" : "black"},
+            {"name" : "style.zIndex", "value" : "1"},
+            {"name" : "innerHTML", "value" : "text"},
+        ]
+    },
 ]
 
 function displayNameToTool(name){

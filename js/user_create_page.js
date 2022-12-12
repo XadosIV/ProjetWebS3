@@ -73,7 +73,7 @@ function create_tab(save = true){
     //Crée un nouvel onglet et le sélectionne
     var divOnglet = document.createElement("div")
 
-    var divSwitch = document.createElement("div") //remplacer par un div puis faire du css
+    var divSwitch = document.createElement("div")
     divSwitch.innerHTML = "Page"
     divSwitch.addEventListener("click", (e) => {
         switch_pages(e.target.parentElement)

@@ -54,9 +54,14 @@ function drop(container){ // transforme le container en dropzone
         }
 
         //à partir d'ici, element = l'élément créé par le tool, ou l'élément drag, donc on le place bien.
+        console.log(e.pageX, e.pageY)
 
-        var perXmain = e.pageX /(document.body.offsetWidth) * 100;
-        var perYmain = e.pageY /(document.body.offsetHeight)* 100;
+        var nav = document.querySelector("#nav")
+        var perXmain = ((e.clientX - nav.offsetWidth + element.offsetWidth/2) / document.body.offsetWidth) * 100
+        var perYmain = ((e.clientY + element.offsetHeight/2) / document.body.offsetHeight)  * 100
+
+        console.log(perXmain, perYmain)
+
         style_dropped_element(element, perYmain, perXmain)
 
         saveProject();

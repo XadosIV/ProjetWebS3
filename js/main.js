@@ -42,6 +42,7 @@ body.addEventListener("keydown", (e) => {
     //40 down
     var selected = document.querySelector(".selector")
     if (selected){
+        console.log(e.keyCode)
         switch (e.keyCode){
             case 37:
                 selected.style.left = parseInt(selected.style.left)-1 + "%"
@@ -54,6 +55,9 @@ body.addEventListener("keydown", (e) => {
                 break;
             case 40:
                 selected.style.top = parseInt(selected.style.top)+1 + "%"
+                break;
+            case 46:
+                selected.remove()
                 break;
         }
         saveProject();
