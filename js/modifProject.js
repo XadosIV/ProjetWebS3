@@ -9,6 +9,7 @@ function modifName(projectNameView, nameProj, mainPage) {
         };
         axios.post("php/projectsCruds/checkIfName.php", paramsCheck).then(response => {
             var textProject = nameProj + " <button id='changeName' onclick=modifName("+projectNameView.id+",'"+nameProj+"',"+mainPage+")><i class='fa-solid fa-pen'></i></button>" 
+            
             if (response.data["exists"]) {
                 if (nameProj != paramsCheck["name"]) {
                     popUp("Warning","Project name already used !", null, null, popUpTime=2000);
