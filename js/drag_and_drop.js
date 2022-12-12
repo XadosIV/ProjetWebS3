@@ -21,6 +21,7 @@ function drop(container){ // transforme le container en dropzone
     //deselect ;)
     container.addEventListener("click", e => {
         e.stopPropagation();
+        hideAllMenu();
         select(null);
     });
 

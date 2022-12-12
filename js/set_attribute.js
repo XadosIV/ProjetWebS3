@@ -34,6 +34,8 @@ function select(element){
 		element.appendChild(delete_button_attribute)
 		//element.appendChild(quitter_button_attribute)
 		loadAttributes(element)
+
+		openMenuByID("editingContainer");
 	}
 }
 
