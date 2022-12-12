@@ -60,7 +60,7 @@ foreach($site as $page){
         $x = $element["x"];
         $y = $element["y"];
 
-        $style = "style = 'position:relative; left:{$x}%; top:{$y}%; ";
+        $style = "style = 'position:absolute; left:{$x}%; top:{$y}%; ";
 
         $text = "";
 

@@ -92,7 +92,9 @@ const tools = [
             {"display":"Source", "name":"src", "input":"text"}
         ],
         "defaultValue":[
-            {"name":"src", "value":"https://static.thenounproject.com/png/2932881-200.png"}
+            {"name":"src", "value":"https://static.thenounproject.com/png/2932881-200.png"},
+            {"name" : "style.width", "value" : "10%"},
+            {"name" : "style.height", "value" : "20%"}
         ]
     },
     {

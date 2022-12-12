@@ -62,6 +62,10 @@ function drop(container){ // transforme le container en dropzone
         var perXmain = ((e.clientX - nav.offsetWidth) / (document.body.offsetWidth- nav.offsetWidth)) * 100
         var perYmain = ((e.clientY) / document.body.offsetHeight)  * 100
 
+
+        perYmain = Math.max(Math.min(perYmain, 99), -10);
+        perXmain = Math.max(Math.min(perXmain, 99), -10);
+
         console.log(perXmain, perYmain)
 
         style_dropped_element(element, perYmain, perXmain)

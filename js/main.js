@@ -42,24 +42,56 @@ body.addEventListener("keydown", (e) => {
     var selected = document.querySelector(".selector")
     if (selected){
         console.log(e.keyCode)
+
+        var left =  parseInt(selected.style.left);
+        var top = parseInt(selected.style.top);
+
+        var leftMin = 0;
+        var topMin = 0;
+
+        if(selected.style.width){
+            leftMin = (parseInt(selected.style.width))/-4;
+        }
+
+        if(selected.style.height){
+            topMin = (parseInt(selected.style.height))/-4
+        }
+
         switch (e.keyCode){
             case 37:
-                selected.style.left = parseInt(selected.style.left)-1 + "%"
+                left --;
+                selected.style.left = Math.max(Math.min(left, 99), leftMin) + "%";
+                saveProject();
+                hideAllMenu();
                 break
+
             case 38:
-                selected.style.top = parseInt(selected.style.top)-1 + "%"
+                top --;
+                selected.style.top = Math.max(Math.min(top, 99), topMin) + "%";
+                saveProject();
+                hideAllMenu();
+
                 break
             case 39:
-                selected.style.left = parseInt(selected.style.left)+1 + "%"
+                left ++;
+                selected.style.left = Math.max(Math.min(left, 99), leftMin) + "%";
+                saveProject();
+                hideAllMenu();
                 break;
+
             case 40:
-                selected.style.top = parseInt(selected.style.top)+1 + "%"
+                top ++;
+                selected.style.top = Math.max(Math.min(top, 99), topMin) + "%";
+                saveProject();
+                hideAllMenu();
                 break;
+
             case 46:
                 selected.remove()
+                saveProject();
+                hideAllMenu();
                 break;
         }
-        saveProject();
     }
 })
 
