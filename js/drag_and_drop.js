@@ -36,7 +36,10 @@ function drop(container){ // transforme le container en dropzone
                 var element = document.createElement(toolData.balise)
                 element.classList.add("toolElement")
                 element.classList.add(toolData.class)
-                element.innerText = toolData.displayName
+                //element.innerText = toolData.displayName
+
+                loadAllAttributes(element, toolData.defaultValue);
+
                 drag(element)
 
                 element.addEventListener("click", e => {

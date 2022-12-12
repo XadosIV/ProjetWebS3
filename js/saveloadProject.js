@@ -176,7 +176,6 @@ function loadAllAttributes(element, attributesJSON){
             }
         }
     }
-
 }
 
 

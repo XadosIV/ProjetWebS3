@@ -18,7 +18,7 @@ const attributesAll = [
     {"display":"Couleur de fond", "name":"style.backgroundColor", "input":"color" , "style": "background-color"},
     {"display":"Largeur", "name":"style.width", "input":"number", "unit":"%"},
     {"display":"Hauteur", "name":"style.height", "input":"number", "unit":"%"},
-    {"display":"Profondeur", "name":"style.zIndex", "input":"number"}
+    {"display":"Profondeur", "name":"style.zIndex", "input":"number" , "style" : "z-index"}
 ]
 
 const tools = [
@@ -28,7 +28,16 @@ const tools = [
         "class":"text",
         "attributes":[
             {"display":"Texte", "name":"innerHTML", "input":"text"},
-            {"display":"Police", "name":"style.fontSize", "input":"number", "unit":"px", "style": "font-size"}
+            {"display":"Police", "name":"style.fontSize", "input":"number", "unit":"em", "style": "font-size"}
+        ],
+        "defaultValue" : [
+            {"name" : "style.color", "value" : "black"},
+            {"name" : "style.backgroundColor", "value" : "white"},
+            {"name" : "style.width", "value" : "10%"},
+            {"name" : "style.height", "value" : "10%"},
+            {"name" : "style.zIndex", "value" : "1"},
+            {"name" : "innerHTML", "value" : "text"},
+            {"name" : "style.fontSize", "value" : "2em"}  
         ]
     },
     {
@@ -37,6 +46,14 @@ const tools = [
         "class":"button",
         "attributes":[
             {"display":"Texte", "name":"innerHTML", "input":"text"}
+        ],
+        "defaultValue" : [
+            {"name" : "style.color", "value" : "black"},
+            {"name" : "style.backgroundColor", "value" : "gray"},
+            {"name" : "style.width", "value" : "10%"},
+            {"name" : "style.height", "value" : "10%"},
+            {"name" : "style.zIndex", "value" : "1"},
+            {"name" : "innerHTML", "value" : "button"}
         ]
     },
     {
@@ -46,13 +63,27 @@ const tools = [
         "attributes":[
             {"display":"Texte", "name":"innerHTML", "input":"text"},
             {"display":"Redirection", "name":"href", "input":"text"}
+        ],
+        "defaultValue" : [
+            {"name" : "style.color", "value" : "black"},
+            {"name" : "style.backgroundColor", "value" : "white"},
+            {"name" : "style.width", "value" : "10%"},
+            {"name" : "style.height", "value" : "10%"},
+            {"name" : "style.zIndex", "value" : "1"},
+            {"name" : "innerHTML", "value" : "link"}
         ]
     },
     {
         "balise":"div",
         "displayName":"rectangle",
         "class":"div",
-        "attributes":[]
+        "attributes":[],
+        "defaultValue" : [
+            {"name" : "style.backgroundColor", "value" : "blue"},
+            {"name" : "style.width", "value" : "20%"},
+            {"name" : "style.height", "value" : "20%"},
+            {"name" : "style.zIndex", "value" : "1"},
+        ]
     }
 ]
 

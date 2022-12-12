@@ -25,8 +25,10 @@ $projectName = $data["name"] . "-" . $data["id"];
 $site = json_decode($data["json"], true);
 
 
+if(file_exists('../projects/' . $projectName . ".zip")){
+    unlink('../projects/' . $projectName . ".zip");
+}
 
-unlink('../projects/' . $projectName . ".zip");
 
 $zip = new ZipArchive();
 
@@ -60,9 +62,9 @@ foreach($site as $page){
 
         $style = " style = 'position:absolute; left:{$x}%; top:{$y}%; ";
 
-        foreach($element["attributes"] as $attribute){
+        $text = "";
 
-            $text = "";
+        foreach($element["attributes"] as $attribute){
 
             if(str_starts_with($attribute["name"], "style.")) {
 
@@ -90,7 +92,7 @@ foreach($site as $page){
         $style .= "' ";
 
 
-        $balise .= $style . " {$element['balise']}>{$text}</{$element['balise']}>";
+        $balise .= $style . "> {$text} </{$element['balise']}>";
 
 
         $content .= $balise;
