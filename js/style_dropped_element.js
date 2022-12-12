@@ -5,7 +5,7 @@ function style_dropped_element(element,y,x){
     element.style.position="absolute";// convertion modification
     element.style.top=`${Y}%`;// convertion modification
     element.style.left=`${X}%`;// convertion modification*/
-    element.style.position = "relative"
+    element.style.position = "absolute"
     element.style.top = y+"%"
     element.style.left = x+"%"
 }

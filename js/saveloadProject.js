@@ -238,7 +238,7 @@ function loadProject(projectId){
                 loadAllAttributes(element, elementJSON.attributes);               
 
                 element.addEventListener("click", e => {
-                    //g lu la doc dog
+                    e.preventDefault();
                     e.stopPropagation();
                     select(element);
                 })

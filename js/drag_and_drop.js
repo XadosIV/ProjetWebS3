@@ -44,6 +44,7 @@ function drop(container){ // transforme le container en dropzone
 
                 element.addEventListener("click", e => {
                     //g lu la doc dog
+                    e.preventDefault();
                     e.stopPropagation();
                     select(element);
                 })

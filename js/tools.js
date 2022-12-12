@@ -84,6 +84,17 @@ const tools = [
             {"name" : "style.height", "value" : "20%"},
             {"name" : "style.zIndex", "value" : "1"},
         ]
+    },
+    {
+        "balise":"img",
+        "displayName":"Image",
+        "class":"img",
+        "attributes":[
+            {"display":"Source", "name":"src", "input":"text"}
+        ],
+        "defaultValue":[
+            {"name":"src", "value":"https://static.thenounproject.com/png/2932881-200.png"}
+        ]
     }
 ]
 

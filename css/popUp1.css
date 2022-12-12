@@ -8,15 +8,6 @@
     --pop-background-color:#FF4B2B;
 }
 
-html, body {
-    height: var(--body-height);
-    width: var(--body-width);
-}
-
-body{
-    background-color: aqua;
-    color: red;
-}
 
 .pop{
     position: fixed;
