@@ -10,23 +10,33 @@ function create(tagName, container,classs=null, id=null,text=null) {
     return element
 }   
 /////////////////////////////////////////////////////////////////////////
-function createPopElement(textTitle,text,trueButtonName=null,falseButtonName=null){
+function createPopElement(textTitle,text,trueButtonName=null,falseButtonName=null, label=null){
 
     const mainElement = create("div",document.body,"pop","pop");
 
     create("div",document.querySelector("#pop"),"popBackground","popBackground");
     create("div",document.querySelector("#popBackground"),"popEvent","popEvent");
 
-    if (trueButtonName!=null && falseButtonName!=null) {
+    if (trueButtonName!=null && falseButtonName!=null && label==null) {
         popEventItem =`<div id="title">${textTitle}</div>\t\n
             <div id="text">${text}</div>\t\n
             <div id="answer">\t\n
                     <p id="true">${trueButtonName}</p>\t\t\n
                     <p id="false">${falseButtonName}</p>\t\t\n
             </div>`;
-    } else {
+    } else if (trueButtonName==null && falseButtonName==null && label==null) {
         popEventItem =`<div id="title">${textTitle}</div>\t\n
             <div id="text">${text}</div>\t\n`;
+    }
+
+    if(label!=null) {
+        popEventItem =`<div id="title">${textTitle}</div>\t\n
+            <div id="text">${text}</div>\t\n
+            <form action="#" id="postProjectName" name="postProjectName"></div>\t\n
+                <input type="nameProjectToPost" placeholder="${label}" name="nameProjectToPost" required/>
+                <input type="submit" id="true" class="button" value="Create project"></button>
+            </div>`;
+        
     }
 
     document.querySelector("#popEvent").innerHTML =popEventItem;
@@ -40,8 +50,13 @@ function displayPopElement(element){
 }
 /////////////////////////////////////////////////////////////////////////
 
-function closePopUp(){
-    document.querySelector("#pop").remove();
+function closePopUp(wait=null){
+    if(wait!=null){
+        setTimeout(time,parseInt(popUpTime));
+        document.querySelector("#pop").remove();
+    } else {
+        document.querySelector("#pop").remove();
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -52,7 +67,7 @@ function time(){
 /////////////////////////////////////////////////////////////////////////
 function popUp(textTitle,text,trueButtonName=null,falseButtonName=null,popUpTime="permanant",positionInSpaceZ="positionInSpaceZ"){
 
-    const mainElement = createPopElement(textTitle,text,trueButtonName,falseButtonName);
+    const mainElement = createPopElement(textTitle,text,trueButtonName,falseButtonName,null);
 
     mainElement.classList.add(positionInSpaceZ);
 
@@ -64,5 +79,20 @@ function popUp(textTitle,text,trueButtonName=null,falseButtonName=null,popUpTime
         document.querySelector("#false").addEventListener('click', (e) => closePopUp());
     }
     
+}
+
+function popUpForm(textTitle,text,trueButtonName=null,falseButtonName=null,labelName=null,popUpTime="permanant",positionInSpaceZ="positionInSpaceZ") {
+
+    const mainElement = createPopElement(textTitle,text,trueButtonName,falseButtonName,labelName);
+
+    mainElement.classList.add(positionInSpaceZ);
+
+    if(popUpTime!="permanant"){
+        setTimeout(time,parseInt(popUpTime));
+    }
+
+    if (falseButtonName!=null) {
+        document.querySelector("#false").addEventListener('click', (e) => closePopUp());
+    }
 }
 /////////////////////////////////////////////////////////////////////////

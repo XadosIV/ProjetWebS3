@@ -14,7 +14,6 @@ if(sessionStorage.getItem('id')){
         ownerId : sessionStorage.getItem('id')
     })
     .then(res => {
-        console.log(res.data.good)
         if(res.data.good)
             try {
                 loadProject(projectId);

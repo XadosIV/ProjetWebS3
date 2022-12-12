@@ -35,19 +35,37 @@ if(sessionStorage.getItem('id')){
     const id = sessionStorage.getItem('id')
 
     const NewProjectButton = document.querySelector("#newProject");
-    NewProjectButton.addEventListener("click", () => {
-        //console.log("a")
-        axios.post("php/projectsCruds/createProject.php", {
-            ownerId : id
+
+    NewProjectButton.addEventListener("click", (e) => {
+        e.preventDefault()
+        nameProjectToPost = popUpForm("Project name","Give a name to your project",null,null,"Project name");
+        document.querySelector("#true").addEventListener('click',(f) => {
+            var paramsCheck = {
+                name : postProjectName.elements["nameProjectToPost"].value,
+                ownerId : sessionStorage.getItem('id')
+            };
+            axios.post("php/projectsCruds/checkIfName.php", paramsCheck).then(response => {
+                if (response.data["exists"]) {
+                    popUp("Warning","Project name already used !", null, null, popUpTime=2000);
+                    closePopUp(wait=2000)
+                } else {
+                    axios.post("php/projectsCruds/setProjectName.php", {nameProjectToPost : postProjectName.elements["nameProjectToPost"].value}).then(response2 => {
+                        projectNameSet = response2.data
+                        axios.post("php/projectsCruds/createProject.php", {
+                            ownerId : id,
+                            name : projectNameSet
+                        }).then(r => {
+                            closePopUp()
+                            document.location.href = "create_website.html?id=" + r.data;
+                        })        
+                    })
+                } 
+            })
         })
-        .then(response => {
-            document.location.href = "create_website.html?id=" + response.data;
-        });
-    });
+    })
     const projectsMain = document.querySelector("body>main")
     createAllProjectsDiv(projectsMain, id);
-}
-else {
+} else {
     //utilisateur non conencté
     document.location.href = "index.html";
 }

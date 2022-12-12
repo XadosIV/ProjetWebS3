@@ -7,12 +7,13 @@ function previewProject() {
     })
     .then(response => {
         var projects = response.data;
+        var projectPages = 0;
         projectId = parseInt((new URLSearchParams(query)).get("id"));
         for(let project of projects){
             if(project.id == projectId) {
                 projectName = project.name
                 if (project.json!=null) {
-                    projectPages = eval(project.json).length
+                    var projectPages = eval(project.json).length
                 }
             }
         }
@@ -23,8 +24,10 @@ function previewProject() {
         projectNameLabel.setAttribute("id", "id"+projectId);
         projectNameLabel.classList = "project"
         projectNameLabel.innerHTML = "Project : <br>" + projectName + "  <button id='changeName' onclick=modifName("+projectNameLabel.id+",'"+projectName+"',true"+")><i class='fa-solid fa-pen'></i></button>";
+        
+        //console.log(projectName)
+        //console.log(projectNameLabel.innerHTML)
         slideMenuProject.appendChild(projectNameLabel);
-        console.log(projectNameLabel.innerHTML)
 
         var pageNumber = document.createElement("h3");
         if (projectPages==1) {
@@ -38,8 +41,3 @@ function previewProject() {
 }
 
 previewProject()
-
-
-
-
-
