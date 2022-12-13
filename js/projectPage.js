@@ -40,6 +40,7 @@ if(sessionStorage.getItem('id')){
         e.preventDefault()
         nameProjectToPost = popUpForm("Project name","Give a name to your project",null,null,"Project name");
         document.querySelector("#true").addEventListener('click',(f) => {
+            f.preventDefault()
             var paramsCheck = {
                 name : postProjectName.elements["nameProjectToPost"].value,
                 ownerId : sessionStorage.getItem('id')
@@ -50,7 +51,11 @@ if(sessionStorage.getItem('id')){
                     closePopUp(wait=2000)
                 } else {
                     axios.post("php/projectsCruds/setProjectName.php", {nameProjectToPost : postProjectName.elements["nameProjectToPost"].value}).then(response2 => {
-                        projectNameSet = response2.data
+                        var projectNameSetSplit = response2.data.split(" ")
+                        var projectNameSet = ""
+                        for (i=0; i<projectNameSetSplit.length; i++) {
+                            projectNameSet += strUcFirst(projectNameSetSplit[i])
+                        }
                         axios.post("php/projectsCruds/createProject.php", {
                             ownerId : id,
                             name : projectNameSet

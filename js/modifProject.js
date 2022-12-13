@@ -20,9 +20,14 @@ function modifName(projectNameView, nameProj, mainPage) {
                     projectNameView.innerHTML = "Project : <br>" + textProject
                 }
             } else {
-                popUp("Warning","Do you really want to change this project name to '" + newName.elements["newName"].value + "' ?","Yes","No");
+                var projectNameSetSplit = newName.elements["newName"].value.split(" ")
+                var projectNameSet = ""
+                for (i=0; i<projectNameSetSplit.length; i++) {
+                    projectNameSet += strUcFirst(projectNameSetSplit[i])
+                }
+                popUp("Warning","Do you really want to change this project name to '" + projectNameSet + "' ?","Yes","No");
                 document.querySelector("#true").addEventListener('click',(f) => {
-                    validChangeName(projectNameView, nameProj, newName, mainPage) 
+                    validChangeName(projectNameView, nameProj, projectNameSet, mainPage) 
                 }); 
                 if (!mainPage) {
                     projectNameView.innerHTML = textProject
@@ -38,11 +43,11 @@ function validChangeName(projectNameView, lastName, newName, mainPage) {
     var projectId = projectNameView.id.split("id")[1];
     var paramsChange = {
         id : projectId,
-        newProjectName : newName.elements["newName"].value,
+        newProjectName : newName,
     };
     
     axios.post("php/projectsCruds/modifNameProject.php", paramsChange).then(response => {
-        textProject = newName.elements["newName"].value + " <button id='changeName' onclick=modifName("+projectNameView.id+",'"+newName.elements["newName"].value+"',"+mainPage+")><i class='fa-solid fa-pen'></i></button>" 
+        textProject = newName + " <button id='changeName' onclick=modifName("+projectNameView.id+",'"+newName+"',"+mainPage+")><i class='fa-solid fa-pen'></i></button>" 
         if (!mainPage) {
             projectNameView.innerHTML = textProject
         } else {
