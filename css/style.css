@@ -73,14 +73,14 @@ html, body {
     cursor: pointer;
 }
 
-#profile > a {
+#profile > a{
     text-align:center;
     margin-bottom:10%;
     text-decoration: none;
     color:blue;
 }
 
-#profile > a:hover {
+#profile > a:hover{
     text-decoration: underline;
     color: black;
 }
@@ -164,6 +164,34 @@ html, body {
     /* rend invible un element sans utilisé display:none */
     transform: translateX(-1000px);
     
+}
+
+.toolInMenu {
+	border-radius: 20px;
+	border: 1px solid gray;
+	background-color: gray;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+    margin-right:20%;
+    margin-left:20%;
+    margin-bottom:2%;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	transition: transform 80ms ease-in;
+}
+
+.toolInMenu:active {
+	transform: scale(0.95);
+}
+
+.toolInMenu:focus {
+	outline: none;
+}
+
+.toolInMenu.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
 }
 
 

@@ -29,10 +29,14 @@ function loadAttributes(element){
 	var tool = elementToTool(element) // récupère les données du tool
 	var editDiv = document.querySelector("#editingContainer")
 	editDiv.innerHTML = "" //Retire tout les anciens attributs
+	var titre = document.createElement("h1")
+	titre.innerHTML = "Attributes"
+	titre.style.textAlign = "center"
+	titre.style.color = "black"
+	titre.style.marginBottom = "20%"
+	editDiv.appendChild(titre)
 
 	var attributes = attributesAll.concat(tool.attributes)
-
-	console.log(attributes)
 
 	for (let attrData of attributes){
 		/*

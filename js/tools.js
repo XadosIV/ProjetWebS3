@@ -74,11 +74,11 @@ const tools = [
     },
     {
         "balise":"div",
-        "displayName":"rectangle",
+        "displayName":"Rectangle",
         "class":"div",
         "attributes":[],
         "defaultValue" : [
-            {"name" : "style.backgroundColor", "value" : "blue"},
+            {"name" : "style.backgroundColor", "value" : "black"},
             {"name" : "style.width", "value" : "20%"},
             {"name" : "style.height", "value" : "20%"},
             {"name" : "style.zIndex", "value" : "1"},

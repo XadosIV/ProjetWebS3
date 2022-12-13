@@ -100,6 +100,12 @@ body.addEventListener("keydown", (e) => {
 var toolsContainer = document.querySelector("#toolsContainer")
 
 function main(){
+    var titre = document.createElement("h1")
+    titre.innerHTML = "Tools"
+    titre.style.textAlign = "center"
+    titre.style.color = "black"
+    titre.style.marginBottom = "20%"
+    toolsContainer.appendChild(titre)
     for(var tool of tools){
         create_tool(tool,toolsContainer)
     }

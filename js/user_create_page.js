@@ -74,7 +74,7 @@ function create_tab(save = true){
     var divOnglet = document.createElement("div")
 
     var divSwitch = document.createElement("div")
-    divSwitch.innerHTML = "Page"
+    divSwitch.innerHTML = "New page"
     divSwitch.addEventListener("click", (e) => {
         switch_pages(e.target.parentElement)
         e.stopPropagation();
@@ -82,13 +82,13 @@ function create_tab(save = true){
     divSwitch.setAttribute("id", "pageStyle")
     divOnglet.appendChild(divSwitch)
 
-    var divModif = document.createElement("button") //remplacer par un div puis faire du css
-    divModif.setAttribute("id", "delButton")
-    divModif.innerHTML = "<button id='changePageName' onclick=modifPageName("+divSwitch+")><i class='fa-solid fa-pen'></i></button>"
-    divModif.addEventListener("click", (e) => {
+    //var divModif = document.createElement("button") //remplacer par un div puis faire du css
+    //divModif.setAttribute("id", "delButton")
+    //divModif.innerHTML = "<button id='changePageName' onclick=modifPageName("+divSwitch+")><i class='fa-solid fa-pen'></i></button>"
+    //divModif.addEventListener("click", (e) => {
         //pass
-    })
-    divOnglet.appendChild(divModif)
+    //})
+    //divOnglet.appendChild(divModif)
     
 
     var divDel = document.createElement("button") //remplacer par un div puis faire du css

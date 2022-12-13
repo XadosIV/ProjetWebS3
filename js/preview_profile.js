@@ -4,6 +4,13 @@ var profileEmail = sessionStorage.getItem('email');
 
 function previewProfile() {
     if (profileName != null && profileEmail != null) {
+        var titre = document.createElement("h1")
+        titre.innerHTML = "Profile"
+        titre.style.textAlign = "center"
+        titre.style.color = "black"
+        titre.style.marginBottom = "30%"
+        slideMenuProfile.appendChild(titre)
+
         var pseudo = document.createElement("p");
         pseudo.innerHTML = "Connected as : " + profileName + "  <button id='changePseudo' onclick=modifPseudo()><i class='fa-solid fa-pen'></i></button>" + "<br><br>Email : " + profileEmail;
         pseudo.setAttribute("id", "pseudo");
