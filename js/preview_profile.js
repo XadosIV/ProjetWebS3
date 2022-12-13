@@ -6,9 +6,11 @@ function previewProfile() {
     if (profileName != null && profileEmail != null) {
         var titre = document.createElement("h1")
         titre.innerHTML = "Profile"
-        titre.style.textAlign = "center"
+        titre.style.position = "absolute"
         titre.style.color = "black"
-        titre.style.marginBottom = "30%"
+        titre.style.top = "2%"
+        titre.style.left = "10%"
+        titre.style.textDecoration = "underline"
         slideMenuProfile.appendChild(titre)
 
         var pseudo = document.createElement("p");

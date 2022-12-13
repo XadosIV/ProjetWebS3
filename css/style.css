@@ -115,9 +115,11 @@ html, body {
 
 
 #pseudo {
+    position: absolute;
     color:black;
     text-align:center;
-    margin-top:-20%;
+    top:10%;
+    left:15%;
 }
 
 #changePseudo {

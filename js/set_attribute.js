@@ -31,9 +31,11 @@ function loadAttributes(element){
 	editDiv.innerHTML = "" //Retire tout les anciens attributs
 	var titre = document.createElement("h1")
 	titre.innerHTML = "Attributes"
-	titre.style.textAlign = "center"
+	titre.style.position = "absolute"
 	titre.style.color = "black"
-	titre.style.marginBottom = "20%"
+	titre.style.top = "2%"
+	titre.style.left = "10%"
+	titre.style.textDecoration = "underline"
 	editDiv.appendChild(titre)
 
 	var attributes = attributesAll.concat(tool.attributes)

@@ -102,9 +102,11 @@ var toolsContainer = document.querySelector("#toolsContainer")
 function main(){
     var titre = document.createElement("h1")
     titre.innerHTML = "Tools"
-    titre.style.textAlign = "center"
+    titre.style.position = "absolute"
     titre.style.color = "black"
-    titre.style.marginBottom = "20%"
+    titre.style.top = "2%"
+    titre.style.left = "10%"
+    titre.style.textDecoration = "underline"
     toolsContainer.appendChild(titre)
     for(var tool of tools){
         create_tool(tool,toolsContainer)

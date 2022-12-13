@@ -70,6 +70,15 @@ function delete_page(divPage){
 }
 
 function create_tab(save = true){
+    var slideMenuPages = document.querySelector("#tabs"); 
+    var titre = document.createElement("h1")
+    titre.innerHTML = "Pages"
+    titre.style.position = "absolute"
+    titre.style.color = "black"
+    titre.style.top = "2%"
+    titre.style.left = "10%"
+    titre.style.textDecoration = "underline"
+    slideMenuPages.appendChild(titre)
     //Crée un nouvel onglet et le sélectionne
     var divOnglet = document.createElement("div")
 
