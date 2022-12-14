@@ -81,14 +81,6 @@ function create_tab(save = true){
     })
     divSwitch.setAttribute("id", "pageStyle")
     divOnglet.appendChild(divSwitch)
-
-    //var divModif = document.createElement("button") //remplacer par un div puis faire du css
-    //divModif.setAttribute("id", "delButton")
-    //divModif.innerHTML = "<button id='changePageName' onclick=modifPageName("+divSwitch+")><i class='fa-solid fa-pen'></i></button>"
-    //divModif.addEventListener("click", (e) => {
-        //pass
-    //})
-    //divOnglet.appendChild(divModif)
     
 
     var divDel = document.createElement("button") //remplacer par un div puis faire du css
