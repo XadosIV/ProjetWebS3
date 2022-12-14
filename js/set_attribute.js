@@ -3,6 +3,8 @@ const delete_button_attribute = document.createElement("button")
 delete_button_attribute.id = "delete_button_attribute"
 delete_button_attribute.innerHTML = "X"
 delete_button_attribute.addEventListener("click", (e) =>  {
+	e.stopPropagation()
+	hideAllMenu()
 	e.target.parentNode.remove()
 	saveProject();
 })
