@@ -56,6 +56,7 @@ function createFormName(projectNameView, nameProj) {
 
     var labelName = document.createElement("input")
     labelName.name = "newName";
+    labelName.pattern = "[a-zA-Z0-9]*"
     labelName.value = nameProj
     labelName.required = true;
 

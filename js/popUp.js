@@ -24,22 +24,44 @@ function createPopElement(textTitle,text,trueButtonName=null,falseButtonName=nul
                     <p id="true">${trueButtonName}</p>\t\t\n
                     <p id="false">${falseButtonName}</p>\t\t\n
             </div>`;
+        document.querySelector("#popEvent").innerHTML =popEventItem;
+
     } else if (trueButtonName==null && falseButtonName==null && label==null) {
         popEventItem =`<div id="title">${textTitle}</div>\t\n
             <div id="text">${text}</div>\t\n`;
+        document.querySelector("#popEvent").innerHTML =popEventItem;
+
     }
 
     if(label!=null) {
-        popEventItem =`<div id="title">${textTitle}</div>\t\n
-            <div id="text">${text}</div>\t\n
-            <form action="#" id="postProjectName" name="postProjectName"></div>\t\n
-                <input type="nameProjectToPost" value="${label}" name="nameProjectToPost" required/>
-                <input type="submit" id="true" class="button" value="Create project"></button>
-            </div>`;
+        popEvent = document.querySelector("#popEvent")
+
+        var formNewName = document.createElement("form")
+        formNewName.action = "#";
+        formNewName.id = "postProjectName";
+        formNewName.name = "postProjectName";
+    
+        var labelName = document.createElement("input")
+        labelName.name = "nameProjectToPost";
+        labelName.pattern = "[a-zA-Z0-9]*"
+        labelName.value = label
+        labelName.required = true;
+    
+        var buttonSubmit = document.createElement("button");
+        buttonSubmit.type = 'submit'
+        buttonSubmit.innerHTML = `Create Project`
+        buttonSubmit.id = "true"
+        buttonSubmit.classList.add("button")
+
+        popEventItem = `<div id="title">${textTitle}</div>\t\n
+            <div id="text">${text}</div>`
+        document.querySelector("#popEvent").innerHTML =popEventItem;
+        popEvent.appendChild(formNewName)
+        formNewName.appendChild(labelName)
+        formNewName.appendChild(buttonSubmit)
         
     }
 
-    document.querySelector("#popEvent").innerHTML =popEventItem;
     displayPopElement(document.querySelector("#popEvent"));
     return mainElement
 }
@@ -80,13 +102,13 @@ function popUp(textTitle,text,trueButtonName=null,falseButtonName=null,popUpTime
     
 }
 
-function popUpForm(textTitle,text,trueButtonName=null,falseButtonName=null,labelName=null,popUpTime="permanant",positionInSpaceZ="positionInSpaceZ") {
+function popUpForm(textTitle,text,trueButtonName=null,falseButtonName=null,labelName=null,popUpTime="permanent",positionInSpaceZ="positionInSpaceZ") {
 
     const mainElement = createPopElement(textTitle,text,trueButtonName,falseButtonName,labelName);
 
     mainElement.classList.add(positionInSpaceZ);
 
-    if(popUpTime!="permanant"){
+    if(popUpTime!="permanent"){
         setTimeout(time,parseInt(popUpTime));
     }
 
