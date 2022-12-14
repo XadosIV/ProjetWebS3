@@ -1,5 +1,6 @@
 <?php
 function findValidFileName($index,$defaultFileName,$zip) {
+    echo $projectName . "-find";
     if ($zip->locateName($defaultFileName . $index . ".html") !== false)
     {
         return findValidFileName($index +1, $defaultFileName, $zip);
@@ -8,13 +9,18 @@ function findValidFileName($index,$defaultFileName,$zip) {
     return $defaultFileName . $index;
 }
 
-
-
+if (!function_exists('str_starts_with')) {
+    function str_starts_with($haystack, $needle) {
+        return (string)$needle !== '' && strncmp($haystack, $needle, strlen($needle)) === 0;
+    }
+}
 
 include "connectSQL.php";
 
+
 $request_body = file_get_contents('php://input');
 $id = json_decode($request_body, true)['id'];
+
 
 $sql="SELECT * FROM `siteproject` WHERE `id`=$id" ;
 if($data = mysqli_query($connection , $sql)){
@@ -24,17 +30,16 @@ if($data = mysqli_query($connection , $sql)){
 $projectName = $data["name"] . "-" . $data["id"];
 $site = json_decode($data["json"], true);
 
-
 if(file_exists('../projects/' . $projectName . ".zip")){
     unlink('../projects/' . $projectName . ".zip");
 }
 
-
 $zip = new ZipArchive();
-
-if ($zip->open("../projects/" . $projectName . ".zip", ZipArchive::CREATE)!==TRUE) {
-    exit("cannot open file");
+$opened = $zip->open("../projects/" . $projectName . ".zip", ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE );
+if( $opened !== true ){
+    die("cannot open file for writing.");
 }
+
 
 $defaultStyle = "* {
     margin : 0px;
@@ -47,10 +52,8 @@ p {
 
 $zip->addFromString("style.css", $defaultStyle);
 
-
-
 foreach($site as $page){
-    
+
     $content = "<!DOCTYPE html>
     <html lang='fr' style ='height:100%'>
     <head>
@@ -64,7 +67,6 @@ foreach($site as $page){
     
    
     foreach($page["elements"] as $element){
-
 
         $balise = "<{$element['balise']} ";
 
@@ -120,11 +122,8 @@ foreach($site as $page){
         $pageName = findValidFileName(1, $pageName, $zip);
     }
                     
-    
-
     $zip->addFromString($pageName.".html", $content);
 }
-
 
 $zip->close();
 
