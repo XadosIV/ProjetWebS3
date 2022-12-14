@@ -19,11 +19,23 @@ function previewProject() {
         }
 
         var projectId = parseInt((new URLSearchParams(query)).get("id"));
-
+        
+        var titre = document.createElement("h1")
+        titre.innerHTML = "Project : <br>"
+        titre.style.position = "absolute"
+        titre.style.color = "black"
+        titre.style.top = "2%"
+        titre.style.left = "10%"
+        titre.style.textDecoration = "underline"
+        slideMenuProject.appendChild(titre)
+        
         var projectNameLabel = document.createElement("h1");
         projectNameLabel.setAttribute("id", "id"+projectId);
-        projectNameLabel.classList = "project"
-        projectNameLabel.innerHTML = "Project : <br>" + projectName + "  <button id='changeName' onclick=modifName("+projectNameLabel.id+",'"+projectName+"',true"+")><i class='fa-solid fa-pen'></i></button>";
+        projectNameLabel.style.position = "absolute"
+        projectNameLabel.style.color = "black"
+        projectNameLabel.style.top = "7%"
+        projectNameLabel.style.left = "10%"
+        projectNameLabel.innerHTML = projectName + "  <button id='changeName' onclick=modifName("+projectNameLabel.id+",'"+projectName+"',true"+")><i class='fa-solid fa-pen'></i></button>";
         
         //console.log(projectName)
         //console.log(projectNameLabel.innerHTML)

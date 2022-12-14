@@ -1,12 +1,14 @@
 <?php 
 function insert_user($user, $email, $password){
 	global $connection; 
+	$password = md5($password);
 	$result = mysqli_query($connection, "INSERT INTO users (name, email, password) VALUES ('$user', '$email', '$password')");
 }
 
 function get_user($name, $password){
 	global $connection;
 	$return = null;
+	$password = md5($password);
 	$result = mysqli_query($connection, "SELECT * FROM users WHERE (name='$name' OR email='$name') AND password='$password'");
 	if($result){
 		$return = mysqli_fetch_assoc($result);

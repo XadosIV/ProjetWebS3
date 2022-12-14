@@ -11,7 +11,7 @@ if (isset($_POST['name1']) and isset($_POST['email']) and isset($_POST['password
     if ($res != null) {
         echo "Name or email already taken.";
     } else {
-        insert_user($_POST['name1'],$_POST['email'],$_POST['password']);         
+        insert_user($_POST['name1'],$_POST['email'],$_POST['password']);      
       
         $connectedAs = array(
             "name" => $_POST['name1'], 
