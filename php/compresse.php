@@ -36,6 +36,17 @@ if ($zip->open("../projects/" . $projectName . ".zip", ZipArchive::CREATE)!==TRU
     exit("cannot open file");
 }
 
+$defaultStyle = "* {
+    margin : 0px;
+    padding : 0px;
+    margin : 0px;
+}
+p {
+    text-align : center;
+}";
+
+$zip->addFromString("style.css", $defaultStyle);
+
 
 
 foreach($site as $page){
@@ -47,8 +58,9 @@ foreach($site as $page){
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name={$page['name']} content='width=device-width, initial-scale=1.0'>
         <title>Document</title>
+        <link rel='stylesheet' href='style.css'>
     </head>
-    <body style= 'height:100vh; width:100%; border:0px; margin:0px; padding:0px'>\n";
+    <body style= 'height:100vh; width:100%;'>\n";
     
    
     foreach($page["elements"] as $element){
@@ -60,7 +72,7 @@ foreach($site as $page){
         $x = $element["x"];
         $y = $element["y"];
 
-        $style = "style = 'position:absolute; left:{$x}%; top:{$y}%; ";
+        $style = "style = 'position:absolute; left:{$x}%; top:{$y}%; margin:0px; padding:0px;";
 
         $text = "";
 
