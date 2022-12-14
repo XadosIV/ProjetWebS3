@@ -8,7 +8,7 @@ $data = json_decode($request_body, true);
 
 $ownerId = $data["ownerId"];
 $name = $data["name"];
-$json = '[{"name":"index","elements":[]}]';
+$json = '[{"name":"Index","elements":[]}]';
 
 $sql="INSERT INTO `siteproject`(`name`, `ownerId`, `json`) VALUES ('$name',$ownerId,'$json')";
 
