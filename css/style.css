@@ -281,15 +281,16 @@ html, body {
 
 .selector{
     border: dashed black;
-    border-radius: 20%;
 }
 /*Faut le placer en bas à droite de son parent en gros, puis donnez une forme de rond ça rendra mieux*/
 #delete_button_attribute {
     border-radius:50%;
     padding:2px;
     position:absolute;
-    top:0;
-    right:0;
+    top: -10px;;
+    right:-10px;
+    width: 20px;
+    height: 20px;
 }
 
 
