@@ -28,7 +28,6 @@ function previewProfile() {
         slideMenuProfile.append(projectsButton);
 
         var deconnectionButton = document.createElement("button");
-        deconnectionButton.innerHTML = "Se déconnecter";
         deconnectionButton.innerHTML = "Deconnection";
         deconnectionButton.style.marginTop = "10%";
         deconnectionButton.className = "button ghost";

@@ -14,7 +14,6 @@ Syntaxe d'attribut :
 */
 
 const attributesAll = [
-    {"display":"Couleur", "name":"style.color", "input":"color"},
     {"display":"Couleur de fond", "name":"style.backgroundColor", "input":"color" , "style": "background-color"},
     {"display":"Largeur", "name":"style.width", "input":"number", "unit":"%"},
     {"display":"Hauteur", "name":"style.height", "input":"number", "unit":"%"},
@@ -27,6 +26,7 @@ const tools = [
         "displayName":"Texte",
         "class":"text",
         "attributes":[
+            {"display":"Couleur", "name":"style.color", "input":"color"},
             {"display":"Texte", "name":"innerHTML", "input":"text"},
             {"display":"Police", "name":"style.fontSize", "input":"number", "unit":"em", "style": "font-size"}
         ],
@@ -40,26 +40,11 @@ const tools = [
         ]
     },
     {
-        "balise":"button",
-        "displayName":"Bouton",
-        "class":"button",
-        "attributes":[
-            {"display":"Texte", "name":"innerHTML", "input":"text"}
-        ],
-        "defaultValue" : [
-            {"name" : "style.color", "value" : "black"},
-            {"name" : "style.backgroundColor", "value" : "gray"},
-            {"name" : "style.width", "value" : "10%"},
-            {"name" : "style.height", "value" : "10%"},
-            {"name" : "style.zIndex", "value" : "1"},
-            {"name" : "innerHTML", "value" : "button"}
-        ]
-    },
-    {
         "balise":"a",
         "displayName":"Lien",
         "class":"link",
         "attributes":[
+            {"display":"Couleur", "name":"style.color", "input":"color"},
             {"display":"Texte", "name":"innerHTML", "input":"text"},
             {"display":"Redirection", "name":"href", "input":"text"}
         ],
@@ -102,6 +87,7 @@ const tools = [
         "displayName":"Titre",
         "class":"h1",
         "attributes":[
+            {"display":"Couleur", "name":"style.color", "input":"color"},
             {"display":"Texte", "name":"innerHTML", "input":"text"},
         ],
         "defaultValue" : [
@@ -115,6 +101,7 @@ const tools = [
         "displayName":"Sous-Titre",
         "class":"h2",
         "attributes":[
+            {"display":"Couleur", "name":"style.color", "input":"color"},
             {"display":"Texte", "name":"innerHTML", "input":"text"},
         ],
         "defaultValue" : [
@@ -128,6 +115,7 @@ const tools = [
         "displayName":"Sous-Sous-Titre",
         "class":"h3",
         "attributes":[
+            {"display":"Couleur", "name":"style.color", "input":"color"},
             {"display":"Texte", "name":"innerHTML", "input":"text"},
         ],
         "defaultValue" : [

@@ -161,4 +161,10 @@ function createProjectDiv(project, projectsMain){
     });
 }
 
-
+var header = document.querySelector("#nav")
+var deconnectionButton = document.createElement("button");
+deconnectionButton.innerHTML = "Deconnection";
+deconnectionButton.style.marginRight = "5%";
+deconnectionButton.className = "button";
+deconnectionButton.addEventListener("click", deconnection)
+header.append(deconnectionButton);
