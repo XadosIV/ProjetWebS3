@@ -108,6 +108,17 @@ function main(){
     titre.style.left = "10%"
     titre.style.textDecoration = "underline"
     toolsContainer.appendChild(titre)
+
+    var editDiv = document.querySelector("#editingContainer")
+    var titre = document.createElement("h1")
+    titre.innerHTML = "Select something to get his attributes"
+    titre.style.position = "absolute"
+    titre.style.color = "black"
+    titre.style.top = "2%"
+    titre.style.left = "10%"
+    titre.style.textDecoration = "underline"
+    editDiv.appendChild(titre)
+
     for(var tool of tools){
         create_tool(tool,toolsContainer)
     }
