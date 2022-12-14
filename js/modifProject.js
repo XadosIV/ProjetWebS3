@@ -14,11 +14,7 @@ function modifName(projectNameView, nameProj, mainPage) {
                 if (nameProj != paramsCheck["name"]) {
                     popUp("Warning","Project name already used !", null, null, popUpTime=2000);
                 }
-                if (!mainPage) {
-                    projectNameView.innerHTML = textProject
-                } else {
-                    projectNameView.innerHTML = "Project : <br>" + textProject
-                }
+                projectNameView.innerHTML = textProject
             } else {
                 var projectNameSetSplit = newName.elements["newName"].value.split(" ")
                 var projectNameSet = ""
@@ -29,14 +25,10 @@ function modifName(projectNameView, nameProj, mainPage) {
                 document.querySelector("#true").addEventListener('click',(f) => {
                     validChangeName(projectNameView, nameProj, projectNameSet, mainPage) 
                 }); 
-                if (!mainPage) {
-                    projectNameView.innerHTML = textProject
-                } else {
-                    projectNameView.innerHTML = "Project : <br>" + textProject
-                }
+                projectNameView.innerHTML = textProject
             }
-            });
-        })
+        });
+    })
 }
 
 function validChangeName(projectNameView, lastName, newName, mainPage) {
@@ -48,11 +40,7 @@ function validChangeName(projectNameView, lastName, newName, mainPage) {
     
     axios.post("php/projectsCruds/modifNameProject.php", paramsChange).then(response => {
         textProject = newName + " <button id='changeName' onclick=modifName("+projectNameView.id+",'"+newName+"',"+mainPage+")><i class='fa-solid fa-pen'></i></button>" 
-        if (!mainPage) {
-            projectNameView.innerHTML = textProject
-        } else {
-            projectNameView.innerHTML = "Project : <br>" + textProject
-        }
+        projectNameView.innerHTML = textProject
         
         document.querySelector("#pop").remove();
     })
