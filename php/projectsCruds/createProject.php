@@ -8,8 +8,9 @@ $data = json_decode($request_body, true);
 
 $ownerId = $data["ownerId"];
 $name = $data["name"];
+$json = '[{"name":"index","elements":[]}]';
 
-$sql="INSERT INTO `siteproject`(`name`, `ownerId`) VALUES ('$name',$ownerId)";
+$sql="INSERT INTO `siteproject`(`name`, `ownerId`, `json`) VALUES ('$name',$ownerId,'$json')";
 
 mysqli_query($connection , $sql);
 echo $connection -> insert_id;

@@ -35,7 +35,7 @@ body,html {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    z-index: 2;
+    z-index: 1002;
     font-size:50px;
     box-sizing: border-box;
 }
