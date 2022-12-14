@@ -33,7 +33,7 @@ function createPopElement(textTitle,text,trueButtonName=null,falseButtonName=nul
         popEventItem =`<div id="title">${textTitle}</div>\t\n
             <div id="text">${text}</div>\t\n
             <form action="#" id="postProjectName" name="postProjectName"></div>\t\n
-                <input type="nameProjectToPost" placeholder="${label}" name="nameProjectToPost" required/>
+                <input type="nameProjectToPost" value="${label}" name="nameProjectToPost" required/>
                 <input type="submit" id="true" class="button" value="Create project"></button>
             </div>`;
         
@@ -53,7 +53,6 @@ function displayPopElement(element){
 function closePopUp(wait=null){
     if(wait!=null){
         setTimeout(time,parseInt(popUpTime));
-        document.querySelector("#pop").remove();
     } else {
         document.querySelector("#pop").remove();
     }
@@ -67,7 +66,7 @@ function time(){
 /////////////////////////////////////////////////////////////////////////
 function popUp(textTitle,text,trueButtonName=null,falseButtonName=null,popUpTime="permanant",positionInSpaceZ="positionInSpaceZ"){
 
-    const mainElement = createPopElement(textTitle,text,trueButtonName,falseButtonName,null);
+    const mainElement = createPopElement(textTitle,text,trueButtonName,falseButtonName);
 
     mainElement.classList.add(positionInSpaceZ);
 

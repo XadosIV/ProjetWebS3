@@ -38,11 +38,19 @@ if(sessionStorage.getItem('id')){
 
     NewProjectButton.addEventListener("click", (e) => {
         e.preventDefault()
-        nameProjectToPost = popUpForm("Project name","Give a name to your project",null,null,"Project name");
+        nameProjectToPost = popUpForm("Project name","Give a name to your project",null,null,"Project");
         document.querySelector("#true").addEventListener('click',(f) => {
             f.preventDefault()
+            var projectNameSetSplit = postProjectName.elements["nameProjectToPost"].value.split(" ")
+            var postName = ""
+            for (i=0; i<projectNameSetSplit.length; i++) {
+                postName += strUcFirst(projectNameSetSplit[i])
+            }
+            if (postName == "") {
+                postName = "Project"
+            }
             var paramsCheck = {
-                name : postProjectName.elements["nameProjectToPost"].value,
+                name : postName,
                 ownerId : sessionStorage.getItem('id')
             };
             axios.post("php/projectsCruds/checkIfName.php", paramsCheck).then(response => {
@@ -50,7 +58,7 @@ if(sessionStorage.getItem('id')){
                     popUp("Warning","Project name already used !", null, null, popUpTime=2000);
                     closePopUp(wait=2000)
                 } else {
-                    axios.post("php/projectsCruds/setProjectName.php", {nameProjectToPost : postProjectName.elements["nameProjectToPost"].value}).then(response2 => {
+                    axios.post("php/projectsCruds/setProjectName.php", {nameProjectToPost : postName}).then(response2 => {
                         var projectNameSetSplit = response2.data.split(" ")
                         var projectNameSet = ""
                         for (i=0; i<projectNameSetSplit.length; i++) {
