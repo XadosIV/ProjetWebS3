@@ -37,6 +37,7 @@ function createFormPseudo() {
 
     var labelPseudo = document.createElement("input")
     labelPseudo.name = "newPseudo";
+    labelPseudo.pattern = "[a-zA-Z0-9]*"
     labelPseudo.value = profileName
     labelPseudo.required = true;
 
