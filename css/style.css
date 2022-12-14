@@ -59,7 +59,7 @@ html, body {
     justify-content: space-around;
     align-items: center;
     width: var(--nav-width);
-    z-index: 2;
+    z-index: 1002;
 
     border-right: solid  2px;
 }
@@ -151,7 +151,7 @@ html, body {
     top: 0px;
     height: 100%;
     transition:  1s;
-    z-index:1;
+    z-index:1001;
 
     padding-left: 5px;
     border-radius: 0px 40px 0px 0px;
