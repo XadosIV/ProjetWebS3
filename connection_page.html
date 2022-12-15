@@ -13,17 +13,17 @@
         <div class="form-container sign-up-container" id="sign-up-container">
             <form action="#" id="createAccount" name="createAccount">
                 <h1>Create Account</h1>
-                <input type="text" placeholder="Name" id="name1" name="name1" required/>
+                <input type="text" pattern="[a-zA-Z0-9]*" placeholder="Name" id="name1" name="name1" required/>
                 <input type="email" placeholder="Email" id="email" name="email" required/>
-                <input type="password" placeholder="Password" id="password" name="password" required/>
+                <input type="password" pattern="[a-zA-Z0-9]*" placeholder="Password" id="password" name="password" required/>
                 <input type="submit" class="button" value="Sign up"></button>          
             </form>            
         </div>
         <div class="form-container sign-in-container">
             <form action="#" id="signingIn" name="signingIn">
                 <h1>Sign In</h1>
-                <input type="text" placeholder="Email or Name" name="name2" required/>
-                <input type="password" placeholder="Password" name="password2" required/>
+                <input type="text" pattern="[a-zA-Z0-9]*" placeholder="Email or Name" name="name2" required/>
+                <input type="password" pattern="[a-zA-Z0-9]*" placeholder="Password" name="password2" required/>
                 <input type="submit" class="button" value="Sign in"></button>  
             </form>                                
         </div>

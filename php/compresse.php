@@ -42,12 +42,13 @@ if( $opened !== true ){
 
 
 $defaultStyle = "* {
-    margin : 0px;
-    padding : 0px;
-    margin : 0px;
-}
-p {
-    text-align : center;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin: 0;
+    padding: 0;
 }";
 
 $zip->addFromString("style.css", $defaultStyle);
@@ -60,7 +61,6 @@ foreach($site as $page){
         <meta charset='UTF-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name={$page['name']} content='width=device-width, initial-scale=1.0'>
-        <title>Document</title>
         <link rel='stylesheet' href='style.css'>
     </head>
     <body style= 'height:100vh; width:100%;'>\n";
