@@ -1,2 +1,0 @@
--remove prevent deafault to workspace ellement.
--svelte js
